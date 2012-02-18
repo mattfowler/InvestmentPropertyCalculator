@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63A46A3714EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
+		63A46A3914EFEB2B00999517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3814EFEB2B00999517 /* Foundation.framework */; };
+		63A46A3B14EFEB2B00999517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */; };
+		63A46A4114EFEB2B00999517 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A3F14EFEB2B00999517 /* InfoPlist.strings */; };
+		63A46A4314EFEB2B00999517 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4214EFEB2B00999517 /* main.m */; };
+		63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */; };
+		63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A4814EFEB2B00999517 /* MainWindow.xib */; };
+		63A46A4D14EFEB2B00999517 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4C14EFEB2B00999517 /* FirstViewController.m */; };
+		63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4F14EFEB2B00999517 /* SecondViewController.m */; };
+		63A46A5314EFEB2B00999517 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5114EFEB2B00999517 /* FirstView.xib */; };
+		63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5414EFEB2B00999517 /* SecondView.xib */; };
+		63A46A5E14EFEB2B00999517 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */; };
+		63A46A5F14EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
+		63A46A6014EFEB2B00999517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3814EFEB2B00999517 /* Foundation.framework */; };
+		63A46A6114EFEB2B00999517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */; };
+		63A46A6914EFEB2B00999517 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6714EFEB2B00999517 /* InfoPlist.strings */; };
+		63A46A6B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */; };
+		63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63A46A6214EFEB2B00999517 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63A46A2914EFEB2B00999517 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63A46A3114EFEB2B00999517;
+			remoteInfo = InvestmentPropertyCalculator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvestmentPropertyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A46A3614EFEB2B00999517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		63A46A3814EFEB2B00999517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculator-Info.plist"; sourceTree = "<group>"; };
+		63A46A4014EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63A46A4214EFEB2B00999517 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63A46A4414EFEB2B00999517 /* InvestmentPropertyCalculator-Prefix.pch */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculator-Prefix.pch"; sourceTree = "<group>"; };
+		63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */ = {isa = PBXFileReference; path = InvestmentPropertyCalculatorAppDelegate.h; sourceTree = "<group>"; };
+		63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvestmentPropertyCalculatorAppDelegate.m; sourceTree = "<group>"; };
+		63A46A4914EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		63A46A4B14EFEB2B00999517 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		63A46A4C14EFEB2B00999517 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		63A46A4E14EFEB2B00999517 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		63A46A4F14EFEB2B00999517 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		63A46A5214EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		63A46A5514EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvestmentPropertyCalculatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		63A46A6614EFEB2B00999517 /* InvestmentPropertyCalculatorTests-Info.plist */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculatorTests-Info.plist"; sourceTree = "<group>"; };
+		63A46A6814EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvestmentPropertyCalculatorTests.h; sourceTree = "<group>"; };
+		63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvestmentPropertyCalculatorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63A46A2F14EFEB2B00999517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A3714EFEB2B00999517 /* UIKit.framework in Frameworks */,
+				63A46A3914EFEB2B00999517 /* Foundation.framework in Frameworks */,
+				63A46A3B14EFEB2B00999517 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63A46A5814EFEB2B00999517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A5E14EFEB2B00999517 /* SenTestingKit.framework in Frameworks */,
+				63A46A5F14EFEB2B00999517 /* UIKit.framework in Frameworks */,
+				63A46A6014EFEB2B00999517 /* Foundation.framework in Frameworks */,
+				63A46A6114EFEB2B00999517 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63A46A2714EFEB2B00999517 = {
+			isa = PBXGroup;
+			children = (
+				63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */,
+				63A46A6414EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
+				63A46A3514EFEB2B00999517 /* Frameworks */,
+				63A46A3314EFEB2B00999517 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63A46A3314EFEB2B00999517 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */,
+				63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63A46A3514EFEB2B00999517 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A3614EFEB2B00999517 /* UIKit.framework */,
+				63A46A3814EFEB2B00999517 /* Foundation.framework */,
+				63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */,
+				63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
+				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
+				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
+				63A46A4B14EFEB2B00999517 /* FirstViewController.h */,
+				63A46A4C14EFEB2B00999517 /* FirstViewController.m */,
+				63A46A4E14EFEB2B00999517 /* SecondViewController.h */,
+				63A46A4F14EFEB2B00999517 /* SecondViewController.m */,
+				63A46A5114EFEB2B00999517 /* FirstView.xib */,
+				63A46A5414EFEB2B00999517 /* SecondView.xib */,
+				63A46A3D14EFEB2B00999517 /* Supporting Files */,
+			);
+			path = InvestmentPropertyCalculator;
+			sourceTree = "<group>";
+		};
+		63A46A3D14EFEB2B00999517 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */,
+				63A46A3F14EFEB2B00999517 /* InfoPlist.strings */,
+				63A46A4214EFEB2B00999517 /* main.m */,
+				63A46A4414EFEB2B00999517 /* InvestmentPropertyCalculator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63A46A6414EFEB2B00999517 /* InvestmentPropertyCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */,
+				63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */,
+				63A46A6514EFEB2B00999517 /* Supporting Files */,
+			);
+			path = InvestmentPropertyCalculatorTests;
+			sourceTree = "<group>";
+		};
+		63A46A6514EFEB2B00999517 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A6614EFEB2B00999517 /* InvestmentPropertyCalculatorTests-Info.plist */,
+				63A46A6714EFEB2B00999517 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculator" */;
+			buildPhases = (
+				63A46A2E14EFEB2B00999517 /* Sources */,
+				63A46A2F14EFEB2B00999517 /* Frameworks */,
+				63A46A3014EFEB2B00999517 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InvestmentPropertyCalculator;
+			productName = InvestmentPropertyCalculator;
+			productReference = 63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63A46A5B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63A46A7314EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculatorTests" */;
+			buildPhases = (
+				63A46A5714EFEB2B00999517 /* Sources */,
+				63A46A5814EFEB2B00999517 /* Frameworks */,
+				63A46A5914EFEB2B00999517 /* Resources */,
+				63A46A5A14EFEB2B00999517 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63A46A6314EFEB2B00999517 /* PBXTargetDependency */,
+			);
+			name = InvestmentPropertyCalculatorTests;
+			productName = InvestmentPropertyCalculatorTests;
+			productReference = 63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63A46A2914EFEB2B00999517 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 63A46A2C14EFEB2B00999517 /* Build configuration list for PBXProject "InvestmentPropertyCalculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 63A46A2714EFEB2B00999517;
+			productRefGroup = 63A46A3314EFEB2B00999517 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */,
+				63A46A5B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63A46A3014EFEB2B00999517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A4114EFEB2B00999517 /* InfoPlist.strings in Resources */,
+				63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */,
+				63A46A5314EFEB2B00999517 /* FirstView.xib in Resources */,
+				63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63A46A5914EFEB2B00999517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A6914EFEB2B00999517 /* InfoPlist.strings in Resources */,
+				63A46A6B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63A46A5A14EFEB2B00999517 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63A46A2E14EFEB2B00999517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A4314EFEB2B00999517 /* main.m in Sources */,
+				63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */,
+				63A46A4D14EFEB2B00999517 /* FirstViewController.m in Sources */,
+				63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63A46A5714EFEB2B00999517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63A46A6314EFEB2B00999517 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */;
+			targetProxy = 63A46A6214EFEB2B00999517 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63A46A3F14EFEB2B00999517 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A46A4014EFEB2B00999517 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		63A46A4814EFEB2B00999517 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A46A4914EFEB2B00999517 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		63A46A5114EFEB2B00999517 /* FirstView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A46A5214EFEB2B00999517 /* en */,
+			);
+			name = FirstView.xib;
+			sourceTree = "<group>";
+		};
+		63A46A5414EFEB2B00999517 /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A46A5514EFEB2B00999517 /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+		63A46A6714EFEB2B00999517 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63A46A6814EFEB2B00999517 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63A46A6E14EFEB2B00999517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		63A46A6F14EFEB2B00999517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63A46A7114EFEB2B00999517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
+				INFOPLIST_FILE = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		63A46A7214EFEB2B00999517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
+				INFOPLIST_FILE = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		63A46A7414EFEB2B00999517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InvestmentPropertyCalculator.app/InvestmentPropertyCalculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
+				INFOPLIST_FILE = "InvestmentPropertyCalculatorTests/InvestmentPropertyCalculatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		63A46A7514EFEB2B00999517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/InvestmentPropertyCalculator.app/InvestmentPropertyCalculator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
+				INFOPLIST_FILE = "InvestmentPropertyCalculatorTests/InvestmentPropertyCalculatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63A46A2C14EFEB2B00999517 /* Build configuration list for PBXProject "InvestmentPropertyCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63A46A6E14EFEB2B00999517 /* Debug */,
+				63A46A6F14EFEB2B00999517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63A46A7114EFEB2B00999517 /* Debug */,
+				63A46A7214EFEB2B00999517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		63A46A7314EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63A46A7414EFEB2B00999517 /* Debug */,
+				63A46A7514EFEB2B00999517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63A46A2914EFEB2B00999517 /* Project object */;
+}
