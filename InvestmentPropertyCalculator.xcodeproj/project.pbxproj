@@ -14,9 +14,9 @@
 		63A46A4314EFEB2B00999517 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4214EFEB2B00999517 /* main.m */; };
 		63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */; };
 		63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A4814EFEB2B00999517 /* MainWindow.xib */; };
-		63A46A4D14EFEB2B00999517 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4C14EFEB2B00999517 /* FirstViewController.m */; };
+		63A46A4D14EFEB2B00999517 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */; };
 		63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4F14EFEB2B00999517 /* SecondViewController.m */; };
-		63A46A5314EFEB2B00999517 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5114EFEB2B00999517 /* FirstView.xib */; };
+		63A46A5314EFEB2B00999517 /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5114EFEB2B00999517 /* CalculatorView.xib */; };
 		63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5414EFEB2B00999517 /* SecondView.xib */; };
 		63A46A5E14EFEB2B00999517 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */; };
 		63A46A5F14EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
@@ -25,6 +25,9 @@
 		63A46A6914EFEB2B00999517 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6714EFEB2B00999517 /* InfoPlist.strings */; };
 		63A46A6B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */; };
 		63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */; };
+		63A46A8514EFF87200999517 /* MortgageCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A8414EFF87200999517 /* MortgageCalculator.m */; };
+		63A46A8614EFF87200999517 /* MortgageCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A8414EFF87200999517 /* MortgageCalculator.m */; };
+		63A46A9214EFFA3900999517 /* MortgageCalculatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,25 +45,29 @@
 		63A46A3614EFEB2B00999517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63A46A3814EFEB2B00999517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculator-Info.plist"; sourceTree = "<group>"; };
+		63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InvestmentPropertyCalculator-Info.plist"; sourceTree = "<group>"; };
 		63A46A4014EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63A46A4214EFEB2B00999517 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		63A46A4414EFEB2B00999517 /* InvestmentPropertyCalculator-Prefix.pch */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculator-Prefix.pch"; sourceTree = "<group>"; };
-		63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */ = {isa = PBXFileReference; path = InvestmentPropertyCalculatorAppDelegate.h; sourceTree = "<group>"; };
+		63A46A4414EFEB2B00999517 /* InvestmentPropertyCalculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InvestmentPropertyCalculator-Prefix.pch"; sourceTree = "<group>"; };
+		63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvestmentPropertyCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvestmentPropertyCalculatorAppDelegate.m; sourceTree = "<group>"; };
 		63A46A4914EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		63A46A4B14EFEB2B00999517 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		63A46A4C14EFEB2B00999517 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		63A46A4E14EFEB2B00999517 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		63A46A4E14EFEB2B00999517 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		63A46A4F14EFEB2B00999517 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		63A46A5214EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		63A46A5214EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CalculatorView.xib; sourceTree = "<group>"; };
 		63A46A5514EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
 		63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvestmentPropertyCalculatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		63A46A6614EFEB2B00999517 /* InvestmentPropertyCalculatorTests-Info.plist */ = {isa = PBXFileReference; path = "InvestmentPropertyCalculatorTests-Info.plist"; sourceTree = "<group>"; };
+		63A46A6614EFEB2B00999517 /* InvestmentPropertyCalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InvestmentPropertyCalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		63A46A6814EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvestmentPropertyCalculatorTests.h; sourceTree = "<group>"; };
 		63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvestmentPropertyCalculatorTests.m; sourceTree = "<group>"; };
+		63A46A8314EFF87200999517 /* MortgageCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculator.h; sourceTree = "<group>"; };
+		63A46A8414EFF87200999517 /* MortgageCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculator.m; sourceTree = "<group>"; };
+		63A46A8F14EFFA3900999517 /* MortgageCalculatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculatorTest.h; sourceTree = "<group>"; };
+		63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculatorTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +128,15 @@
 		63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				63A46A7614EFEF6F00999517 /* Calciulators */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
 				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
-				63A46A4B14EFEB2B00999517 /* FirstViewController.h */,
-				63A46A4C14EFEB2B00999517 /* FirstViewController.m */,
+				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
+				63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */,
 				63A46A4E14EFEB2B00999517 /* SecondViewController.h */,
 				63A46A4F14EFEB2B00999517 /* SecondViewController.m */,
-				63A46A5114EFEB2B00999517 /* FirstView.xib */,
+				63A46A5114EFEB2B00999517 /* CalculatorView.xib */,
 				63A46A5414EFEB2B00999517 /* SecondView.xib */,
 				63A46A3D14EFEB2B00999517 /* Supporting Files */,
 			);
@@ -152,6 +160,8 @@
 				63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */,
 				63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */,
 				63A46A6514EFEB2B00999517 /* Supporting Files */,
+				63A46A8F14EFFA3900999517 /* MortgageCalculatorTest.h */,
+				63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */,
 			);
 			path = InvestmentPropertyCalculatorTests;
 			sourceTree = "<group>";
@@ -163,6 +173,15 @@
 				63A46A6714EFEB2B00999517 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63A46A7614EFEF6F00999517 /* Calciulators */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A8314EFF87200999517 /* MortgageCalculator.h */,
+				63A46A8414EFF87200999517 /* MortgageCalculator.m */,
+			);
+			name = Calciulators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +253,7 @@
 			files = (
 				63A46A4114EFEB2B00999517 /* InfoPlist.strings in Resources */,
 				63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */,
-				63A46A5314EFEB2B00999517 /* FirstView.xib in Resources */,
+				63A46A5314EFEB2B00999517 /* CalculatorView.xib in Resources */,
 				63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,8 +292,9 @@
 			files = (
 				63A46A4314EFEB2B00999517 /* main.m in Sources */,
 				63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */,
-				63A46A4D14EFEB2B00999517 /* FirstViewController.m in Sources */,
+				63A46A4D14EFEB2B00999517 /* CalculatorViewController.m in Sources */,
 				63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */,
+				63A46A8514EFF87200999517 /* MortgageCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */,
+				63A46A8614EFF87200999517 /* MortgageCalculator.m in Sources */,
+				63A46A9214EFFA3900999517 /* MortgageCalculatorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,12 +335,12 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
-		63A46A5114EFEB2B00999517 /* FirstView.xib */ = {
+		63A46A5114EFEB2B00999517 /* CalculatorView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				63A46A5214EFEB2B00999517 /* en */,
 			);
-			name = FirstView.xib;
+			name = CalculatorView.xib;
 			sourceTree = "<group>";
 		};
 		63A46A5414EFEB2B00999517 /* SecondView.xib */ = {
@@ -458,6 +480,7 @@
 				63A46A7214EFEB2B00999517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63A46A7314EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +489,7 @@
 				63A46A7514EFEB2B00999517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
