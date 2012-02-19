@@ -7,16 +7,54 @@
 //
 
 #import "CalculatorViewController.h"
+#import "Mortgage.h"
 
 @implementation CalculatorViewController
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+@synthesize downpaymentLabel;
+@synthesize netOperatingIncomeLabel;
+@synthesize capitalizationRateLabel;
+@synthesize cashOnCashReturnLabel;
+
+@synthesize salesPriceField;
+@synthesize downpaymentField;
+@synthesize grossRentField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
+    [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+    
+    [downpaymentField setDelegate:self];
+    [salesPriceField setDelegate:self];
+    
+    int salesPrice = [[salesPriceField text] intValue];
+    double downpaymentPercent = [[downpaymentField text] doubleValue];
+
+    mortgage = [[Mortgage alloc] initWithSalesPrice:salesPrice downpayment:downpaymentPercent interestRate:4.25 years:30];
+    
+    [self updateDownpaymentLabel];
 }
-*/
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self updateDownpaymentLabel];
+}
+
+- (void) updateDownpaymentLabel {
+    [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
+    [mortgage setSalesPrice:[[salesPriceField text] doubleValue]];
+    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:[mortgage getDownpaymentAmount]]];
+    [downpaymentLabel setText:downpaymentString];
+}
+
+- (void) updateNetOperatingIncome {
+    double grossIncome = [[grossRentField text] doubleValue];
+    int netIncome = grossIncome - [mortgage getMonthlyPayment] * 12;
+    [netOperatingIncomeLabel setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:netIncome]]];
+}
+    
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

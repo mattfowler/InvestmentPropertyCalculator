@@ -25,9 +25,8 @@
 		63A46A6914EFEB2B00999517 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6714EFEB2B00999517 /* InfoPlist.strings */; };
 		63A46A6B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */; };
 		63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */; };
-		63A46A8514EFF87200999517 /* MortgageCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A8414EFF87200999517 /* MortgageCalculator.m */; };
-		63A46A8614EFF87200999517 /* MortgageCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A8414EFF87200999517 /* MortgageCalculator.m */; };
-		63A46A9214EFFA3900999517 /* MortgageCalculatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */; };
+		63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageTest.m */; };
+		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +63,10 @@
 		63A46A6814EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvestmentPropertyCalculatorTests.h; sourceTree = "<group>"; };
 		63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvestmentPropertyCalculatorTests.m; sourceTree = "<group>"; };
-		63A46A8314EFF87200999517 /* MortgageCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculator.h; sourceTree = "<group>"; };
-		63A46A8414EFF87200999517 /* MortgageCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculator.m; sourceTree = "<group>"; };
-		63A46A8F14EFFA3900999517 /* MortgageCalculatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageCalculatorTest.h; sourceTree = "<group>"; };
-		63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculatorTest.m; sourceTree = "<group>"; };
+		63A46A8F14EFFA3900999517 /* MortgageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MortgageTest.h; sourceTree = "<group>"; };
+		63A46A9014EFFA3900999517 /* MortgageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageTest.m; sourceTree = "<group>"; };
+		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
+		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +127,7 @@
 		63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				63A46A7614EFEF6F00999517 /* Calciulators */,
+				63A4FC1414F1B1B600F9E8E9 /* Models */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
 				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
@@ -160,8 +159,8 @@
 				63A46A6A14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.h */,
 				63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */,
 				63A46A6514EFEB2B00999517 /* Supporting Files */,
-				63A46A8F14EFFA3900999517 /* MortgageCalculatorTest.h */,
-				63A46A9014EFFA3900999517 /* MortgageCalculatorTest.m */,
+				63A46A8F14EFFA3900999517 /* MortgageTest.h */,
+				63A46A9014EFFA3900999517 /* MortgageTest.m */,
 			);
 			path = InvestmentPropertyCalculatorTests;
 			sourceTree = "<group>";
@@ -175,13 +174,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		63A46A7614EFEF6F00999517 /* Calciulators */ = {
+		63A4FC1414F1B1B600F9E8E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				63A46A8314EFF87200999517 /* MortgageCalculator.h */,
-				63A46A8414EFF87200999517 /* MortgageCalculator.m */,
+				63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */,
+				63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */,
 			);
-			name = Calciulators;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +293,7 @@
 				63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */,
 				63A46A4D14EFEB2B00999517 /* CalculatorViewController.m in Sources */,
 				63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */,
-				63A46A8514EFF87200999517 /* MortgageCalculator.m in Sources */,
+				63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */,
-				63A46A8614EFF87200999517 /* MortgageCalculator.m in Sources */,
-				63A46A9214EFFA3900999517 /* MortgageCalculatorTest.m in Sources */,
+				63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
