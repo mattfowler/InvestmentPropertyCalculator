@@ -15,9 +15,9 @@
 		63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */; };
 		63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A4814EFEB2B00999517 /* MainWindow.xib */; };
 		63A46A4D14EFEB2B00999517 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */; };
-		63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4F14EFEB2B00999517 /* SecondViewController.m */; };
+		63A46A5014EFEB2B00999517 /* MortgageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A4F14EFEB2B00999517 /* MortgageViewController.m */; };
 		63A46A5314EFEB2B00999517 /* CalculatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5114EFEB2B00999517 /* CalculatorView.xib */; };
-		63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5414EFEB2B00999517 /* SecondView.xib */; };
+		63A46A5614EFEB2B00999517 /* MortgageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A46A5414EFEB2B00999517 /* MortgageView.xib */; };
 		63A46A5E14EFEB2B00999517 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */; };
 		63A46A5F14EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
 		63A46A6014EFEB2B00999517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3814EFEB2B00999517 /* Foundation.framework */; };
@@ -27,6 +27,9 @@
 		63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */; };
 		63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageTest.m */; };
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
+		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
+		63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536C314F2C68700A7744A /* ExpensesViewController.m */; };
+		63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E536C414F2C68700A7744A /* ExpensesView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +56,10 @@
 		63A46A4914EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
-		63A46A4E14EFEB2B00999517 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		63A46A4F14EFEB2B00999517 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		63A46A4E14EFEB2B00999517 /* MortgageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MortgageViewController.h; sourceTree = "<group>"; };
+		63A46A4F14EFEB2B00999517 /* MortgageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MortgageViewController.m; sourceTree = "<group>"; };
 		63A46A5214EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CalculatorView.xib; sourceTree = "<group>"; };
-		63A46A5514EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		63A46A5514EFEB2B00999517 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MortgageView.xib; sourceTree = "<group>"; };
 		63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvestmentPropertyCalculatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A46A5D14EFEB2B00999517 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		63A46A6614EFEB2B00999517 /* InvestmentPropertyCalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InvestmentPropertyCalculatorTests-Info.plist"; sourceTree = "<group>"; };
@@ -67,6 +70,10 @@
 		63A46A9014EFFA3900999517 /* MortgageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageTest.m; sourceTree = "<group>"; };
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
+		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
+		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
+		63E536C314F2C68700A7744A /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
+		63E536C414F2C68700A7744A /* ExpensesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpensesView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,16 +134,16 @@
 		63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				63BDAB4614F2C1C0008AE03A /* Resources */,
 				63A4FC1414F1B1B600F9E8E9 /* Models */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
-				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
 				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
 				63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */,
-				63A46A4E14EFEB2B00999517 /* SecondViewController.h */,
-				63A46A4F14EFEB2B00999517 /* SecondViewController.m */,
-				63A46A5114EFEB2B00999517 /* CalculatorView.xib */,
-				63A46A5414EFEB2B00999517 /* SecondView.xib */,
+				63A46A4E14EFEB2B00999517 /* MortgageViewController.h */,
+				63A46A4F14EFEB2B00999517 /* MortgageViewController.m */,
+				63E536C214F2C68700A7744A /* ExpensesViewController.h */,
+				63E536C314F2C68700A7744A /* ExpensesViewController.m */,
 				63A46A3D14EFEB2B00999517 /* Supporting Files */,
 			);
 			path = InvestmentPropertyCalculator;
@@ -181,6 +188,34 @@
 				63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		63BDAB4614F2C1C0008AE03A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63E536C814F2C74900A7744A /* Views */,
+				63BDAB4814F2C1C8008AE03A /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		63BDAB4814F2C1C8008AE03A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				63BDAB4914F2C1D9008AE03A /* calculator.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		63E536C814F2C74900A7744A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
+				63A46A5114EFEB2B00999517 /* CalculatorView.xib */,
+				63E536C414F2C68700A7744A /* ExpensesView.xib */,
+				63A46A5414EFEB2B00999517 /* MortgageView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +291,9 @@
 				63A46A4114EFEB2B00999517 /* InfoPlist.strings in Resources */,
 				63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */,
 				63A46A5314EFEB2B00999517 /* CalculatorView.xib in Resources */,
-				63A46A5614EFEB2B00999517 /* SecondView.xib in Resources */,
+				63A46A5614EFEB2B00999517 /* MortgageView.xib in Resources */,
+				63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */,
+				63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +332,9 @@
 				63A46A4314EFEB2B00999517 /* main.m in Sources */,
 				63A46A4714EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m in Sources */,
 				63A46A4D14EFEB2B00999517 /* CalculatorViewController.m in Sources */,
-				63A46A5014EFEB2B00999517 /* SecondViewController.m in Sources */,
+				63A46A5014EFEB2B00999517 /* MortgageViewController.m in Sources */,
 				63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */,
+				63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,12 +382,12 @@
 			name = CalculatorView.xib;
 			sourceTree = "<group>";
 		};
-		63A46A5414EFEB2B00999517 /* SecondView.xib */ = {
+		63A46A5414EFEB2B00999517 /* MortgageView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				63A46A5514EFEB2B00999517 /* en */,
 			);
-			name = SecondView.xib;
+			name = MortgageView.xib;
 			sourceTree = "<group>";
 		};
 		63A46A6714EFEB2B00999517 /* InfoPlist.strings */ = {
