@@ -19,7 +19,11 @@
 }
 
 -(double) getCapitalizationRate {
-    return (double)self.getNetOperatingIncome / (double)mortgage.salesPrice;
+    return ((double)self.getNetOperatingIncome / (double)mortgage.salesPrice);
+}
+
+-(double) getCashOnCashReturn {
+    return (double) self.getNetOperatingIncome / (double) mortgage.getDownpaymentAmount;
 }
 
 @end

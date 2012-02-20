@@ -19,4 +19,5 @@
 
 -(void) testGetNetOperatingIncome;
 -(void) testGetCapRate;
+-(void) testGetCashOnCashReturn;
 @end

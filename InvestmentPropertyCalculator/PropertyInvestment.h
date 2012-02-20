@@ -19,5 +19,6 @@
 
 -(int) getNetOperatingIncome;
 -(double) getCapitalizationRate;
+-(double) getCashOnCashReturn;
 
 @end

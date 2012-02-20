@@ -38,9 +38,20 @@ static const int PROPERTY_COST = 100000;
     
     double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - (MONTHLY_TAXES + MONTHLY_UTILITIES) * 12;
     
-    double expectedCapRate = (expectedNetIncome / (double) PROPERTY_COST) * 100;
+    double expectedCapRate = (expectedNetIncome / (double) PROPERTY_COST);
      
     STAssertEqualsWithAccuracy(expectedCapRate, [propertyInvestment getCapitalizationRate], .1, @"Cap rate not equal."); 
+}
+
+-(void) testGetCashOnCashReturn {
+    propertyInvestment.grossIncome = 50000;
+    
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - (MONTHLY_TAXES + MONTHLY_UTILITIES) * 12;
+    
+    double expectedReturn =  expectedNetIncome / 25000.0;
+    
+    STAssertEqualsWithAccuracy(expectedReturn, [propertyInvestment getCashOnCashReturn], .1, @"Cash returns not equal"); 
+
 }
 
 

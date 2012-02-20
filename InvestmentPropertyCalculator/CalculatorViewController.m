@@ -145,6 +145,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     int netIncome = self.getPropertyInvestment.getNetOperatingIncome;
     [netOperatingIncomeLabel setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:netIncome]]];
     [capitalizationRateLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCapitalizationRate]]];
+    [cashOnCashReturnLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCashOnCashReturn]]];
 }
 
 -(void)touchBackground:(id)sender{
