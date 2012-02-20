@@ -8,6 +8,8 @@
 
 #import "CalculatorViewController.h"
 #import "Mortgage.h"
+#import "PropertyInvestmentProtocol.h"
+#import "PropertyInvestment.h"
 
 @implementation CalculatorViewController
 
@@ -31,6 +33,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 @synthesize labelView;
 
+- (PropertyInvestment *) getPropertyInvestment {
+    id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
+	PropertyInvestment* propertyInvestment = (PropertyInvestment*) investmentDelegate.propertyInvestment;
+	return propertyInvestment;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,17 +51,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
     [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
     
+    percentFormatter = [[[NSNumberFormatter alloc] init] retain];
+    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
+    
     [downpaymentField setDelegate:self];
     [salesPriceField setDelegate:self];
     [taxesField setDelegate:self];
     [grossRentField setDelegate:self];
 
     [self.view addSubview:labelView];
-        
-    int salesPrice = [[salesPriceField text] intValue];
-    double downpaymentPercent = [[downpaymentField text] doubleValue];
 
-    mortgage = [[Mortgage alloc] initWithSalesPrice:salesPrice downpayment:downpaymentPercent interestRate:4.25 years:30];
+    PropertyInvestment *propertyInvestment = [self getPropertyInvestment];
+    [salesPriceField setText:[NSString stringWithFormat:@"%d", [propertyInvestment mortgage].salesPrice]];
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", [propertyInvestment mortgage].downpaymentPercent]];
+    [grossRentField setText:[NSString stringWithFormat:@"%d", [propertyInvestment grossIncome]]];
+
     
     [self updateDownpaymentLabel];
     [self updateNetOperatingIncome];
@@ -121,6 +133,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 - (void) updateDownpaymentLabel {
+    Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
     [mortgage setSalesPrice:[[salesPriceField text] doubleValue]];
     NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
@@ -128,9 +141,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 }
 
 - (void) updateNetOperatingIncome {
-    double grossIncome = [[grossRentField text] doubleValue];
-    int netIncome = grossIncome - [mortgage getMonthlyPayment] * 12;
+    self.getPropertyInvestment.grossIncome = [grossRentField.text intValue]; 
+    int netIncome = self.getPropertyInvestment.getNetOperatingIncome;
     [netOperatingIncomeLabel setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:netIncome]]];
+    [capitalizationRateLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCapitalizationRate]]];
 }
 
 -(void)touchBackground:(id)sender{

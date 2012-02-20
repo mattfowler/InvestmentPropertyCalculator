@@ -30,6 +30,11 @@
 		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
 		63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536C314F2C68700A7744A /* ExpensesViewController.m */; };
 		63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E536C414F2C68700A7744A /* ExpensesView.xib */; };
+		63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CA14F2C9E100A7744A /* PropertyInvestment.m */; };
+		63E536CC14F2C9E100A7744A /* PropertyInvestment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CA14F2C9E100A7744A /* PropertyInvestment.m */; };
+		63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CE14F2CAB100A7744A /* PropertyExpenses.m */; };
+		63E536D014F2CAB200A7744A /* PropertyExpenses.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CE14F2CAB100A7744A /* PropertyExpenses.m */; };
+		63E536D414F2E29100A7744A /* PropertyInvestmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,13 @@
 		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
 		63E536C314F2C68700A7744A /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
 		63E536C414F2C68700A7744A /* ExpensesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpensesView.xib; sourceTree = "<group>"; };
+		63E536C914F2C9E100A7744A /* PropertyInvestment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyInvestment.h; sourceTree = "<group>"; };
+		63E536CA14F2C9E100A7744A /* PropertyInvestment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyInvestment.m; sourceTree = "<group>"; };
+		63E536CD14F2CAB100A7744A /* PropertyExpenses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyExpenses.h; sourceTree = "<group>"; };
+		63E536CE14F2CAB100A7744A /* PropertyExpenses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyExpenses.m; sourceTree = "<group>"; };
+		63E536D114F2D88500A7744A /* PropertyInvestmentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyInvestmentProtocol.h; sourceTree = "<group>"; };
+		63E536D214F2E29100A7744A /* PropertyInvestmentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyInvestmentTest.h; sourceTree = "<group>"; };
+		63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyInvestmentTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +180,8 @@
 				63A46A6514EFEB2B00999517 /* Supporting Files */,
 				63A46A8F14EFFA3900999517 /* MortgageTest.h */,
 				63A46A9014EFFA3900999517 /* MortgageTest.m */,
+				63E536D214F2E29100A7744A /* PropertyInvestmentTest.h */,
+				63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */,
 			);
 			path = InvestmentPropertyCalculatorTests;
 			sourceTree = "<group>";
@@ -186,6 +200,11 @@
 			children = (
 				63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */,
 				63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */,
+				63E536C914F2C9E100A7744A /* PropertyInvestment.h */,
+				63E536CA14F2C9E100A7744A /* PropertyInvestment.m */,
+				63E536CD14F2CAB100A7744A /* PropertyExpenses.h */,
+				63E536CE14F2CAB100A7744A /* PropertyExpenses.m */,
+				63E536D114F2D88500A7744A /* PropertyInvestmentProtocol.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -335,6 +354,8 @@
 				63A46A5014EFEB2B00999517 /* MortgageViewController.m in Sources */,
 				63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */,
 				63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */,
+				63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */,
+				63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +365,9 @@
 			files = (
 				63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */,
 				63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */,
+				63E536CC14F2C9E100A7744A /* PropertyInvestment.m in Sources */,
+				63E536D014F2CAB200A7744A /* PropertyExpenses.m in Sources */,
+				63E536D414F2E29100A7744A /* PropertyInvestmentTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

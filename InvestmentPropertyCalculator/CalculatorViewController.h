@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Mortgage.h"
+#import "PropertyInvestment.h"
 
 @interface CalculatorViewController : UIViewController <UITextFieldDelegate> {
     @private
     CGFloat animatedDistance;
     NSNumberFormatter *dollarsAndCentsFormatter;
-    Mortgage *mortgage; //TODO: the mortgage tab will contain this!
+    NSNumberFormatter *percentFormatter;
 }
+
 @property (nonatomic, retain) IBOutlet UIView *labelView;
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
@@ -31,6 +33,7 @@
 
 - (void) updateDownpaymentLabel;
 - (void) updateNetOperatingIncome;
+- (PropertyInvestment *) getPropertyInvestment;
 
 - (IBAction)touchBackground:(id)sender;
 

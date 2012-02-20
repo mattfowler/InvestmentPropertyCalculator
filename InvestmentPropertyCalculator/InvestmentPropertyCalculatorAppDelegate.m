@@ -7,11 +7,22 @@
 //
 
 #import "InvestmentPropertyCalculatorAppDelegate.h"
+#import "Mortgage.h"
 
 @implementation InvestmentPropertyCalculatorAppDelegate
 
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
+
+@synthesize propertyInvestment;
+
+- (id) init {
+    propertyInvestment = [[PropertyInvestment alloc] init];
+    Mortgage *defaultMortgage = [[Mortgage alloc] initWithSalesPrice:200000 downpayment:25.0 interestRate:4.5 years:30];
+    [propertyInvestment setMortgage:defaultMortgage];
+    [propertyInvestment setGrossIncome:30000];
+    return [super init];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
