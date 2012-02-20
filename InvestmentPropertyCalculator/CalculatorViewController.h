@@ -11,9 +11,13 @@
 
 @interface CalculatorViewController : UIViewController <UITextFieldDelegate> {
     @private
+    CGFloat animatedDistance;
     NSNumberFormatter *dollarsAndCentsFormatter;
     Mortgage *mortgage; //TODO: the mortgage tab will contain this!
 }
+@property (nonatomic, retain) IBOutlet UIView *labelView;
+
+@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
@@ -22,9 +26,12 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *salesPriceField;
 @property (nonatomic, retain) IBOutlet UITextField *downpaymentField;
+@property (nonatomic, retain) IBOutlet UITextField *taxesField;
 @property (nonatomic, retain) IBOutlet UITextField *grossRentField;
 
 - (void) updateDownpaymentLabel;
 - (void) updateNetOperatingIncome;
+
+- (IBAction)touchBackground:(id)sender;
 
 @end
