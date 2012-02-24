@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIView *labelView;
+@property (nonatomic, retain) IBOutlet UIScrollView *entryScrollView;
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 

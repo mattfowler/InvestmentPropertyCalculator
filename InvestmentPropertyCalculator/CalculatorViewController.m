@@ -32,6 +32,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @synthesize grossRentField;
 
 @synthesize labelView;
+@synthesize entryScrollView;
 
 - (PropertyInvestment *) getPropertyInvestment {
     id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
@@ -43,72 +44,60 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 {
     [super viewDidLoad];
     
-    salesPriceField.keyboardType = UIKeyboardTypeDecimalPad;
-    downpaymentField.keyboardType = UIKeyboardTypeDecimalPad;
-    grossRentField.keyboardType = UIKeyboardTypeDecimalPad;
-    taxesField.keyboardType = UIKeyboardTypeDecimalPad;
+    entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
+        
+    [self initTextFields];
+    [self createFormatters];
     
-    dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
-    [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    
-    percentFormatter = [[[NSNumberFormatter alloc] init] retain];
-    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
-    
-    [downpaymentField setDelegate:self];
-    [salesPriceField setDelegate:self];
-    [taxesField setDelegate:self];
-    [grossRentField setDelegate:self];
-
     [self.view addSubview:labelView];
 
-    PropertyInvestment *propertyInvestment = [self getPropertyInvestment];
-    [salesPriceField setText:[NSString stringWithFormat:@"%d", [propertyInvestment mortgage].salesPrice]];
-    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", [propertyInvestment mortgage].downpaymentPercent]];
-    [grossRentField setText:[NSString stringWithFormat:@"%d", [propertyInvestment grossIncome]]];
-
+    [self setUpTextFieldsForInvestment:[self getPropertyInvestment]];
     
     [self updateDownpaymentLabel];
     [self updateNetOperatingIncome];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    CGRect textFieldRect =
-    [self.view.window convertRect:textField.bounds fromView:textField];
-    CGRect viewRect =
-    [self.view.window convertRect:self.view.bounds fromView:self.view];
-    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
-    CGFloat numerator = midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
-    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
-    CGFloat heightFraction = numerator / denominator;
-    if (heightFraction < 0.0) {
-        heightFraction = 0.0;
-    }
-    else if (heightFraction > 1.0) {
-        heightFraction = 1.0;
-    }
-    UIInterfaceOrientation orientation =
-    [[UIApplication sharedApplication] statusBarOrientation];
-    if (orientation == UIInterfaceOrientationPortrait ||
-        orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction) - textFieldRect.size.height  - 20;
-    }
-    else {
-        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction) -  textFieldRect.size.height;
-    }
+- (void)setUpTextFieldsForInvestment:(PropertyInvestment *) investment {
+    [salesPriceField setText:[NSString stringWithFormat:@"%d", [investment mortgage].salesPrice]];
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", [investment mortgage].downpaymentPercent]];
+    [grossRentField setText:[NSString stringWithFormat:@"%d", [investment grossIncome]]];
+    [taxesField setText:[NSString stringWithFormat:@"%1.2f", investment.expenses.taxes]];
+}
+
+-(void) initTextFields {
+    [downpaymentField setDelegate:self];
+    [salesPriceField setDelegate:self];
+    [taxesField setDelegate:self];
+    [grossRentField setDelegate:self];
+    salesPriceField.keyboardType = UIKeyboardTypeDecimalPad;
+    downpaymentField.keyboardType = UIKeyboardTypeDecimalPad;
+    grossRentField.keyboardType = UIKeyboardTypeDecimalPad;
+    taxesField.keyboardType = UIKeyboardTypeDecimalPad;
+}
+
+- (void) createFormatters {
+    dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
+    [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
     
-    CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y -= animatedDistance;
+    percentFormatter = [[[NSNumberFormatter alloc] init] retain];
+    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    CGRect textFieldRect = [self.entryScrollView convertRect:textField.bounds fromView:textField];
+    
+    CGRect viewFrame = self.entryScrollView.frame;
+    animatedDistance = self.view.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT - navigationBar.frame.size.height + 15;
+    viewFrame.size.height -= animatedDistance;
+    
+    CGFloat textFieldOffset = entryScrollView.contentOffset.y + textFieldRect.origin.y - textFieldRect.size.height/2 - 15;
+    [entryScrollView setContentOffset:CGPointMake(entryScrollView.contentOffset.x, textFieldOffset)  animated:YES];
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    
-    CGRect labelViewFrame = self.labelView.frame;
-    labelViewFrame.origin.y = animatedDistance;
-    
-    [self.view setFrame:viewFrame];
-    [self.labelView setFrame:labelViewFrame];
+        
+    [self.entryScrollView setFrame:viewFrame];
     
     [UIView commitAnimations];
 }
@@ -117,17 +106,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self updateDownpaymentLabel];
     [self updateNetOperatingIncome];
 	[self dismissModalViewControllerAnimated:YES];
-    CGRect viewFrame = self.view.frame;
-    viewFrame.origin.y += animatedDistance;
-    CGRect labelViewFrame = self.labelView.frame;
-    labelViewFrame.origin.y -= animatedDistance - navigationBar.frame.size.height;
-    
+
+    CGRect viewFrame = self.entryScrollView.frame;
+    viewFrame.size.height += animatedDistance;
+   
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
     
-    [self.view setFrame:viewFrame];
-    [self.labelView setFrame:labelViewFrame];
+    [self.entryScrollView setFrame:viewFrame];
     
     [UIView commitAnimations];
 }
@@ -142,6 +129,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (void) updateNetOperatingIncome {
     self.getPropertyInvestment.grossIncome = [grossRentField.text intValue]; 
+    self.getPropertyInvestment.expenses.taxes = [taxesField.text intValue];
     int netIncome = self.getPropertyInvestment.getNetOperatingIncome;
     [netOperatingIncomeLabel setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:netIncome]]];
     [capitalizationRateLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCapitalizationRate]]];
