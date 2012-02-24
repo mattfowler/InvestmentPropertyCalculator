@@ -14,8 +14,6 @@
 @implementation CalculatorViewController
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
-static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
@@ -54,6 +52,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [self setUpTextFieldsForInvestment:[self getPropertyInvestment]];
     
     [self updateDownpaymentLabel];
+    [self updateNetOperatingIncome];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self refreshDownpayment];
     [self updateNetOperatingIncome];
 }
 
@@ -119,6 +122,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [UIView commitAnimations];
 }
 
+- (void) refreshDownpayment {
+    Mortgage *mortgage = self.getPropertyInvestment.mortgage;
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
+    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
+    [downpaymentLabel setText:downpaymentString];
+}
+
 - (void) updateDownpaymentLabel {
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
@@ -143,26 +153,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [taxesField resignFirstResponder];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
-}
-
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
-
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 @end
