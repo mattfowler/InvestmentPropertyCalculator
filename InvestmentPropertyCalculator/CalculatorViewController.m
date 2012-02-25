@@ -33,8 +33,6 @@
     [super viewDidLoad];
         
     [self initTextFields];
-    [self createFormatters];
-
     [self setUpTextFieldsForInvestment:[self getPropertyInvestment]];
     
     [self updateDownpaymentLabel];
@@ -62,14 +60,6 @@
     downpaymentField.keyboardType = UIKeyboardTypeDecimalPad;
     grossRentField.keyboardType = UIKeyboardTypeDecimalPad;
     taxesField.keyboardType = UIKeyboardTypeDecimalPad;
-}
-
-- (void) createFormatters {
-    dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
-    [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    
-    percentFormatter = [[[NSNumberFormatter alloc] init] retain];
-    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {

@@ -12,6 +12,10 @@
 @interface BaseCalculatorViewController : UIViewController <UITextFieldDelegate> {
     @private
     CGFloat animatedDistance;
+    
+    @protected
+    NSNumberFormatter *dollarsAndCentsFormatter;
+    NSNumberFormatter *percentFormatter;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;

@@ -11,11 +11,7 @@
 #import "PropertyInvestment.h"
 #import "BaseCalculatorViewController.h"
 
-@interface CalculatorViewController : BaseCalculatorViewController {
-    @private
-    NSNumberFormatter *dollarsAndCentsFormatter;
-    NSNumberFormatter *percentFormatter;
-}
+@interface CalculatorViewController : BaseCalculatorViewController 
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
@@ -29,7 +25,6 @@
 
 - (void) updateDownpaymentLabel;
 - (void) updateNetOperatingIncome;
-- (PropertyInvestment *) getPropertyInvestment;
 
 - (IBAction)touchBackground:(id)sender;
 

@@ -46,8 +46,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 -(void) refreshDownpaymentField {
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
-    //NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
-    //[downpaymentLabel setText:downpaymentString];
+    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
+    [downpaymentLabel setText:downpaymentString];
 }
 
 -(void) initTextFields {
@@ -87,7 +87,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-
 }
 
 @end
