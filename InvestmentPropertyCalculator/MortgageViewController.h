@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseCalculatorViewController.h"
 
-@interface MortgageViewController : UIViewController <UITextFieldDelegate> {
-@private
-    CGFloat animatedDistance;
-}
+@interface MortgageViewController : BaseCalculatorViewController 
 
-@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, retain) IBOutlet UIView *labelView;
-@property (nonatomic, retain) IBOutlet UIScrollView *entryScrollView;
+@property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 
 @property (nonatomic, retain) IBOutlet UITextField *salesPriceField;
 @property (nonatomic, retain) IBOutlet UITextField *downpaymentField;

@@ -9,18 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Mortgage.h"
 #import "PropertyInvestment.h"
+#import "BaseCalculatorViewController.h"
 
-@interface CalculatorViewController : UIViewController <UITextFieldDelegate> {
+@interface CalculatorViewController : BaseCalculatorViewController {
     @private
-    CGFloat animatedDistance;
     NSNumberFormatter *dollarsAndCentsFormatter;
     NSNumberFormatter *percentFormatter;
 }
-
-@property (nonatomic, retain) IBOutlet UIView *labelView;
-@property (nonatomic, retain) IBOutlet UIScrollView *entryScrollView;
-
-@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;

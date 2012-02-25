@@ -16,20 +16,12 @@ static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
-@synthesize navigationBar;
-@synthesize labelView;
-@synthesize entryScrollView;
+@synthesize downpaymentLabel;
 
 @synthesize salesPriceField;
 @synthesize downpaymentField;
 @synthesize interestRateField;
 @synthesize mortgageTermField;
-
-- (PropertyInvestment *) getPropertyInvestment {
-    id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
-	PropertyInvestment* propertyInvestment = (PropertyInvestment*) investmentDelegate.propertyInvestment;
-	return propertyInvestment;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,12 +37,17 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f" , downpayment]];
     [interestRateField setText:[NSString stringWithFormat:@"%1.2f" , rate]];
     [mortgageTermField setText:[NSString stringWithFormat:@"%d" , term]];
-    
-    entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
 }
 
 -(void) viewDidAppear:(BOOL)animated {
     //TODO: Update text fields appropriately!
+}
+
+-(void) refreshDownpaymentField {
+    Mortgage *mortgage = self.getPropertyInvestment.mortgage;
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
+    //NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
+    //[downpaymentLabel setText:downpaymentString];
 }
 
 -(void) initTextFields {
@@ -64,72 +61,33 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     mortgageTermField.keyboardType = UIKeyboardTypeDecimalPad;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    CGRect textFieldRect = [self.entryScrollView convertRect:textField.bounds fromView:textField];
-    
-    CGRect viewFrame = self.entryScrollView.frame;
-    animatedDistance = self.view.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT - navigationBar.frame.size.height + 15;
-    viewFrame.size.height -= animatedDistance;
-    
-    CGFloat textFieldOffset = entryScrollView.contentOffset.y + textFieldRect.origin.y - textFieldRect.size.height/2 - 15;
-    [entryScrollView setContentOffset:CGPointMake(entryScrollView.contentOffset.x, textFieldOffset)  animated:YES];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    
-    [self.entryScrollView setFrame:viewFrame];
-    
-    [UIView commitAnimations];
-}
-
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	[self dismissModalViewControllerAnimated:YES];
-    
-    CGRect viewFrame = self.entryScrollView.frame;
-    viewFrame.size.height += animatedDistance;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
-    
-    [self.entryScrollView setFrame:viewFrame];
-    
+    [super textFieldDidEndEditing:textField];
     Mortgage * mortgage = [self getPropertyInvestment].mortgage;
     [mortgage setSalesPrice:[[salesPriceField text] intValue]];
     [mortgage setInterestRate:[[interestRateField text] doubleValue]];
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
     [mortgage setAmoritizationYears:[[mortgageTermField text] intValue]];
-    [UIView commitAnimations];
 }
 
--(void)touchBackground:(id)sender{
+-(void)touchBackground:(id)sender {
     [salesPriceField resignFirstResponder];
     [downpaymentField resignFirstResponder];
     [mortgageTermField resignFirstResponder];
     [interestRateField resignFirstResponder];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];    
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
 
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 @end
