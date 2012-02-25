@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */; };
+		6355A23D14F93C3C00EC7A31 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23914F93C3C00EC7A31 /* bank.png */; };
+		6355A23E14F93C3C00EC7A31 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23A14F93C3C00EC7A31 /* connections.png */; };
+		6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23B14F93C3C00EC7A31 /* piggy.png */; };
+		6355A24014F93C3C00EC7A31 /* trend.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23C14F93C3C00EC7A31 /* trend.png */; };
+		6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6355A24114F93C5B00EC7A31 /* CompareView.xib */; };
+		6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A24314F93C5B00EC7A31 /* CompareViewController.m */; };
 		63A46A3714EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
 		63A46A3914EFEB2B00999517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3814EFEB2B00999517 /* Foundation.framework */; };
 		63A46A3B14EFEB2B00999517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */; };
@@ -48,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCalculatorViewController.h; sourceTree = "<group>"; };
+		6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCalculatorViewController.m; sourceTree = "<group>"; };
+		6355A23914F93C3C00EC7A31 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
+		6355A23A14F93C3C00EC7A31 /* connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connections.png; sourceTree = "<group>"; };
+		6355A23B14F93C3C00EC7A31 /* piggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piggy.png; sourceTree = "<group>"; };
+		6355A23C14F93C3C00EC7A31 /* trend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trend.png; sourceTree = "<group>"; };
+		6355A24114F93C5B00EC7A31 /* CompareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompareView.xib; sourceTree = "<group>"; };
+		6355A24214F93C5B00EC7A31 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
+		6355A24314F93C5B00EC7A31 /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
 		63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvestmentPropertyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A46A3614EFEB2B00999517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63A46A3814EFEB2B00999517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,7 +167,11 @@
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
 				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
+				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
+				6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */,
 				63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */,
+				6355A24214F93C5B00EC7A31 /* CompareViewController.h */,
+				6355A24314F93C5B00EC7A31 /* CompareViewController.m */,
 				63A46A4E14EFEB2B00999517 /* MortgageViewController.h */,
 				63A46A4F14EFEB2B00999517 /* MortgageViewController.m */,
 				63E536C214F2C68700A7744A /* ExpensesViewController.h */,
@@ -221,6 +241,10 @@
 		63BDAB4814F2C1C8008AE03A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6355A23914F93C3C00EC7A31 /* bank.png */,
+				6355A23A14F93C3C00EC7A31 /* connections.png */,
+				6355A23B14F93C3C00EC7A31 /* piggy.png */,
+				6355A23C14F93C3C00EC7A31 /* trend.png */,
 				63BDAB4914F2C1D9008AE03A /* calculator.png */,
 			);
 			name = Images;
@@ -229,6 +253,7 @@
 		63E536C814F2C74900A7744A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6355A24114F93C5B00EC7A31 /* CompareView.xib */,
 				63A46A4814EFEB2B00999517 /* MainWindow.xib */,
 				63A46A5114EFEB2B00999517 /* CalculatorView.xib */,
 				63E536C414F2C68700A7744A /* ExpensesView.xib */,
@@ -313,6 +338,11 @@
 				63A46A5614EFEB2B00999517 /* MortgageView.xib in Resources */,
 				63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */,
 				63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */,
+				6355A23D14F93C3C00EC7A31 /* bank.png in Resources */,
+				6355A23E14F93C3C00EC7A31 /* connections.png in Resources */,
+				6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */,
+				6355A24014F93C3C00EC7A31 /* trend.png in Resources */,
+				6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +386,8 @@
 				63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */,
 				63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */,
 				63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */,
+				6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */,
+				6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

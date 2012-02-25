@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseCalculatorViewController.h"
 
-@interface ExpensesViewController : UIViewController
+@interface ExpensesViewController : BaseCalculatorViewController
 
 @end

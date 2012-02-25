@@ -8,10 +8,6 @@
 
 #import "ExpensesViewController.h"
 
-@interface ExpensesViewController ()
-
-@end
-
 @implementation ExpensesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
