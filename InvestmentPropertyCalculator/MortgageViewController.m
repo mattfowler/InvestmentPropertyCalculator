@@ -25,6 +25,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTextFields];
+    [self populateTextFields];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [self refreshDownpaymentField];
+}
+
+-(void) populateTextFields {
     PropertyInvestment *investment = [self getPropertyInvestment];
     Mortgage *mortgage = investment.mortgage;
     double downpayment = mortgage.downpaymentPercent;
@@ -32,15 +41,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     int salesPrice = mortgage.salesPrice;
     int term = mortgage.amoritizationYears;
     
-    [self initTextFields];
     [salesPriceField setText:[NSString stringWithFormat:@"%d" , salesPrice]];
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f" , downpayment]];
     [interestRateField setText:[NSString stringWithFormat:@"%1.2f" , rate]];
     [mortgageTermField setText:[NSString stringWithFormat:@"%d" , term]];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    //TODO: Update text fields appropriately!
 }
 
 -(void) refreshDownpaymentField {
