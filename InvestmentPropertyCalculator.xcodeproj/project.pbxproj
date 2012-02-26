@@ -14,6 +14,8 @@
 		6355A24014F93C3C00EC7A31 /* trend.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23C14F93C3C00EC7A31 /* trend.png */; };
 		6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6355A24114F93C5B00EC7A31 /* CompareView.xib */; };
 		6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A24314F93C5B00EC7A31 /* CompareViewController.m */; };
+		6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A24714F9660600EC7A31 /* ProjectionsViewController.m */; };
+		6355A24A14F9660600EC7A31 /* ProjectionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6355A24814F9660600EC7A31 /* ProjectionsView.xib */; };
 		63A46A3714EFEB2B00999517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3614EFEB2B00999517 /* UIKit.framework */; };
 		63A46A3914EFEB2B00999517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3814EFEB2B00999517 /* Foundation.framework */; };
 		63A46A3B14EFEB2B00999517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */; };
@@ -64,6 +66,9 @@
 		6355A24114F93C5B00EC7A31 /* CompareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompareView.xib; sourceTree = "<group>"; };
 		6355A24214F93C5B00EC7A31 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
 		6355A24314F93C5B00EC7A31 /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
+		6355A24614F9660600EC7A31 /* ProjectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionsViewController.h; sourceTree = "<group>"; };
+		6355A24714F9660600EC7A31 /* ProjectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionsViewController.m; sourceTree = "<group>"; };
+		6355A24814F9660600EC7A31 /* ProjectionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectionsView.xib; sourceTree = "<group>"; };
 		63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvestmentPropertyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A46A3614EFEB2B00999517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63A46A3814EFEB2B00999517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +170,8 @@
 				63BDAB4614F2C1C0008AE03A /* Resources */,
 				63A4FC1414F1B1B600F9E8E9 /* Models */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
+				6355A24614F9660600EC7A31 /* ProjectionsViewController.h */,
+				6355A24714F9660600EC7A31 /* ProjectionsViewController.m */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
 				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
 				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
@@ -258,6 +265,7 @@
 				63A46A5114EFEB2B00999517 /* CalculatorView.xib */,
 				63E536C414F2C68700A7744A /* ExpensesView.xib */,
 				63A46A5414EFEB2B00999517 /* MortgageView.xib */,
+				6355A24814F9660600EC7A31 /* ProjectionsView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 				6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */,
 				6355A24014F93C3C00EC7A31 /* trend.png in Resources */,
 				6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */,
+				6355A24A14F9660600EC7A31 /* ProjectionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +397,7 @@
 				63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */,
 				6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */,
 				6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */,
+				6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
