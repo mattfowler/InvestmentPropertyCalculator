@@ -12,6 +12,9 @@
 
 @synthesize properties;
 @synthesize propertyPicker;
+@synthesize showPropertyPicker;
+@synthesize scrollView;
+@synthesize doneToolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +29,48 @@
 {
     [super viewDidLoad];
     properties=  [[NSArray alloc] initWithObjects:@"15 leyden",@"32 bond", @"455 main", nil];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 5);
+    propertyPicker.hidden = NO;
+    [self.view addSubview:scrollView];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+}
+
+-(IBAction) chooseProperty:(id)sender {
+    CGRect pickerFrame = propertyPicker.frame;
+    pickerFrame.origin.y -= propertyPicker.frame.size.height;
+    CGRect scrollViewFrame = scrollView.frame;
+    scrollViewFrame.size.height -= propertyPicker.frame.size.height;
+    CGRect toolbarFrame = doneToolbar.frame;
+    toolbarFrame.origin.y -= propertyPicker.frame.size.height + toolbarFrame.size.height;
+    [self.view bringSubviewToFront:doneToolbar];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:.5];
+
+    [scrollView setFrame:scrollViewFrame];
+    [propertyPicker setFrame:pickerFrame];
+    [doneToolbar setFrame:toolbarFrame];
+    [UIView commitAnimations];
+}
+
+-(IBAction)doneWithPropertyPicker:(id)sender {
+    CGRect pickerFrame = propertyPicker.frame;
+    pickerFrame.origin.y += propertyPicker.frame.size.height;
+    CGRect scrollViewFrame = scrollView.frame;
+    scrollViewFrame.size.height += propertyPicker.frame.size.height;
+    CGRect toolbarFrame = doneToolbar.frame;
+    toolbarFrame.origin.y += propertyPicker.frame.size.height + toolbarFrame.size.height;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:.5];
+    
+    [scrollView setFrame:scrollViewFrame];
+    [propertyPicker setFrame:pickerFrame];
+    [doneToolbar setFrame:toolbarFrame];
+    [UIView commitAnimations];
 }
 
 // returns the number of 'columns' to display.
