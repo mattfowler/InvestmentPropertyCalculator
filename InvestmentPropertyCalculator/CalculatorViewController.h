@@ -23,9 +23,6 @@
 @property (nonatomic, retain) IBOutlet UITextField *taxesField;
 @property (nonatomic, retain) IBOutlet UITextField *grossRentField;
 
-- (void) updateDownpaymentLabel;
-- (void) updateNetOperatingIncome;
-
 - (IBAction)touchBackground:(id)sender;
 
 @end

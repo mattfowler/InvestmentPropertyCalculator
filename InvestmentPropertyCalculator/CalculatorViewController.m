@@ -23,32 +23,23 @@
 @synthesize taxesField;
 @synthesize grossRentField;
 
-- (PropertyInvestment *) getPropertyInvestment {
-    id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
-	PropertyInvestment* propertyInvestment = (PropertyInvestment*) investmentDelegate.propertyInvestment;
-	return propertyInvestment;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
         
     [self initTextFields];
-    [self setUpTextFieldsForInvestment:[self getPropertyInvestment]];
     
-    [self updateDownpaymentLabel];
-    [self updateNetOperatingIncome];
+    [self updateEditableFieldsFromModel];    
+    [self updateViewLabelsFromModel];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(textFieldValueDidChange)
+                                          name:UITextFieldTextDidChangeNotification 
+                                          object:nil];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [self refreshDownpayment];
-    [self updateNetOperatingIncome];
-}
-
-- (void)setUpTextFieldsForInvestment:(PropertyInvestment *) investment {
-    [salesPriceField setText:[NSString stringWithFormat:@"%d", [investment mortgage].salesPrice]];
-    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", [investment mortgage].downpaymentPercent]];
-    [grossRentField setText:[NSString stringWithFormat:@"%d", [investment grossIncome]]];
-    [taxesField setText:[NSString stringWithFormat:@"%1.2f", investment.expenses.taxes]];
+    [self updateEditableFieldsFromModel];
+    [self updateViewLabelsFromModel];
 }
 
 -(void) initTextFields {
@@ -64,32 +55,47 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
-    [self updateDownpaymentLabel];
-    [self updateNetOperatingIncome];
+    [self updateModelFromView];
+    [self updateViewLabelsFromModel];
 }
 
-- (void) refreshDownpayment {
-    Mortgage *mortgage = self.getPropertyInvestment.mortgage;
-    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
-    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
-    [downpaymentLabel setText:downpaymentString];
+- (void) textFieldValueDidChange {
+    [self updateModelFromView];
+    [self updateViewLabelsFromModel];
 }
 
-- (void) updateDownpaymentLabel {
+-(void) updateEditableFieldsFromModel {
+    PropertyInvestment *investment = self.getPropertyInvestment;
+    [salesPriceField setText:[NSString stringWithFormat:@"%d", [investment mortgage].salesPrice]];
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", [investment mortgage].downpaymentPercent]];
+    [grossRentField setText:[NSString stringWithFormat:@"%d", [investment grossIncome]]];
+}
+
+-(void) updateViewLabelsFromModel {
+    [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
+    [capitalizationRateLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCapitalizationRate]];
+    [cashOnCashReturnLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCashOnCashReturn]];
+    [self setDownpaymentLabelWithDownpaymentAmount:self.getPropertyInvestment.mortgage.getDownpaymentAmount];
+}
+
+-(void) updateModelFromView {
+    self.getPropertyInvestment.grossIncome = [grossRentField.text intValue]; 
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
     [mortgage setSalesPrice:[[salesPriceField text] doubleValue]];
-    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
+}
+
+-(void) setDownpaymentLabelWithDownpaymentAmount:(double)amount {
+    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-amount]];
     [downpaymentLabel setText:downpaymentString];
 }
 
-- (void) updateNetOperatingIncome {
-    self.getPropertyInvestment.grossIncome = [grossRentField.text intValue]; 
-    self.getPropertyInvestment.expenses.taxes = [taxesField.text intValue];
-    int netIncome = self.getPropertyInvestment.getNetOperatingIncome;
-    [netOperatingIncomeLabel setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:netIncome]]];
-    [capitalizationRateLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCapitalizationRate]]];
-    [cashOnCashReturnLabel setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:self.getPropertyInvestment.getCashOnCashReturn]]];
+-(NSString*) stringFromPercent:(double)percent {
+    return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
+}
+
+-(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents {
+    return [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:dollarsAndCents]];
 }
 
 -(void)touchBackground:(id)sender{
