@@ -12,10 +12,6 @@
 
 @implementation MortgageViewController
 
-static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
-static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
-
 @synthesize downpaymentLabel;
 
 @synthesize salesPriceField;
@@ -26,28 +22,25 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTextFields];
-    [self populateTextFields];
+    [self updateEditableFieldsFromModel];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    [self refreshDownpaymentField];
+    [self updateEditableFieldsFromModel];
+    [self updateLabelsFromModel];
 }
 
--(void) populateTextFields {
+-(void) updateEditableFieldsFromModel {
     PropertyInvestment *investment = [self getPropertyInvestment];
     Mortgage *mortgage = investment.mortgage;
-    double downpayment = mortgage.downpaymentPercent;
-    double rate = mortgage.interestRate;
-    int salesPrice = mortgage.salesPrice;
-    int term = mortgage.amoritizationYears;
     
-    [salesPriceField setText:[NSString stringWithFormat:@"%d" , salesPrice]];
-    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f" , downpayment]];
-    [interestRateField setText:[NSString stringWithFormat:@"%1.2f" , rate]];
-    [mortgageTermField setText:[NSString stringWithFormat:@"%d" , term]];
+    [salesPriceField setText:[NSString stringWithFormat:@"%d" , mortgage.salesPrice]];
+    [downpaymentField setText:[NSString stringWithFormat:@"%1.2f" , mortgage.downpaymentPercent]];
+    [interestRateField setText:[NSString stringWithFormat:@"%1.2f" , mortgage.interestRate]];
+    [mortgageTermField setText:[NSString stringWithFormat:@"%d" , mortgage.amoritizationYears]];
 }
 
--(void) refreshDownpaymentField {
+-(void) updateLabelsFromModel {
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
     NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
@@ -67,6 +60,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
+    [self updateModelFromTextFields];
+}
+
+- (void) updateModelFromTextFields {
     Mortgage * mortgage = [self getPropertyInvestment].mortgage;
     [mortgage setSalesPrice:[[salesPriceField text] intValue]];
     [mortgage setInterestRate:[[interestRateField text] doubleValue]];
