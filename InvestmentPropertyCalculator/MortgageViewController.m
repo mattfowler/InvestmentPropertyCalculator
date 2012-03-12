@@ -19,6 +19,10 @@
 @synthesize interestRateField;
 @synthesize mortgageTermField;
 
+@synthesize mortgagePayment;
+@synthesize totalInterestPaid;
+@synthesize netOperatingIncome;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTextFields];
@@ -45,6 +49,9 @@
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
     NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
     [downpaymentLabel setText:downpaymentString];
+    [mortgagePayment setText:[self stringFromDollarsAndCents:mortgage.getMonthlyPayment]];
+    [netOperatingIncome setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
+    [totalInterestPaid setText:[self stringFromDollarsAndCents:mortgage.getTotalInterestPaid]];
 }
 
 -(void) initTextFields {
@@ -61,6 +68,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     [self updateModelFromTextFields];
+    [self updateLabelsFromModel];
 }
 
 - (void) updateModelFromTextFields {

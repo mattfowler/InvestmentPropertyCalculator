@@ -25,6 +25,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 	return propertyInvestment;
 }
 
+-(NSString*) stringFromPercent:(double)percent {
+    return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
+}
+
+-(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents {
+    return [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:dollarsAndCents]];
+}
+
 -(void) viewDidLoad {
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
 

@@ -24,4 +24,9 @@
 
 - (PropertyInvestment *) getPropertyInvestment;
 
+- (NSString*) stringFromPercent:(double)percent;
+
+- (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
+
+
 @end

@@ -20,5 +20,6 @@
 - (double) getMonthlyPayment;
 - (double) getInitialPrincipal;
 - (double) getDownpaymentAmount;
+- (double) getTotalInterestPaid;
 
 @end

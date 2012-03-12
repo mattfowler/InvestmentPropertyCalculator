@@ -40,4 +40,8 @@
     return salesPrice * (downpaymentPercent / 100);
 }
 
+- (double) getTotalInterestPaid {
+    return (self.getMonthlyPayment * (amoritizationYears * 12)) - self.getInitialPrincipal;
+}
+
 @end

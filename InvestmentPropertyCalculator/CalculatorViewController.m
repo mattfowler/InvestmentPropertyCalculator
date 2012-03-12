@@ -94,14 +94,6 @@
     [downpaymentLabel setText:downpaymentString];
 }
 
--(NSString*) stringFromPercent:(double)percent {
-    return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
-}
-
--(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents {
-    return [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:dollarsAndCents]];
-}
-
 -(void)touchBackground:(id)sender{
     [salesPriceField resignFirstResponder];
     [downpaymentField resignFirstResponder];
