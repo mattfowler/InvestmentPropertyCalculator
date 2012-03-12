@@ -17,10 +17,11 @@
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *capitalizationRateLabel;
 @property (nonatomic, retain) IBOutlet UILabel *cashOnCashReturnLabel;
+@property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
 
 @property (nonatomic, retain) IBOutlet UITextField *salesPriceField;
 @property (nonatomic, retain) IBOutlet UITextField *downpaymentField;
-@property (nonatomic, retain) IBOutlet UITextField *taxesField;
+@property (nonatomic, retain) IBOutlet UITextField *taxBracketField;
 @property (nonatomic, retain) IBOutlet UITextField *grossRentField;
 
 - (IBAction)touchBackground:(id)sender;

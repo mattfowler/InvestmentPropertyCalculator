@@ -31,6 +31,11 @@ static const double LAND_TO_PROPERTY_RATIO = .5;
     return (double) self.getNetOperatingIncome / (double) mortgage.getDownpaymentAmount;
 }
 
+-(int) getAfterTaxCashFlow {
+    int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0];
+    return taxableIncome * (1.0 - taxBracket/100.0);
+}
+
 -(double) getValue:(double)value afterYears:(int)years withInflationRate:(double)rate {
     return value * pow(1.0 + rate, years);
 }

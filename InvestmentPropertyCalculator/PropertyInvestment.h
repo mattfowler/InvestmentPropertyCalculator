@@ -22,6 +22,7 @@
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
 
+-(int) getAfterTaxCashFlow;
 -(double) getTaxDeductibleExpenseAmountForYear:(int)year withInflationRate:(double)rate;
 -(double) getPropertyDepreciatonForYear:(int)year;
 

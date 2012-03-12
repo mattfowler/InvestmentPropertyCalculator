@@ -22,9 +22,9 @@
     Mortgage *defaultMortgage = [[Mortgage alloc] initWithSalesPrice:200000 downpayment:25.0 interestRate:4.5 years:30];
     [propertyInvestment setMortgage:defaultMortgage];
     PropertyExpenses *expenses = [[PropertyExpenses alloc] init];
-    expenses.taxes = 200;
     [propertyInvestment setExpenses:expenses];
     [propertyInvestment setGrossIncome:30000];
+    [propertyInvestment setTaxBracket:25.0];
     return [super init];
 }
 
