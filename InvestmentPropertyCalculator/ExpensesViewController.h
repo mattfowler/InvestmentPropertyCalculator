@@ -11,4 +11,11 @@
 
 @interface ExpensesViewController : BaseCalculatorViewController
 
+@property (nonatomic, retain) IBOutlet UITextField *taxesField;
+@property (nonatomic, retain) IBOutlet UITextField *insuranceField;
+@property (nonatomic, retain) IBOutlet UITextField *maintanenceField;
+@property (nonatomic, retain) IBOutlet UITextField *utilitiesField;
+@property (nonatomic, retain) IBOutlet UITextField *vacancyField;
+@property (nonatomic, retain) IBOutlet UITextField *otherField;
+
 @end

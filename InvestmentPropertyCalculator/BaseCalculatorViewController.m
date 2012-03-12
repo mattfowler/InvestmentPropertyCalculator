@@ -14,6 +14,7 @@
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
+static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 
 @synthesize navigationBar;
 @synthesize labelView;
@@ -51,7 +52,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     CGRect textFieldRect = [self.entryScrollView convertRect:textField.bounds fromView:textField];
     
     CGRect viewFrame = self.entryScrollView.frame;
-    animatedDistance = self.view.frame.size.height - PORTRAIT_KEYBOARD_HEIGHT - navigationBar.frame.size.height + 15;
+    animatedDistance =  PORTRAIT_KEYBOARD_HEIGHT - NAVIGATON_BAR_HEIGHT*2;
     viewFrame.size.height -= animatedDistance;
     
     CGFloat textFieldOffset = entryScrollView.contentOffset.y + textFieldRect.origin.y - textFieldRect.size.height/2 - 15;
@@ -95,6 +96,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [alert show];
     [alert release];
     [alertTextField release];
+
 }
 
 - (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
