@@ -16,9 +16,13 @@
 @property (nonatomic, retain) PropertyExpenses *expenses;
 
 @property int grossIncome;
+@property float taxBracket;
 
--(int) getNetOperatingIncome;
+-(int) getNetOperatingIncome; 
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
+
+-(double) getTaxDeductibleExpenseAmountForYear:(int)year withInflationRate:(double)rate;
+-(double) getPropertyDepreciatonForYear:(int)year;
 
 @end

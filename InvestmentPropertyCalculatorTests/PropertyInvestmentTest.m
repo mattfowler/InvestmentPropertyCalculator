@@ -54,5 +54,35 @@ static const int PROPERTY_COST = 100000;
 
 }
 
+-(void) testGetPropertyDepreciatonForYear {
+    double landFactor = .5;
+    double depreciationYears = 27.5;
+    
+    double expectedDepreciation = ((double)PROPERTY_COST * landFactor) / depreciationYears;
+    
+    STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciatonForYear:5], .01, @"Depreciation within 27.5 years not equal");
+    
+    STAssertEqualsWithAccuracy(0.00, [propertyInvestment getPropertyDepreciatonForYear:50], .01, @"Depreciation after 27.5 years should be equal");
+}
+
+-(void) testGetTaxDeductibleExpensesForYear {
+    double expectedExpensesFirstYear = MONTHLY_TAXES * 12 + MONTHLY_UTILITIES * 12;
+    double landFactor = .5;
+    double depreciationYears = 27.5;
+    double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / depreciationYears;
+    
+    double expectedTaxDeductibleExpensesFirstYear = expectedExpensesFirstYear + expectedDepreciationFirstYear;
+    
+    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.00], .01, @"Tax deductible amounts for year one not equal.");
+    
+    double inflationRate = .05;
+    int yearsInFuture = 10;
+    double expectedExpensesTenthYear = expectedTaxDeductibleExpensesFirstYear * pow(1.0 + inflationRate, yearsInFuture);
+    
+    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture 
+                                                                              withInflationRate:inflationRate], 
+                               .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
+    
+}
 
 @end
