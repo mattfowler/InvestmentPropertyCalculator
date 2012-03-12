@@ -12,6 +12,7 @@
 @interface BaseCalculatorViewController : UIViewController <UITextFieldDelegate> {
     @private
     CGFloat animatedDistance;
+    UITextField *alertTextField;
     
     @protected
     NSNumberFormatter *dollarsAndCentsFormatter;
@@ -27,6 +28,8 @@
 - (NSString*) stringFromPercent:(double)percent;
 
 - (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
+
+- (IBAction)saveButtonClicked:(id)sender;
 
 
 @end

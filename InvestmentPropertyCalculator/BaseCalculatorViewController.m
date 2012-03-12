@@ -81,4 +81,27 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [UIView commitAnimations];
 }
 
+- (IBAction)saveButtonClicked:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter A Property Name" message:@"this is covered" 
+                                              delegate:self 
+                                              cancelButtonTitle:@"Cancel" 
+                                              otherButtonTitles:@"Save", nil];   
+    
+    alertTextField = [[UITextField alloc] initWithFrame:CGRectMake(12, 45, 260, 25)];
+       
+    [alertTextField setBackgroundColor:[UIColor whiteColor]];
+    [alert addSubview:alertTextField];
+    [alert show];
+    [alert release];
+    [alertTextField release];
+}
+
+- (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        //TODO: Save logic, serialize current model to the users data directory.
+    }
+}
+
+
 @end
