@@ -10,7 +10,7 @@
 #import "Mortgage.h"
 #import "PropertyExpenses.h"
 
-@interface PropertyInvestment : NSObject
+@interface PropertyInvestment : NSObject <NSCoding>
 
 @property (nonatomic, retain) Mortgage *mortgage;
 @property (nonatomic, retain) PropertyExpenses *expenses;

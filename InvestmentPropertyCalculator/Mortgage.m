@@ -15,6 +15,11 @@
 @synthesize interestRate;
 @synthesize amoritizationYears;
 
+static NSString* SALES_PRICE_KEY = @"salesPrice";
+static NSString* DOWNPAYMENT_PERCENT_KEY = @"downpaymentPercent";
+static NSString* INTEREST_RATE_KEY = @"interestRate";
+static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
+
 - (id) initWithSalesPrice:(int)price downpayment:(double)downpayment interestRate:(double)interest years:(double) years {
     self = [super init];
     if (self) {
@@ -24,6 +29,24 @@
         amoritizationYears = years;
     }    
     return self;
+}
+
+-(id) initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+        self.salesPrice = [decoder decodeIntForKey:SALES_PRICE_KEY];
+        self.downpaymentPercent = [decoder decodeDoubleForKey:DOWNPAYMENT_PERCENT_KEY];
+        self.interestRate = [decoder decodeDoubleForKey:INTEREST_RATE_KEY];
+        self.amoritizationYears = [decoder decodeIntForKey:AMORITIZATION_YEARS_KEY];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    [coder encodeInt:salesPrice forKey:SALES_PRICE_KEY];
+    [coder encodeDouble:downpaymentPercent forKey:DOWNPAYMENT_PERCENT_KEY];
+    [coder encodeDouble:interestRate forKey:INTEREST_RATE_KEY];
+    [coder encodeInt:amoritizationYears forKey:AMORITIZATION_YEARS_KEY];
 }
 
 - (double) getMonthlyPayment {

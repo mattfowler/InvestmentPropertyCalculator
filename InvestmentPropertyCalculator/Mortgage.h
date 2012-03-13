@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Mortgage : NSObject
+@interface Mortgage : NSObject <NSCoding>
 
 @property int salesPrice;
 @property double interestRate;

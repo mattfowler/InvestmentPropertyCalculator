@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PropertyExpenses : NSObject
+@interface PropertyExpenses : NSObject <NSCoding>
 
 @property double taxes;
 @property double insurance;
