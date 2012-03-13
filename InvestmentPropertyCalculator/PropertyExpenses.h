@@ -15,7 +15,9 @@
 @property double utilities;
 @property double maintainence;
 @property double vacancyRate;
+@property double otherExpenses;
 
 -(double) getMonthlyExpenses;
+-(double) getYearlyExpenses;
 
 @end

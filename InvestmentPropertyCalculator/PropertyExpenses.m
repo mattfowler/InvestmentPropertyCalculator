@@ -15,9 +15,14 @@
 @synthesize utilities;
 @synthesize maintainence;
 @synthesize vacancyRate;
+@synthesize otherExpenses;
 
 -(double) getMonthlyExpenses {
-    return taxes + insurance + utilities + maintainence;
+    return taxes + insurance + utilities + maintainence + otherExpenses;
+}
+
+-(double) getYearlyExpenses {
+    return self.getMonthlyExpenses * 12;
 }
 
 @end
