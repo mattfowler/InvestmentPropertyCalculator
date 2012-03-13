@@ -54,9 +54,9 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     CGRect viewFrame = self.entryScrollView.frame;
     animatedDistance =  PORTRAIT_KEYBOARD_HEIGHT - NAVIGATON_BAR_HEIGHT*2;
     viewFrame.size.height -= animatedDistance;
-    
-    CGFloat textFieldOffset = entryScrollView.contentOffset.y + textFieldRect.origin.y - textFieldRect.size.height/2 - 15;
-    [entryScrollView setContentOffset:CGPointMake(entryScrollView.contentOffset.x, textFieldOffset)  animated:YES];
+
+    CGFloat textFieldOffset = textFieldRect.origin.y - textFieldRect.size.height/2;
+    [entryScrollView setContentOffset:CGPointMake(entryScrollView.contentOffset.x, textFieldOffset) animated:YES];
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
