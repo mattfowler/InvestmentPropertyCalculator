@@ -82,7 +82,19 @@ static const int PROPERTY_COST = 100000;
     STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture 
                                                                               withInflationRate:inflationRate], 
                                .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
-    
+}
+
+-(void) testGetAfterTaxCashFlow {
+    propertyInvestment.taxBracket = 25.0;
+    propertyInvestment.grossIncome = 50000;
+    int expectedExpensesFirstYear = MONTHLY_TAXES * 12 + MONTHLY_UTILITIES * 12;
+    double landFactor = .5;
+    double depreciationYears = 27.5;
+    double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / depreciationYears;
+    double expectedTaxDeductibleExpensesFirstYear = expectedExpensesFirstYear + expectedDepreciationFirstYear;
+
+    int expectedCashFlow = ((double)propertyInvestment.grossIncome - expectedTaxDeductibleExpensesFirstYear) * .75;
+    STAssertEquals(expectedCashFlow-1, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }
 
 @end
