@@ -31,6 +31,11 @@
     [self updateLabelsFromModel];
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    [self updateEditableFieldsFromModel];
+    [self updateLabelsFromModel];
+}
+
 -(void) initTextFields {
     [taxesField setDelegate:self];
     [insuranceField setDelegate:self];
