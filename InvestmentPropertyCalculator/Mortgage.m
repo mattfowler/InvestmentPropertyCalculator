@@ -67,4 +67,10 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     return (self.getMonthlyPayment * (amoritizationYears * 12)) - self.getInitialPrincipal;
 }
 
+- (double) getInterestPaidInYear:(int)year {
+    //TODO: (1+r)^N*P - (((1+r)^N-1)/ r) * C
+    return 0;
+}
+
+
 @end

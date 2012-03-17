@@ -42,7 +42,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(int) getNetOperatingIncome {
-    return grossIncome - mortgage.getMonthlyPayment * 12 - expenses.getMonthlyExpenses * 12;
+    return grossIncome - (mortgage.getMonthlyPayment * 12) - (expenses.getMonthlyExpenses * 12);
 }
 
 -(double) getCapitalizationRate {
@@ -55,7 +55,12 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 
 -(int) getAfterTaxCashFlow {
     int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0];
-    return taxableIncome * (1.0 - taxBracket/100.0);
+    if (taxableIncome < 0) {
+        double deduction = taxableIncome * (taxBracket/100.0);
+        return self.getNetOperatingIncome + -1 * deduction; 
+    } else {
+        return taxableIncome * (1.0 - taxBracket/100.0);
+    }
 }
 
 -(double) getValue:(double)value afterYears:(int)years withInflationRate:(double)rate {

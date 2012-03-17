@@ -21,5 +21,5 @@
 - (double) getInitialPrincipal;
 - (double) getDownpaymentAmount;
 - (double) getTotalInterestPaid;
-
+- (double) getInterestPaidInYear:(int)year;
 @end
