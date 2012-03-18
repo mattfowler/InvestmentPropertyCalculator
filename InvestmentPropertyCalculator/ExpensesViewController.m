@@ -54,13 +54,13 @@
 -(void) updateEditableFieldsFromModel {
     PropertyInvestment *investment = [self getPropertyInvestment];
     PropertyExpenses *expenses = investment.expenses;
-    
-    [taxesField setText:[NSString stringWithFormat:@"%d" , expenses.taxes]];
-    [insuranceField setText:[NSString stringWithFormat:@"%d" , expenses.insurance]];
-    [maintanenceField setText:[NSString stringWithFormat:@"%d" , expenses.maintainence]];
-    [utilitiesField setText:[NSString stringWithFormat:@"%d" , expenses.utilities]];
-    [vacancyField setText:[NSString stringWithFormat:@"%d" , expenses.vacancyRate]];
-    [otherField setText:[NSString stringWithFormat:@"%d" , expenses.otherExpenses]];
+    NSString *decimalFormat = @"1.2f";
+    [taxesField setText:[NSString stringWithFormat:decimalFormat, expenses.taxes]];
+    [insuranceField setText:[NSString stringWithFormat:decimalFormat, expenses.insurance]];
+    [maintanenceField setText:[NSString stringWithFormat:decimalFormat, expenses.maintainence]];
+    [utilitiesField setText:[NSString stringWithFormat:decimalFormat, expenses.utilities]];
+    [vacancyField setText:[NSString stringWithFormat:decimalFormat, expenses.vacancyRate]];
+    [otherField setText:[NSString stringWithFormat:decimalFormat, expenses.otherExpenses]];
 }
 
 -(void) updateLabelsFromModel {
