@@ -36,4 +36,11 @@
     STAssertEqualsWithAccuracy(totalPayments - 75000.0, [testMortgage getTotalInterestPaid], .01, @"Total interest not equal");
 }
 
+- (void) testGetInterestPaidInYear {
+    double expectedInterest = 3163.06;
+    double expectedInterestYearThirty = 100.26;  
+    STAssertEqualsWithAccuracy(expectedInterest, [testMortgage getInterestPaidInYear:1], .01, @"Interests not equal for first year");
+    STAssertEqualsWithAccuracy(expectedInterestYearThirty, [testMortgage getInterestPaidInYear:30], .01, @"Interest not equal for last year");
+}
+
 @end
