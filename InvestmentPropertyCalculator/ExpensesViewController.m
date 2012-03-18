@@ -54,7 +54,7 @@
 -(void) updateEditableFieldsFromModel {
     PropertyInvestment *investment = [self getPropertyInvestment];
     PropertyExpenses *expenses = investment.expenses;
-    NSString *decimalFormat = @"1.2f";
+    NSString *decimalFormat = @"%1.2f";
     [taxesField setText:[NSString stringWithFormat:decimalFormat, expenses.taxes]];
     [insuranceField setText:[NSString stringWithFormat:decimalFormat, expenses.insurance]];
     [maintanenceField setText:[NSString stringWithFormat:decimalFormat, expenses.maintainence]];
