@@ -54,7 +54,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(int) getAfterTaxCashFlow {
-    int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0];
+    int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0] - [mortgage getInterestPaidInYear:1];
     if (taxableIncome < 0) {
         double deduction = taxableIncome * (taxBracket/100.0);
         return self.getNetOperatingIncome + -1 * deduction; 
