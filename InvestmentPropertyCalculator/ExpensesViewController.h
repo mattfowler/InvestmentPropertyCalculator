@@ -18,6 +18,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *vacancyField;
 @property (nonatomic, retain) IBOutlet UITextField *otherField;
 
+@property (nonatomic, retain) IBOutlet UILabel * vacancyLabel;
+
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *monthlyExpensesLabel;
 @property (nonatomic, retain) IBOutlet UILabel *yearlyExpensesLabel;

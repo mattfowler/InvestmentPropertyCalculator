@@ -21,6 +21,7 @@
 -(int) getNetOperatingIncome; 
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
+-(double) getVacancyLoss;
 
 -(int) getAfterTaxCashFlow;
 -(double) getTaxDeductibleExpenseAmountForYear:(int)year withInflationRate:(double)rate;

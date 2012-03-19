@@ -53,6 +53,10 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     return (double) self.getNetOperatingIncome / (double) mortgage.getDownpaymentAmount;
 }
 
+-(double) getVacancyLoss {
+    return self.grossIncome * (expenses.vacancyRate/100);
+}
+
 -(int) getAfterTaxCashFlow {
     int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0] - [mortgage getInterestPaidInYear:1];
     if (taxableIncome < 0) {
@@ -80,6 +84,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
         return depreciationPerYear;
     }
 }
+
 
 
 @end

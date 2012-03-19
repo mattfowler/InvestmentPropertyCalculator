@@ -88,7 +88,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
-    int expectedCashFlow = ((double)propertyInvestment.grossIncome - expectedTaxDeductibleExpensesFirstYear) * .75;
+    int expectedCashFlow = ((double)propertyInvestment.grossIncome - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .75;
     STAssertEquals(expectedCashFlow-1, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }
 
@@ -97,11 +97,16 @@ static const double DEPRECIATION_YEARS = 27.5;
     propertyInvestment.grossIncome = 10000;
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
-    double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
+    double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
     double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - (double)propertyInvestment.grossIncome;
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome + (expectedDeduction *.25);
     STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
-    
+}
+
+-(void) testGetVacancyRateLoss {
+    propertyInvestment.grossIncome = 10000;
+    [propertyExpenses setVacancyRate:1.0];
+    STAssertEqualsWithAccuracy(10000.0 * .01, propertyInvestment.getVacancyLoss, .1, @"Vacancy losses not equal");
 }
 
 @end

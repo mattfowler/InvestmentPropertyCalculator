@@ -19,6 +19,8 @@
 @synthesize vacancyField;
 @synthesize otherField;
 
+@synthesize vacancyLabel;
+
 @synthesize netOperatingIncomeLabel;
 @synthesize monthlyExpensesLabel;
 @synthesize yearlyExpensesLabel;
@@ -70,6 +72,7 @@
     [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:investment.getNetOperatingIncome]];
     [monthlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getMonthlyExpenses]];
     [yearlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getYearlyExpenses]];
+    [vacancyLabel setText:[self stringFromDollarsAndCents:(-1*investment.getVacancyLoss)]];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -87,7 +90,6 @@
     [expenses setVacancyRate:[[vacancyField text] doubleValue]];
     [expenses setOtherExpenses:[[otherField text] doubleValue]];
 }
-
 
 -(void)touchBackground:(id)sender{
     [taxesField resignFirstResponder];

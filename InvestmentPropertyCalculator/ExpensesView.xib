@@ -254,7 +254,7 @@
 								<string key="NSFrame">{{139, 217}, {75, 31}}</string>
 								<reference key="NSSuperview" ref="647657367"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="758712336"/>
+								<reference key="NSNextKeyView" ref="388750755"/>
 								<string key="NSReuseIdentifierKey">_NS:294</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -501,7 +501,6 @@
 								<string key="NSFrame">{{244, 262}, {70, 44}}</string>
 								<reference key="NSSuperview" ref="647657367"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:262</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -665,6 +664,27 @@
 									<double key="pointSize">17</double>
 								</object>
 								<reference key="IBUIFont" ref="316442859"/>
+							</object>
+							<object class="IBUILabel" id="388750755">
+								<reference key="NSNextResponder" ref="647657367"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{244, 220}, {70, 21}}</string>
+								<reference key="NSSuperview" ref="647657367"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="758712336"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText"/>
+								<reference key="IBUITextColor" ref="951295961"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">10</float>
+								<reference key="IBUIFontDescription" ref="752293313"/>
+								<reference key="IBUIFont" ref="831011725"/>
 							</object>
 						</array>
 						<string key="NSFrame">{{0, 162}, {320, 249}}</string>
@@ -1016,6 +1036,14 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<int key="connectionID">103</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">vacancyLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="388750755"/>
+					</object>
+					<int key="connectionID">105</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">touchBackground:</string>
 						<reference key="source" ref="623970582"/>
@@ -1139,6 +1167,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<reference ref="893659906"/>
 							<reference ref="981819768"/>
 							<reference ref="617571306"/>
+							<reference ref="388750755"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1291,6 +1320,12 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<reference key="parent" ref="623970582"/>
 						<string key="objectName">Yearly Expenses</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">104</int>
+						<reference key="object" ref="388750755"/>
+						<reference key="parent" ref="647657367"/>
+						<string key="objectName">Vacancy Rate Label</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1301,6 +1336,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 				<string key="1.CustomClassName">UIControl</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="100.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="104.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.CustomClassName">UIControl</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1346,7 +1382,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">103</int>
+			<int key="maxID">105</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1468,6 +1504,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<string key="taxesField">UITextField</string>
 						<string key="utilitiesField">UITextField</string>
 						<string key="vacancyField">UITextField</string>
+						<string key="vacancyLabel">UILabel</string>
 						<string key="yearlyExpensesLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1502,6 +1539,10 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="vacancyField">
 							<string key="name">vacancyField</string>
 							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="vacancyLabel">
+							<string key="name">vacancyLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="yearlyExpensesLabel">
 							<string key="name">yearlyExpensesLabel</string>
