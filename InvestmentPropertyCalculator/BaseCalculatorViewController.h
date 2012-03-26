@@ -22,6 +22,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, retain) IBOutlet UIView *labelView;
 @property (nonatomic, retain) IBOutlet UIScrollView *entryScrollView;
+@property (nonatomic, retain) IBOutlet UIToolbar *keyboardToolbar;
 
 - (PropertyInvestment *) getPropertyInvestment;
 
@@ -30,6 +31,8 @@
 - (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
 
 - (IBAction)saveButtonClicked:(id)sender;
+
+- (void)touchBackground:(id)sender;
 
 
 @end

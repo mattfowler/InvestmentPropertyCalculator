@@ -22,5 +22,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *mortgagePayment;
 @property (nonatomic, retain) IBOutlet UILabel *totalInterestPaid;
 
+- (IBAction)touchBackground:(id)sender;
 
 @end

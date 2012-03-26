@@ -24,4 +24,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *monthlyExpensesLabel;
 @property (nonatomic, retain) IBOutlet UILabel *yearlyExpensesLabel;
 
+- (IBAction)touchBackground:(id)sender;
+
 @end
