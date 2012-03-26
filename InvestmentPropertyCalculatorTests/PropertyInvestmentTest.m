@@ -7,13 +7,14 @@
 //
 
 #import "PropertyInvestmentTest.h"
+#import "DollarValueForInterval.h"
 
 @implementation PropertyInvestmentTest
 
-static const int MONTHLY_TAXES = 1000;
-static const int MONTHLY_UTILITIES = 500;
+static const int YEARLY_TAXES = 1000;
+static const int YEARLY_UTILITIES = 500;
 static const int PROPERTY_COST = 100000;
-static const int EXPENSES_FIRST_YEAR = MONTHLY_TAXES * 12 + MONTHLY_UTILITIES * 12;
+static const int EXPENSES_FIRST_YEAR = YEARLY_TAXES + YEARLY_UTILITIES;
 static const double DEPRECIATION_YEARS = 27.5;
 
 
@@ -21,25 +22,25 @@ static const double DEPRECIATION_YEARS = 27.5;
     testMortgage = [[Mortgage alloc] initWithSalesPrice:PROPERTY_COST downpayment:25.0 interestRate:4.25 years:30];
     propertyInvestment = [[PropertyInvestment alloc] init];
     propertyExpenses = [[PropertyExpenses alloc] init];
-    propertyExpenses.taxes = MONTHLY_TAXES;
-    propertyExpenses.utilities = MONTHLY_UTILITIES;
+    propertyExpenses.taxes = [DollarValueForInterval createValue:YEARLY_TAXES forTimePeriod:Year];
+    propertyExpenses.utilities = [DollarValueForInterval createValue:YEARLY_UTILITIES forTimePeriod:Year];
     [propertyInvestment setMortgage:testMortgage];
     [propertyInvestment setExpenses:propertyExpenses];
 }
 
 -(void)testGetNetOperatingIncome {
-    propertyInvestment.grossIncome = 50000;
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
     
-    int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - (MONTHLY_TAXES + MONTHLY_UTILITIES) * 12;
+    int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
     STAssertEquals(expectedNetIncome, [propertyInvestment getNetOperatingIncome], @"Net income not equal, should be 22427."); 
     
 }
 
 -(void) testGetCapRate {
-    propertyInvestment.grossIncome = 50000;
+    propertyInvestment.grossIncome =  [DollarValueForInterval createValue:50000 forTimePeriod:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - (MONTHLY_TAXES + MONTHLY_UTILITIES) * 12;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
     double expectedCapRate = (expectedNetIncome / (double) PROPERTY_COST);
      
@@ -47,9 +48,9 @@ static const double DEPRECIATION_YEARS = 27.5;
 }
 
 -(void) testGetCashOnCashReturn {
-    propertyInvestment.grossIncome = 50000;
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - (MONTHLY_TAXES + MONTHLY_UTILITIES) * 12;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
     double expectedReturn =  expectedNetIncome / 25000.0;
     
@@ -83,29 +84,29 @@ static const double DEPRECIATION_YEARS = 27.5;
 
 -(void) testGetAfterTaxCashFlow {
     propertyInvestment.taxBracket = 25.0;
-    propertyInvestment.grossIncome = 50000;
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
-    double expectedTaxDue = ((double)propertyInvestment.grossIncome - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
+    double expectedTaxDue = ([propertyInvestment.grossIncome getValueForTimeInterval:Year] - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome - expectedTaxDue;
     STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }
 
 -(void) testGetAfterTaxCashFlowWithTaxDeduction {
     propertyInvestment.taxBracket = 25.0;
-    propertyInvestment.grossIncome = 10000;
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimePeriod:Year];
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
-    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - (double)propertyInvestment.grossIncome;
+    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getValueForTimeInterval:Year];
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome + (expectedDeduction *.25);
     STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }
 
 -(void) testGetVacancyRateLoss {
-    propertyInvestment.grossIncome = 10000;
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimePeriod:Year];
     [propertyExpenses setVacancyRate:1.0];
     STAssertEqualsWithAccuracy(10000.0 * .01, propertyInvestment.getVacancyLoss, .1, @"Vacancy losses not equal");
 }
