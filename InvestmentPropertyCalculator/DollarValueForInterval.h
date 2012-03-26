@@ -13,7 +13,7 @@ typedef enum {
     Month = 1
 } TimeInterval;
 
-@interface DollarValueForInterval : NSObject {
+@interface DollarValueForInterval : NSObject <NSCoding> {
     @private
     double value;
     TimeInterval interval;

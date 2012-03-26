@@ -13,8 +13,25 @@
 @synthesize dollarValue = value;
 @synthesize timeInterval = interval;
 
+NSString* VALUE_KEY = @"value";
+NSString* INTERVAL_KEY = @"interval";
+
 +(DollarValueForInterval*) createValue:(double) value forTimePeriod:(TimeInterval) interval {
     return [[[DollarValueForInterval alloc] initWithValue:value andTimeInterval:interval] autorelease];
+}
+
+-(id) initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if (self) {
+        self->value = [decoder decodeDoubleForKey:VALUE_KEY];
+        self->interval = [decoder decodeIntForKey:INTERVAL_KEY];
+    }
+    return self;
+}
+
+-(void) encodeWithCoder:(NSCoder *)coder {
+    [coder encodeDouble:value forKey:VALUE_KEY];
+    [coder encodeInt:interval forKey:INTERVAL_KEY];
 }
 
 - (id) initWithValue:(double)dollarValue andTimeInterval:(TimeInterval)timeInterval{
