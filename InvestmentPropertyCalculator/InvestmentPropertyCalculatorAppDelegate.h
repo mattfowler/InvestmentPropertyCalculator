@@ -10,11 +10,6 @@
 #import "PropertyInvestment.h"
 #import "PropertyInvestmentProtocol.h"
 
-typedef enum {
-    Month,
-    Year
-} InputTimeInterval;
-
 @interface InvestmentPropertyCalculatorAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, PropertyInvestmentProtocol> {
     PropertyInvestment* propertyInvestment;
 }

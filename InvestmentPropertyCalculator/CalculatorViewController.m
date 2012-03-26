@@ -8,6 +8,7 @@
 
 #import "CalculatorViewController.h"
 #import "Mortgage.h"
+#import "DollarValueForInterval.h"
 #import "PropertyInvestmentProtocol.h"
 #import "PropertyInvestment.h"
 
@@ -23,6 +24,7 @@
 @synthesize downpaymentField;
 @synthesize taxBracketField;
 @synthesize grossRentField;
+@synthesize grossRentIntervalField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +38,16 @@
                                           selector:@selector(textFieldValueDidChange)
                                           name:UITextFieldTextDidChangeNotification 
                                           object:nil];
+    
+    [grossRentIntervalField addTarget:self
+	                     action:@selector(changedRentPeriod:)
+	           forControlEvents:UIControlEventValueChanged];
+}
+
+- (void) changedRentPeriod:(id) sender {
+    TimeInterval selectedIndex = [grossRentIntervalField selectedSegmentIndex]; 
+    [self.getPropertyInvestment setGrossIncome:[[DollarValueForInterval alloc] initWithValue:[grossRentField.text doubleValue] andTimeInterval:selectedIndex]];
+    [self updateViewLabelsFromModel];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -69,7 +81,7 @@
     PropertyInvestment *investment = self.getPropertyInvestment;
     [salesPriceField setText:[NSString stringWithFormat:@"%d", investment.mortgage.salesPrice]];
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", investment.mortgage.downpaymentPercent]];
-    [grossRentField setText:[NSString stringWithFormat:@"%d", investment.grossIncome]];
+    [grossRentField setText:[NSString stringWithFormat:@"%1.2f", [investment.grossIncome getValueForTimeInterval:grossRentIntervalField.selectedSegmentIndex]]];
     [taxBracketField setText:[NSString stringWithFormat:@"%1.2f", investment.taxBracket]];
 }
 
@@ -82,7 +94,7 @@
 }
 
 -(void) updateModelFromView {
-    self.getPropertyInvestment.grossIncome = [grossRentField.text intValue];
+    self.getPropertyInvestment.grossIncome = [DollarValueForInterval createValue:[grossRentField.text doubleValue] forTimePeriod:grossRentIntervalField.selectedSegmentIndex];
     self.getPropertyInvestment.taxBracket = [taxBracketField.text doubleValue];
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];

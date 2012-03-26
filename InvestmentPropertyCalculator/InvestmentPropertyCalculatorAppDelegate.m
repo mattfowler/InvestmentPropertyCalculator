@@ -7,6 +7,7 @@
 //
 
 #import "InvestmentPropertyCalculatorAppDelegate.h"
+#import "DollarValueForInterval.h"
 #import "Mortgage.h"
 #import "PropertyExpenses.h"
 
@@ -23,7 +24,7 @@
     [propertyInvestment setMortgage:defaultMortgage];
     PropertyExpenses *expenses = [[PropertyExpenses alloc] init];
     [propertyInvestment setExpenses:expenses];
-    [propertyInvestment setGrossIncome:30000];
+    [propertyInvestment setGrossIncome:[DollarValueForInterval createValue:30000 forTimePeriod:Year]];
     [propertyInvestment setTaxBracket:25.0];
     return [super init];
 }

@@ -28,7 +28,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     if (self) {
         self.mortgage = [decoder decodeObjectForKey:MORTGAGE_KEY];
         self.expenses = [decoder decodeObjectForKey:EXPENSES_KEY];
-        self.grossIncome = [decoder decodeIntForKey:GROSS_INCOME_KEY];
+        self.grossIncome = [decoder decodeObjectForKey:GROSS_INCOME_KEY];
         self.taxBracket = [decoder decodeDoubleForKey:TAX_BRACKET_KEY];
     }
     return self;
@@ -37,12 +37,12 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 -(void) encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:mortgage forKey:MORTGAGE_KEY];
     [coder encodeObject:expenses forKey:EXPENSES_KEY];
-    [coder encodeInteger:grossIncome forKey:GROSS_INCOME_KEY];
+    [coder encodeObject:grossIncome forKey:GROSS_INCOME_KEY];
     [coder encodeDouble:taxBracket forKey:TAX_BRACKET_KEY];
 }
 
 -(int) getNetOperatingIncome {
-    return grossIncome - (mortgage.getMonthlyPayment * 12) - (expenses.getMonthlyExpenses * 12);
+    return [self.grossIncome getValueForTimeInterval:Year] - (mortgage.getMonthlyPayment * 12) - expenses.getYearlyExpenses;
 }
 
 -(double) getCapitalizationRate {
@@ -54,11 +54,11 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(double) getVacancyLoss {
-    return self.grossIncome * (expenses.vacancyRate/100);
+    return [self.grossIncome getValueForTimeInterval:Year] * (expenses.vacancyRate/100);
 }
 
 -(int) getAfterTaxCashFlow {
-    int taxableIncome = self.grossIncome - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0] - [mortgage getInterestPaidInYear:1];
+    int taxableIncome = [self.grossIncome getValueForTimeInterval:Year] - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0] - [mortgage getInterestPaidInYear:1];
     double taxRate = taxBracket/100;
     return self.getNetOperatingIncome - (taxableIncome * taxRate);
 }
@@ -68,7 +68,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(double) getTaxDeductibleExpenseAmountForYear:(int)year withInflationRate:(double)rate {
-    double expensesWithoutInflation = [expenses getMonthlyExpenses] * 12.0 + [self getPropertyDepreciatonForYear:year];
+    double expensesWithoutInflation = expenses.getYearlyExpenses + [self getPropertyDepreciatonForYear:year];
     return [self getValue:expensesWithoutInflation afterYears: year withInflationRate:rate];
 }
 
@@ -80,7 +80,6 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
         return depreciationPerYear;
     }
 }
-
 
 
 @end

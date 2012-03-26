@@ -23,6 +23,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *downpaymentField;
 @property (nonatomic, retain) IBOutlet UITextField *taxBracketField;
 @property (nonatomic, retain) IBOutlet UITextField *grossRentField;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *grossRentIntervalField;
+
 
 - (IBAction)touchBackground:(id)sender;
 

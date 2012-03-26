@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DollarValueForInterval.h"
 
 @interface PropertyExpenses : NSObject <NSCoding>
 
-@property double taxes;
-@property double insurance;
-@property double utilities;
-@property double maintainence;
+@property (nonatomic, retain) DollarValueForInterval* taxes;
+@property (nonatomic, retain) DollarValueForInterval* insurance;
+@property (nonatomic, retain) DollarValueForInterval* utilities;
+@property (nonatomic, retain) DollarValueForInterval* maintainence;
 @property double vacancyRate;
-@property double otherExpenses;
+@property (nonatomic, retain) DollarValueForInterval* otherExpenses;
 
--(double) getMonthlyExpenses;
 -(double) getYearlyExpenses;
+-(double) getMonthlyExpenses;
 
 @end

@@ -15,7 +15,7 @@
 @property (nonatomic, retain) Mortgage *mortgage;
 @property (nonatomic, retain) PropertyExpenses *expenses;
 
-@property int grossIncome;
+@property (nonatomic, retain) DollarValueForInterval* grossIncome;
 @property double taxBracket;
 
 -(int) getNetOperatingIncome; 

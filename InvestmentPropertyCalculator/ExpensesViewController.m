@@ -9,15 +9,20 @@
 #import "ExpensesViewController.h"
 #import "PropertyExpenses.h"
 #import "PropertyInvestment.h"
-
+#import "DollarValueForInterval.h"
 @implementation ExpensesViewController
 
 @synthesize taxesField;
+@synthesize taxesIntervalField;
 @synthesize insuranceField;
+@synthesize insuranceIntervalField;
 @synthesize maintanenceField;
+@synthesize maintanenceIntervalField;
 @synthesize utilitiesField;
+@synthesize utilitiesIntervalField;
 @synthesize vacancyField;
 @synthesize otherField;
+@synthesize otherIntervalField;
 
 @synthesize vacancyLabel;
 
@@ -29,6 +34,7 @@
     [super viewDidLoad];
     super.entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 75);
     [self initTextFields];
+    [self initPeriodFields];
     [self updateEditableFieldsFromModel];
     [self updateLabelsFromModel];
 }
@@ -37,6 +43,58 @@
     [self updateEditableFieldsFromModel];
     [self updateLabelsFromModel];
 }
+
+-(void) initPeriodFields {
+    [taxesIntervalField addTarget:self
+                         action:@selector(changedTaxesPeriod:)
+               forControlEvents:UIControlEventValueChanged];
+    [insuranceIntervalField addTarget:self
+                             action:@selector(changedInsurancePeriod:)
+                   forControlEvents:UIControlEventValueChanged];
+    [maintanenceIntervalField addTarget:self
+                               action:@selector(changedMaintanencePeriod:)
+                     forControlEvents:UIControlEventValueChanged];
+    [utilitiesIntervalField addTarget:self
+                             action:@selector(changedUtilitiesPeriod:)
+                   forControlEvents:UIControlEventValueChanged];
+    [otherIntervalField addTarget:self
+                         action:@selector(changedOtherPeriod:)
+               forControlEvents:UIControlEventValueChanged];
+}
+
+- (void) changedTaxesPeriod:(id) sender {
+    PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setTaxes:value];} fromUIField:taxesField withTimePeriod:taxesIntervalField.selectedSegmentIndex];
+    [self updateLabelsFromModel];
+}
+
+- (void) changedInsurancePeriod:(id) sender {
+    PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setInsurance:value];} fromUIField:insuranceField withTimePeriod:insuranceIntervalField.selectedSegmentIndex];
+    [self updateLabelsFromModel];
+}
+
+- (void) changedMaintanencePeriod:(id) sender {
+    PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setMaintainence:value];} fromUIField:maintanenceField withTimePeriod:maintanenceIntervalField.selectedSegmentIndex];
+    [self updateLabelsFromModel];
+}
+
+- (void) changedUtilitiesPeriod:(id) sender {
+    PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setUtilities:value];} fromUIField:utilitiesField withTimePeriod:utilitiesIntervalField.selectedSegmentIndex];
+    [self updateLabelsFromModel];
+}
+
+- (void) changedOtherPeriod:(id) sender {
+    PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setOtherExpenses:value];} fromUIField:otherField withTimePeriod:otherIntervalField.selectedSegmentIndex];
+    [self updateLabelsFromModel];
+}
+
+-(void) setExpenseForModel:(void (^)(DollarValueForInterval*)) modelFieldSetter fromUIField:(UITextField*) textField withTimePeriod:(TimeInterval) interval {    
+    modelFieldSetter([[DollarValueForInterval alloc] initWithValue:[[textField text] doubleValue] andTimeInterval:interval]);
+    }
 
 -(void) initTextFields {
     [taxesField setDelegate:self];
@@ -83,12 +141,12 @@
 
 - (void) updateModelFromTextFields {
     PropertyExpenses * expenses = [self getPropertyInvestment].expenses;
-    [expenses setTaxes:[[taxesField text] doubleValue]];
-    [expenses setInsurance:[[insuranceField text] doubleValue]];
-    [expenses setMaintainence:[[maintanenceField text] doubleValue]];
-    [expenses setUtilities:[[utilitiesField text] doubleValue]];
+    [expenses setTaxes:[DollarValueForInterval createValue:[taxesField.text doubleValue] forTimePeriod:taxesIntervalField.selectedSegmentIndex]];
+    [expenses setInsurance:[DollarValueForInterval createValue:[insuranceField.text doubleValue] forTimePeriod:insuranceIntervalField.selectedSegmentIndex]];
+    [expenses setMaintainence:[DollarValueForInterval createValue:[maintanenceField.text doubleValue] forTimePeriod:maintanenceIntervalField.selectedSegmentIndex]];
+    [expenses setUtilities:[DollarValueForInterval createValue:[utilitiesField.text doubleValue] forTimePeriod:utilitiesIntervalField.selectedSegmentIndex]];
     [expenses setVacancyRate:[[vacancyField text] doubleValue]];
-    [expenses setOtherExpenses:[[otherField text] doubleValue]];
+    [expenses setOtherExpenses:[DollarValueForInterval createValue:[otherField.text doubleValue] forTimePeriod:otherIntervalField.selectedSegmentIndex]];
 }
 
 -(void)touchBackground:(id)sender{

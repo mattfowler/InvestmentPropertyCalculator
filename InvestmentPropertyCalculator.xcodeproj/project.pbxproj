@@ -37,6 +37,7 @@
 		63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageTest.m */; };
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
 		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
+		63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */; };
 		63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536C314F2C68700A7744A /* ExpensesViewController.m */; };
 		63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E536C414F2C68700A7744A /* ExpensesView.xib */; };
 		63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CA14F2C9E100A7744A /* PropertyInvestment.m */; };
@@ -97,6 +98,8 @@
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
+		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DollarValueForInterval.h; sourceTree = "<group>"; };
+		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
 		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
 		63E536C314F2C68700A7744A /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
 		63E536C414F2C68700A7744A /* ExpensesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpensesView.xib; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 				63E536CD14F2CAB100A7744A /* PropertyExpenses.h */,
 				63E536CE14F2CAB100A7744A /* PropertyExpenses.m */,
 				63E536D114F2D88500A7744A /* PropertyInvestmentProtocol.h */,
+				63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */,
+				63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */,
 				6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */,
 				6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */,
+				63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
