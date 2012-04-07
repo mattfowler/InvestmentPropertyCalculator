@@ -98,7 +98,7 @@
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
-		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DollarValueForInterval.h; sourceTree = "<group>"; };
+		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
 		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
 		63E536C314F2C68700A7744A /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
@@ -137,6 +137,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6309050B15308C03007762A5 /* ExpensesView */ = {
+			isa = PBXGroup;
+			children = (
+				63E536C214F2C68700A7744A /* ExpensesViewController.h */,
+				63E536C314F2C68700A7744A /* ExpensesViewController.m */,
+			);
+			name = ExpensesView;
+			sourceTree = "<group>";
+		};
+		6309050D15308C19007762A5 /* MortgageView */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A4E14EFEB2B00999517 /* MortgageViewController.h */,
+				63A46A4F14EFEB2B00999517 /* MortgageViewController.m */,
+			);
+			name = MortgageView;
+			sourceTree = "<group>";
+		};
+		6309050E15308C2D007762A5 /* CompareView */ = {
+			isa = PBXGroup;
+			children = (
+				6355A24214F93C5B00EC7A31 /* CompareViewController.h */,
+				6355A24314F93C5B00EC7A31 /* CompareViewController.m */,
+			);
+			name = CompareView;
+			sourceTree = "<group>";
+		};
+		6309050F15308C40007762A5 /* CalculatorView */ = {
+			isa = PBXGroup;
+			children = (
+				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
+				63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */,
+			);
+			name = CalculatorView;
+			sourceTree = "<group>";
+		};
+		6309051015308C54007762A5 /* ProjectionsView */ = {
+			isa = PBXGroup;
+			children = (
+				6355A24614F9660600EC7A31 /* ProjectionsViewController.h */,
+				6355A24714F9660600EC7A31 /* ProjectionsViewController.m */,
+			);
+			name = ProjectionsView;
+			sourceTree = "<group>";
+		};
+		6309051215308C92007762A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
+				6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */,
+				6309051015308C54007762A5 /* ProjectionsView */,
+				6309050F15308C40007762A5 /* CalculatorView */,
+				6309050E15308C2D007762A5 /* CompareView */,
+				6309050D15308C19007762A5 /* MortgageView */,
+				6309050B15308C03007762A5 /* ExpensesView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		63A46A2714EFEB2B00999517 = {
 			isa = PBXGroup;
 			children = (
@@ -173,19 +232,8 @@
 				63BDAB4614F2C1C0008AE03A /* Resources */,
 				63A4FC1414F1B1B600F9E8E9 /* Models */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
-				6355A24614F9660600EC7A31 /* ProjectionsViewController.h */,
-				6355A24714F9660600EC7A31 /* ProjectionsViewController.m */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
-				63A46A4B14EFEB2B00999517 /* CalculatorViewController.h */,
-				63A46A4C14EFEB2B00999517 /* CalculatorViewController.m */,
-				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
-				6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */,
-				6355A24214F93C5B00EC7A31 /* CompareViewController.h */,
-				6355A24314F93C5B00EC7A31 /* CompareViewController.m */,
-				63A46A4E14EFEB2B00999517 /* MortgageViewController.h */,
-				63A46A4F14EFEB2B00999517 /* MortgageViewController.m */,
-				63E536C214F2C68700A7744A /* ExpensesViewController.h */,
-				63E536C314F2C68700A7744A /* ExpensesViewController.m */,
+				6309051215308C92007762A5 /* Views */,
 				63A46A3D14EFEB2B00999517 /* Supporting Files */,
 			);
 			path = InvestmentPropertyCalculator;
