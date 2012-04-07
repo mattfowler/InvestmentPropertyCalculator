@@ -24,7 +24,7 @@
     [propertyInvestment setMortgage:defaultMortgage];
     PropertyExpenses *expenses = [[PropertyExpenses alloc] init];
     [propertyInvestment setExpenses:expenses];
-    [propertyInvestment setGrossIncome:[DollarValueForInterval createValue:30000 forTimePeriod:Year]];
+    [propertyInvestment setGrossIncome:[DollarValueForInterval createValue:30000 forTimeInterval:Year]];
     [propertyInvestment setTaxBracket:25.0];
     return [super init];
 }

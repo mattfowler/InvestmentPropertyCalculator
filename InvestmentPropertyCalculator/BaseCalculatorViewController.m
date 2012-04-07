@@ -142,12 +142,20 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     [alert show];
     [alert release];
     [alertTextField release];
-
 }
 
 - (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        //TODO: Save logic, serialize current model to the users data directory.
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+        NSString *documentsPath = [paths objectAtIndex:0];
+        NSString *dataPath = [documentsPath stringByAppendingPathComponent:alertTextField.text];
+        NSMutableData *data = [[NSMutableData alloc] init];
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];          
+        [archiver encodeObject:self.getPropertyInvestment forKey:@"property"];
+        [archiver finishEncoding];
+        [data writeToFile:dataPath atomically:YES];
+        [archiver release];
+        [data release];
     }
 }
 

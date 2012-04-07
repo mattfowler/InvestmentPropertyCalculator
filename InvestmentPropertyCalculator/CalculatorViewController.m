@@ -94,7 +94,7 @@
 }
 
 -(void) updateModelFromView {
-    self.getPropertyInvestment.grossIncome = [DollarValueForInterval createValue:[grossRentField.text doubleValue] forTimePeriod:grossRentIntervalField.selectedSegmentIndex];
+    self.getPropertyInvestment.grossIncome = [DollarValueForInterval createValue:[grossRentField.text doubleValue] forTimeInterval:grossRentIntervalField.selectedSegmentIndex];
     self.getPropertyInvestment.taxBracket = [taxBracketField.text doubleValue];
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];

@@ -22,14 +22,14 @@ static const double DEPRECIATION_YEARS = 27.5;
     testMortgage = [[Mortgage alloc] initWithSalesPrice:PROPERTY_COST downpayment:25.0 interestRate:4.25 years:30];
     propertyInvestment = [[PropertyInvestment alloc] init];
     propertyExpenses = [[PropertyExpenses alloc] init];
-    propertyExpenses.taxes = [DollarValueForInterval createValue:YEARLY_TAXES forTimePeriod:Year];
-    propertyExpenses.utilities = [DollarValueForInterval createValue:YEARLY_UTILITIES forTimePeriod:Year];
+    propertyExpenses.taxes = [DollarValueForInterval createValue:YEARLY_TAXES forTimeInterval:Year];
+    propertyExpenses.utilities = [DollarValueForInterval createValue:YEARLY_UTILITIES forTimeInterval:Year];
     [propertyInvestment setMortgage:testMortgage];
     [propertyInvestment setExpenses:propertyExpenses];
 }
 
 -(void)testGetNetOperatingIncome {
-    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
     int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
@@ -38,7 +38,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 }
 
 -(void) testGetCapRate {
-    propertyInvestment.grossIncome =  [DollarValueForInterval createValue:50000 forTimePeriod:Year];
+    propertyInvestment.grossIncome =  [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
     double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
@@ -48,7 +48,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 }
 
 -(void) testGetCashOnCashReturn {
-    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
     double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
     
@@ -84,7 +84,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 
 -(void) testGetAfterTaxCashFlow {
     propertyInvestment.taxBracket = 25.0;
-    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimePeriod:Year];
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
@@ -96,7 +96,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 
 -(void) testGetAfterTaxCashFlowWithTaxDeduction {
     propertyInvestment.taxBracket = 25.0;
-    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimePeriod:Year];
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
@@ -106,7 +106,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 }
 
 -(void) testGetVacancyRateLoss {
-    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimePeriod:Year];
+    propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     [propertyExpenses setVacancyRate:1.0];
     STAssertEqualsWithAccuracy(10000.0 * .01, propertyInvestment.getVacancyLoss, .1, @"Vacancy losses not equal");
 }

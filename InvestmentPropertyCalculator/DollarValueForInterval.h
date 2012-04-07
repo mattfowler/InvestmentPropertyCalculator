@@ -23,9 +23,11 @@ typedef enum {
 
 @property (readonly) TimeInterval timeInterval;
 
-+(DollarValueForInterval*) createValue:(double) value forTimePeriod:(TimeInterval) interval;
++(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval;
 
 -(id) initWithValue:(double)dollarValue andTimeInterval:(TimeInterval)timeInterval;
+
+-(double) getValue;
 
 -(double) getValueForTimeInterval:(TimeInterval) interval;
 

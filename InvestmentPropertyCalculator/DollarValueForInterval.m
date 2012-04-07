@@ -16,7 +16,7 @@
 NSString* VALUE_KEY = @"value";
 NSString* INTERVAL_KEY = @"interval";
 
-+(DollarValueForInterval*) createValue:(double) value forTimePeriod:(TimeInterval) interval {
++(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval {
     return [[[DollarValueForInterval alloc] initWithValue:value andTimeInterval:interval] autorelease];
 }
 
@@ -41,6 +41,10 @@ NSString* INTERVAL_KEY = @"interval";
         self->interval = timeInterval;
     }    
     return self;
+}
+
+-(double) getValue {
+    return value;
 }
 
 -(double) getValueForTimeInterval:(TimeInterval) timeInterval {
