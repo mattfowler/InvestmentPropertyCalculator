@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309051415308DBB007762A5 /* ProjectionsTableViewController.m */; };
 		6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */; };
 		6355A23D14F93C3C00EC7A31 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23914F93C3C00EC7A31 /* bank.png */; };
 		6355A23E14F93C3C00EC7A31 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23A14F93C3C00EC7A31 /* connections.png */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6309051315308DBB007762A5 /* ProjectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionsTableViewController.h; sourceTree = "<group>"; };
+		6309051415308DBB007762A5 /* ProjectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionsTableViewController.m; sourceTree = "<group>"; };
 		6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCalculatorViewController.h; sourceTree = "<group>"; };
 		6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCalculatorViewController.m; sourceTree = "<group>"; };
 		6355A23914F93C3C00EC7A31 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 			children = (
 				6355A24614F9660600EC7A31 /* ProjectionsViewController.h */,
 				6355A24714F9660600EC7A31 /* ProjectionsViewController.m */,
+				6309051315308DBB007762A5 /* ProjectionsTableViewController.h */,
+				6309051415308DBB007762A5 /* ProjectionsTableViewController.m */,
 			);
 			name = ProjectionsView;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */,
 				6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */,
 				63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */,
+				6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

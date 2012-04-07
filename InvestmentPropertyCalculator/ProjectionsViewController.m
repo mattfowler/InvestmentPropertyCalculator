@@ -7,33 +7,25 @@
 //
 
 #import "ProjectionsViewController.h"
-
-@interface ProjectionsViewController ()
-
-@end
+#import "ProjectionsTableViewController.h"
 
 @implementation ProjectionsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize projectionsTableView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    projectionsTableViewController = [[ProjectionsTableViewController alloc] init];
+    projectionsTableView.delegate = projectionsTableViewController;
+    projectionsTableView.dataSource = projectionsTableViewController;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [projectionsTableView release];
+    [projectionsTableViewController release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
