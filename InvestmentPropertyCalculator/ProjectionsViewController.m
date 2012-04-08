@@ -21,6 +21,10 @@
     projectionsTableView.dataSource = projectionsTableViewController;
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [projectionsTableView reloadData];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
