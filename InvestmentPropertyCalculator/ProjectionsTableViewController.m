@@ -7,12 +7,22 @@
 //
 
 #import "ProjectionsTableViewController.h"
+#import "PropertyInvestment.h"
+#import "PropertyInvestmentProtocol.h"
 
 @interface ProjectionsTableViewController ()
 
 @end
 
 @implementation ProjectionsTableViewController
+
+- (PropertyInvestment *) getPropertyInvestment {
+    id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
+	PropertyInvestment* propertyInvestment = (PropertyInvestment*) investmentDelegate.propertyInvestment;
+	return propertyInvestment;
+}
+
+static const int MAX_PROJECTION_YEARS = 40;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -21,17 +31,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -50,17 +49,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return MAX_PROJECTION_YEARS;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [@"Year " stringByAppendingString:@"1"];
+    return [@"Year " stringByAppendingString:[NSString stringWithFormat:@"%d", section + 1]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,8 +67,37 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }    
+    int year = indexPath.section;
+
+    ProjectionType projectionType = indexPath.row;
+    PropertyInvestment * investment = [self getPropertyInvestment];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:12];
+
+    switch (projectionType) {
+        case GrossIncome:
+            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withInflationRate:.02 andTimeInterval:Year]]];
+            break;
+        case NetIncome:
+            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year withAppreciationRate:.02]]];
+            break;
+        case PrincipalPaid:
+            cell.textLabel.text = [@"Principal Paid: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.mortgage getPrincipalPaidInYear:year]]];
+            break;
+        case PropertyAppreciation:
+            cell.textLabel.text = @"Appreciation: ";
+            break;
+        case YearlyAddtionToNetWorth:
+            cell.textLabel.text = @"Addition to Net: ";
+            break;
+        case TotalAdditionToNetWorth:
+            cell.textLabel.text = @"Total Addition to Net: ";
+            break;
+        default:
+            cell.textLabel.text = @"";
+            break;
+    }
     return cell;
 }
 

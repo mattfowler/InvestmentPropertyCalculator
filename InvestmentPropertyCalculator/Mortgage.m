@@ -42,7 +42,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     return self;
 }
 
--(void) encodeWithCoder:(NSCoder *)coder {
+-(void) encodeWithCoder:(NSCoder *) coder {
     [coder encodeInt:salesPrice forKey:SALES_PRICE_KEY];
     [coder encodeDouble:downpaymentPercent forKey:DOWNPAYMENT_PERCENT_KEY];
     [coder encodeDouble:interestRate forKey:INTEREST_RATE_KEY];
@@ -66,14 +66,28 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     return (self.getMonthlyPayment * (amoritizationYears * 12)) - self.getInitialPrincipal;
 }
 
-- (double) getInterestPaidInYear:(int)year {
+- (double) getInterestPaidInYear:(int) year {
     int startMonth = (year - 1) * 12;
     int endMonth = startMonth + 12;
+    if (startMonth >= amoritizationYears*12) {
+        return 0.0;
+    }
     double startBalance = [self getPrincipalDueAtMonth:startMonth];
     double endBalance = [self getPrincipalDueAtMonth:endMonth];
     double yearlyPayments = self.getMonthlyPayment * 12;
     double principalPaidInYear = startBalance - endBalance;
     return yearlyPayments - principalPaidInYear;
+}
+
+- (double) getPrincipalPaidInYear:(int) year {
+    int startMonth = (year - 1) * 12;
+    int endMonth = startMonth + 12;
+    if (startMonth >= amoritizationYears*12) {
+        return 0.0;
+    }
+    double startBalance = [self getPrincipalDueAtMonth:startMonth];
+    double endBalance = [self getPrincipalDueAtMonth:endMonth];
+    return startBalance-endBalance;
 }
 
 -(double) getPrincipalDueAtMonth:(int) month {

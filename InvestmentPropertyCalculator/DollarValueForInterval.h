@@ -29,6 +29,10 @@ typedef enum {
 
 -(double) getValue;
 
++(NSString *) getStringDollarValueFromDouble:(double)dollarValue;
+
 -(double) getValueForTimeInterval:(TimeInterval) interval;
+
+-(double) getValueAfterYears:(int)years withInflationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval;
 
 @end

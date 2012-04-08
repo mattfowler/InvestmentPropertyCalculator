@@ -19,6 +19,8 @@
 @property double taxBracket;
 
 -(int) getNetOperatingIncome; 
+-(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate;
+
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
 -(double) getVacancyLoss;
