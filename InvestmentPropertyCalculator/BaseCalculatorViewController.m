@@ -8,6 +8,7 @@
 
 #import "BaseCalculatorViewController.h"
 #import "PropertyInvestmentProtocol.h"
+#import "OpenPropertyViewController.h"
 
 @implementation BaseCalculatorViewController
 
@@ -61,6 +62,7 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+
     //[self.labelView addSubview:self.navigationBar];
 
     [self createFormatters];
@@ -142,6 +144,12 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     [alert show];
     [alert release];
     [alertTextField release];
+}
+
+- (IBAction)openButtonClicked:(id)sender {
+    OpenPropertyViewController* openPropertyViewController = [[OpenPropertyViewController alloc] initWithNibName:@"OpenPropertyViewController" bundle:nil];
+    openPropertyViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:openPropertyViewController animated:YES];
 }
 
 - (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

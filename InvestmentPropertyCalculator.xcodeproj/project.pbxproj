@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309051415308DBB007762A5 /* ProjectionsTableViewController.m */; };
+		63090526153B5593007762A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63090525153B5593007762A5 /* Icon.png */; };
+		63090528153B55E7007762A5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63090527153B55E7007762A5 /* Icon@2x.png */; };
+		6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309052A154DEA40007762A5 /* OpenPropertyViewController.m */; };
+		6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */; };
 		6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */; };
 		6355A23D14F93C3C00EC7A31 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23914F93C3C00EC7A31 /* bank.png */; };
 		6355A23E14F93C3C00EC7A31 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23A14F93C3C00EC7A31 /* connections.png */; };
@@ -61,6 +65,11 @@
 /* Begin PBXFileReference section */
 		6309051315308DBB007762A5 /* ProjectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionsTableViewController.h; sourceTree = "<group>"; };
 		6309051415308DBB007762A5 /* ProjectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionsTableViewController.m; sourceTree = "<group>"; };
+		63090525153B5593007762A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = InvestmentPropertyCalculatorTests/Icon.png; sourceTree = SOURCE_ROOT; };
+		63090527153B55E7007762A5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		63090529154DEA40007762A5 /* OpenPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPropertyViewController.h; sourceTree = "<group>"; };
+		6309052A154DEA40007762A5 /* OpenPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPropertyViewController.m; sourceTree = "<group>"; };
+		6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPropertyViewController.xib; sourceTree = "<group>"; };
 		6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCalculatorViewController.h; sourceTree = "<group>"; };
 		6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCalculatorViewController.m; sourceTree = "<group>"; };
 		6355A23914F93C3C00EC7A31 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
@@ -190,6 +199,7 @@
 		6309051215308C92007762A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6309052E154DEA6E007762A5 /* OpenPropertyView */,
 				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
 				6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */,
 				6309051015308C54007762A5 /* ProjectionsView */,
@@ -199,6 +209,15 @@
 				6309050B15308C03007762A5 /* ExpensesView */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		6309052E154DEA6E007762A5 /* OpenPropertyView */ = {
+			isa = PBXGroup;
+			children = (
+				6309052A154DEA40007762A5 /* OpenPropertyViewController.m */,
+				63090529154DEA40007762A5 /* OpenPropertyViewController.h */,
+			);
+			name = OpenPropertyView;
 			sourceTree = "<group>";
 		};
 		63A46A2714EFEB2B00999517 = {
@@ -247,6 +266,8 @@
 		63A46A3D14EFEB2B00999517 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63090527153B55E7007762A5 /* Icon@2x.png */,
+				63090525153B5593007762A5 /* Icon.png */,
 				63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */,
 				63A46A3F14EFEB2B00999517 /* InfoPlist.strings */,
 				63A46A4214EFEB2B00999517 /* main.m */,
@@ -324,6 +345,7 @@
 				63E536C414F2C68700A7744A /* ExpensesView.xib */,
 				63A46A5414EFEB2B00999517 /* MortgageView.xib */,
 				6355A24814F9660600EC7A31 /* ProjectionsView.xib */,
+				6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -410,6 +432,9 @@
 				6355A24014F93C3C00EC7A31 /* trend.png in Resources */,
 				6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */,
 				6355A24A14F9660600EC7A31 /* ProjectionsView.xib in Resources */,
+				63090526153B5593007762A5 /* Icon.png in Resources */,
+				63090528153B55E7007762A5 /* Icon@2x.png in Resources */,
+				6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +483,7 @@
 				6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */,
 				63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */,
 				6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */,
+				6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
