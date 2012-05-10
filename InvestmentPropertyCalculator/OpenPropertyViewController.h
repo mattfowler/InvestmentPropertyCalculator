@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSArray* propertyNames;
 @property (nonatomic, retain) NSMutableArray* properties;
 @property (nonatomic, retain) IBOutlet UITableView* propertyTableView;
+@property (nonatomic, retain) IBOutlet UINavigationItem* navItem;
 
 -(IBAction)doneWithView:(id)sender;
 

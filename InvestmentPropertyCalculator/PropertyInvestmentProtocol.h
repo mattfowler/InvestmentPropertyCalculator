@@ -12,6 +12,6 @@
 
 @protocol PropertyInvestmentProtocol
 
--(PropertyInvestment *) propertyInvestment;
+@property (nonatomic, retain) PropertyInvestment *propertyInvestment;
 
 @end
