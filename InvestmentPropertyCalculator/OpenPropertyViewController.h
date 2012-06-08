@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface OpenPropertyViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    @private
-    
-    UITableViewController *propertyTableViewController;
 }
 
-@property (nonatomic, retain) NSArray* propertyNames;
+@property (nonatomic, retain) NSMutableArray* propertyNames;
 @property (nonatomic, retain) NSMutableArray* properties;
 @property (nonatomic, retain) IBOutlet UITableView* propertyTableView;
 @property (nonatomic, retain) IBOutlet UINavigationItem* navItem;
