@@ -50,8 +50,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 - (double) getMonthlyPayment {
-    int monthsOfLoan = amoritizationYears * 12;
-    return [self getInitialPrincipal] * (self.getMonthlyInterest / (1 - pow(1 + self.getMonthlyInterest, -monthsOfLoan)));
+    return [self getInitialPrincipal] * (self.getMonthlyInterest / (1 - pow(1 + self.getMonthlyInterest, -[self mortgageTermInMonths])));
 }
 
 - (double) getInitialPrincipal {
@@ -63,31 +62,28 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 - (double) getTotalInterestPaid {
-    return (self.getMonthlyPayment * (amoritizationYears * 12)) - self.getInitialPrincipal;
+    return (self.getMonthlyPayment * [self mortgageTermInMonths]) - self.getInitialPrincipal;
 }
 
 - (double) getInterestPaidInYear:(int) year {
-    int startMonth = (year - 1) * 12;
-    int endMonth = startMonth + 12;
-    if (startMonth >= amoritizationYears*12) {
-        return 0.0;
-    }
-    double startBalance = [self getPrincipalDueAtMonth:startMonth];
-    double endBalance = [self getPrincipalDueAtMonth:endMonth];
     double yearlyPayments = self.getMonthlyPayment * 12;
-    double principalPaidInYear = startBalance - endBalance;
-    return yearlyPayments - principalPaidInYear;
+    double principalPaidInYear = [self getPrincipalPaidInYear:year];
+    return principalPaidInYear == 0 ? 0 : yearlyPayments - principalPaidInYear;
 }
 
 - (double) getPrincipalPaidInYear:(int) year {
     int startMonth = (year - 1) * 12;
     int endMonth = startMonth + 12;
-    if (startMonth >= amoritizationYears*12) {
+    if (startMonth >= [self mortgageTermInMonths]) {
         return 0.0;
     }
     double startBalance = [self getPrincipalDueAtMonth:startMonth];
     double endBalance = [self getPrincipalDueAtMonth:endMonth];
     return startBalance-endBalance;
+}
+
+-(int) mortgageTermInMonths {
+    return amoritizationYears * 12;
 }
 
 -(double) getPrincipalDueAtMonth:(int) month {
