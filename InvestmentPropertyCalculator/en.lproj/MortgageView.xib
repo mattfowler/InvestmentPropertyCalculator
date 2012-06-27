@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1179</string>
+			<string key="NS.object.0">1181</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -590,7 +590,6 @@
 						<string key="NSFrame">{{0, 420}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -605,10 +604,10 @@
 								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="708844159">
-								<string key="IBUITitle">Done</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<int key="IBUIStyle">1</int>
+								<int key="IBUIStyle">2</int>
 								<reference key="IBUIToolbar" ref="408003250"/>
+								<int key="IBUISystemItemIdentifier">0</int>
 							</object>
 						</object>
 					</object>
@@ -1229,6 +1228,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>downpaymentField</string>
 							<string>downpaymentLabel</string>
 							<string>grossRentField</string>
+							<string>grossRentIntervalField</string>
 							<string>netOperatingIncomeLabel</string>
 							<string>salesPriceField</string>
 							<string>taxBracketField</string>
@@ -1241,6 +1241,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>UITextField</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -1256,6 +1257,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>downpaymentField</string>
 							<string>downpaymentLabel</string>
 							<string>grossRentField</string>
+							<string>grossRentIntervalField</string>
 							<string>netOperatingIncomeLabel</string>
 							<string>salesPriceField</string>
 							<string>taxBracketField</string>
@@ -1285,6 +1287,10 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">grossRentField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">grossRentIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">netOperatingIncomeLabel</string>
@@ -1324,12 +1330,17 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>insuranceField</string>
+							<string>insuranceIntervalField</string>
 							<string>maintanenceField</string>
+							<string>maintanenceIntervalField</string>
 							<string>monthlyExpensesLabel</string>
 							<string>netOperatingIncomeLabel</string>
 							<string>otherField</string>
+							<string>otherIntervalField</string>
 							<string>taxesField</string>
+							<string>taxesIntervalField</string>
 							<string>utilitiesField</string>
+							<string>utilitiesIntervalField</string>
 							<string>vacancyField</string>
 							<string>vacancyLabel</string>
 							<string>yearlyExpensesLabel</string>
@@ -1337,12 +1348,17 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UITextField</string>
+							<string>UISegmentedControl</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -1353,12 +1369,17 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>insuranceField</string>
+							<string>insuranceIntervalField</string>
 							<string>maintanenceField</string>
+							<string>maintanenceIntervalField</string>
 							<string>monthlyExpensesLabel</string>
 							<string>netOperatingIncomeLabel</string>
 							<string>otherField</string>
+							<string>otherIntervalField</string>
 							<string>taxesField</string>
+							<string>taxesIntervalField</string>
 							<string>utilitiesField</string>
+							<string>utilitiesIntervalField</string>
 							<string>vacancyField</string>
 							<string>vacancyLabel</string>
 							<string>yearlyExpensesLabel</string>
@@ -1370,8 +1391,16 @@ AAgACAAIAAEAAQABAAE</bytes>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">insuranceIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">maintanenceField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">maintanenceIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">monthlyExpensesLabel</string>
@@ -1386,12 +1415,24 @@ AAgACAAIAAEAAQABAAE</bytes>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">otherIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">taxesField</string>
 								<string key="candidateClassName">UITextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">taxesIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">utilitiesField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">utilitiesIntervalField</string>
+								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">vacancyField</string>
@@ -1519,6 +1560,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1179</string>
+		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
 </archive>
