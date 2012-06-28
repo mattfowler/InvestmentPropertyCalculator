@@ -31,6 +31,7 @@
 
 -(void)touchBackground:(id)sender {
     [rentIncreaseField resignFirstResponder];
+    [propertyAppreciationField resignFirstResponder];
 }
 
 - (void) updateProjectionsTable {
