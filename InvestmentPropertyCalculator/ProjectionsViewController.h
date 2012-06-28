@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "BaseTextInputViewController.h"
 
-@interface ProjectionsViewController : BaseViewController <UITextFieldDelegate> {
+@interface ProjectionsViewController : BaseTextInputViewController <UITextFieldDelegate> {
     @private
     UITableViewController* projectionsTableViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *rentIncreaseField;
 @property (nonatomic, retain) IBOutlet UITableView *projectionsTableView;
+
+- (IBAction)touchBackground:(id)sender;
 
 @end

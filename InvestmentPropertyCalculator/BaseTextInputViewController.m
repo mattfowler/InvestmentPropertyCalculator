@@ -39,11 +39,8 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void) viewDidLoad {
+    [super viewDidLoad];
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-
-    //[self.labelView addSubview:self.navigationBar];
 
     [self createFormatters];
 }

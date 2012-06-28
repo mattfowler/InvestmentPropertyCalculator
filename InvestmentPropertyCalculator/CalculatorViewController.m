@@ -103,7 +103,7 @@
     [downpaymentLabel setText:downpaymentString];
 }
 
--(void)touchBackground:(id)sender{
+-(void)touchBackground:(id)sender {
     [salesPriceField resignFirstResponder];
     [downpaymentField resignFirstResponder];
     [grossRentField resignFirstResponder];

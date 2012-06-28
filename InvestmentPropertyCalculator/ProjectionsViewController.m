@@ -25,7 +25,12 @@
     rentIncreaseField.keyboardType = UIKeyboardTypeDecimalPad;
 }
 
+-(void)touchBackground:(id)sender {
+    [rentIncreaseField resignFirstResponder];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    [projectionsTableView reloadData];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
