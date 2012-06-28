@@ -173,8 +173,8 @@
 		6309050E15308C2D007762A5 /* CompareView */ = {
 			isa = PBXGroup;
 			children = (
-				6355A24214F93C5B00EC7A31 /* CompareViewController.h */,
 				6355A24314F93C5B00EC7A31 /* CompareViewController.m */,
+				6355A24214F93C5B00EC7A31 /* CompareViewController.h */,
 			);
 			name = CompareView;
 			sourceTree = "<group>";

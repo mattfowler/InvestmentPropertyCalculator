@@ -72,14 +72,18 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 - (double) getPrincipalPaidInYear:(int) year {
-    int startMonth = (year - 1) * 12;
-    int endMonth = startMonth + 12;
-    if (startMonth >= [self mortgageTermInMonths]) {
-        return 0.0;
+    if (year == 0) {
+        return 0;
+    } else {
+        int startMonth = (year - 1) * 12;
+        int endMonth = startMonth + 12;
+        if (startMonth >= [self mortgageTermInMonths]) {
+            return 0.0;
+        }
+        double startBalance = [self getPrincipalDueAtMonth:startMonth];
+        double endBalance = [self getPrincipalDueAtMonth:endMonth];
+        return startBalance-endBalance;
     }
-    double startBalance = [self getPrincipalDueAtMonth:startMonth];
-    double endBalance = [self getPrincipalDueAtMonth:endMonth];
-    return startBalance-endBalance;
 }
 
 -(int) mortgageTermInMonths {

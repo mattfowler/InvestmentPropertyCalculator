@@ -112,11 +112,41 @@ static const double DEPRECIATION_YEARS = 27.5;
 }
 
 -(void) testPropertyAppreciation {
-    double appreciationYearOne = [propertyInvestment getPropertyAppreciationForYear:0 withAppreciationRate:.05];
+    double appreciationYearZero = [propertyInvestment getPropertyAppreciationForYear:0 withAppreciationRate:.05];
+    double appreciationYearOne = [propertyInvestment getPropertyAppreciationForYear:1 withAppreciationRate:.05];
     double appreciationYearTen = [propertyInvestment getPropertyAppreciationForYear:10 withAppreciationRate:.05];
     
-    STAssertEqualsWithAccuracy(0.0, appreciationYearOne, .1, @"Appreciation not equal");
+    STAssertEqualsWithAccuracy(0.0, appreciationYearZero, .1, @"Appreciation not equal");
+    STAssertEqualsWithAccuracy(5000.0, appreciationYearOne, .1, @"Appreciation not equal");
     STAssertEqualsWithAccuracy(62889.46, appreciationYearTen, .1, @"Appreciation not equal");
+}
+
+-(void) testGetNetWorthAfterYears {
+    double netWorthYearZero = [propertyInvestment getAdditionToNetWorthAfterYear:0 
+                                                                withRentIncrease:.05 
+                                                     andPropertyAppreciationRate:.05];
+    
+    STAssertEqualsWithAccuracy(0.0, netWorthYearZero, .1, @"net worth not equal");
+    
+    double netWorthYearOne = [propertyInvestment getAdditionToNetWorthAfterYear:1 
+                                                               withRentIncrease:.05 
+                                                    andPropertyAppreciationRate:.05];
+    
+    double appreciationYearOne = [propertyInvestment getPropertyAppreciationForYear:1 withAppreciationRate:.05];
+    double netIncomeYearOne = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05];
+    double principalPaidYearOne = [propertyInvestment.mortgage getPrincipalPaidInYear:1];
+    
+    STAssertEqualsWithAccuracy(principalPaidYearOne + netIncomeYearOne +  appreciationYearOne, netWorthYearOne, .1, @"net worth not equal");
+    
+    double netWorthYearTwo = [propertyInvestment getAdditionToNetWorthAfterYear:2 
+                                                               withRentIncrease:.05 
+                                                    andPropertyAppreciationRate:.05];
+    
+    double appreciationYearTwo = [propertyInvestment getPropertyAppreciationForYear:2 withAppreciationRate:.05];
+    double netIncomeYearTwo = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05] + [propertyInvestment getNetOperatingIncomeForYear:1 withAppreciationRate:.05];
+    double principalPaidYearTwo = [propertyInvestment.mortgage getPrincipalPaidInYear:1] + [propertyInvestment.mortgage getPrincipalPaidInYear:2];
+    
+    STAssertEqualsWithAccuracy(principalPaidYearTwo + netIncomeYearTwo +  appreciationYearTwo, netWorthYearTwo, .1, @"net worth not equal");
     
 }
 

@@ -91,5 +91,23 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     return appreciatedValue - (double)mortgage.salesPrice;
 }
 
+-(double) getAdditionToNetWorthAfterYear:(int)year withRentIncrease:(double)rentIncrease andPropertyAppreciationRate:(double)propertyAppreciationRate {
+    double propertyAppreciation = [self getPropertyAppreciationForYear:year withAppreciationRate:propertyAppreciationRate];
+    double totalPrincipalPaid = 0.0;
+    
+    for(int i = 1; i <= year; i++) {
+        totalPrincipalPaid += [mortgage getPrincipalPaidInYear:i];
+    }
+    
+    double totalCashFlow = 0.00;
+    
+    for(int i = 0; i < year; i++) {
+        totalCashFlow += [self getNetOperatingIncomeForYear:i withAppreciationRate:rentIncrease];
+    }
+    
+    return propertyAppreciation + totalPrincipalPaid + totalCashFlow;
+    
+}
+
 
 @end

@@ -17,7 +17,6 @@
     double yearlyAppreciationRate;
 }
 
-
 @end
 
 @implementation ProjectionsTableViewController
@@ -67,7 +66,7 @@ static const int MAX_PROJECTION_YEARS = 40;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +76,7 @@ static const int MAX_PROJECTION_YEARS = 40;
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }    
-    int year = indexPath.section;
+    int year = indexPath.section + 1;
 
     ProjectionType projectionType = indexPath.row;
     PropertyInvestment * investment = [self getPropertyInvestment];
@@ -85,10 +84,10 @@ static const int MAX_PROJECTION_YEARS = 40;
 
     switch (projectionType) {
         case GrossIncome:
-            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withAppreciationRate:yearlyRentIncrease andTimeInterval:Year]]];
+            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year-1 withAppreciationRate:yearlyRentIncrease andTimeInterval:Year]]];
             break;
         case NetIncome:
-            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year withAppreciationRate:yearlyRentIncrease]]];
+            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year-1 withAppreciationRate:yearlyRentIncrease]]];
             break;
         case PrincipalPaid:
             cell.textLabel.text = [@"Principal Paid: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.mortgage getPrincipalPaidInYear:year]]];
@@ -96,11 +95,8 @@ static const int MAX_PROJECTION_YEARS = 40;
         case PropertyAppreciation:
             cell.textLabel.text = [@"Total Appreciation: "  stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment getPropertyAppreciationForYear:year withAppreciationRate:yearlyAppreciationRate]]];
             break;
-        case YearlyAddtionToNetWorth:
-            cell.textLabel.text = @"Addition to Net: ";
-            break;
         case TotalAdditionToNetWorth:
-            cell.textLabel.text = @"Total Addition to Net: ";
+            cell.textLabel.text = [@"Cumulative Addition to Net Worth: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment getAdditionToNetWorthAfterYear:year withRentIncrease:yearlyRentIncrease andPropertyAppreciationRate:yearlyAppreciationRate]]];
             break;
         default:
             cell.textLabel.text = @"";

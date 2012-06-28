@@ -13,7 +13,6 @@ typedef enum {
     NetIncome,
     PrincipalPaid,
     PropertyAppreciation,
-    YearlyAddtionToNetWorth,
     TotalAdditionToNetWorth
 } ProjectionType;
 
