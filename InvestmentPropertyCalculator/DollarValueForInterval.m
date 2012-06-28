@@ -67,7 +67,7 @@ NSString* INTERVAL_KEY = @"interval";
     return  formattedValue;
 }
 
--(double) getValueAfterYears:(int)years withInflationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval {
+-(double) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval {
     return [self getValueForTimeInterval:timeInterval] * pow(1.0 + rate, years);
 }
 

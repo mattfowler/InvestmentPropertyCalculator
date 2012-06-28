@@ -13,6 +13,7 @@
 
 @synthesize projectionsTableView;
 @synthesize rentIncreaseField;
+@synthesize propertyAppreciationField;
 
 - (void)viewDidLoad
 {
@@ -22,15 +23,25 @@
     projectionsTableView.dataSource = projectionsTableViewController;
     
     [rentIncreaseField setDelegate:self];
+    [propertyAppreciationField setDelegate:self];
     rentIncreaseField.keyboardType = UIKeyboardTypeDecimalPad;
+    propertyAppreciationField.keyboardType = UIKeyboardTypeDecimalPad;
+    [self updateProjectionsTable];
 }
 
 -(void)touchBackground:(id)sender {
     [rentIncreaseField resignFirstResponder];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void) updateProjectionsTable {
+    double rentIncrease = [rentIncreaseField.text doubleValue] / 100;
+    double propertyAppreciation = [propertyAppreciationField.text doubleValue] / 100;
+    [projectionsTableViewController updateTableWithRentIncrease:rentIncrease andAppreciationRate:propertyAppreciation];
     [projectionsTableView reloadData];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self updateProjectionsTable];
 }
 
 - (void) viewDidAppear:(BOOL)animated {

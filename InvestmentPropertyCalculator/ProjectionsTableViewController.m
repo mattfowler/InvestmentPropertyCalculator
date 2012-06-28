@@ -8,11 +8,13 @@
 
 #import "ProjectionsTableViewController.h"
 #import "PropertyInvestment.h"
+#import "Mortgage.h"
 #import "PropertyInvestmentProtocol.h"
 
 @interface ProjectionsTableViewController () {
     @private
     double yearlyRentIncrease;
+    double yearlyAppreciationRate;
 }
 
 
@@ -36,9 +38,14 @@ static const int MAX_PROJECTION_YEARS = 40;
     return self;
 }
 
--(void) updateTableWithRentIncrease:(double) rentIncreasePercent {
+-(void) viewDidLoad {
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+}
+
+-(void) updateTableWithRentIncrease:(double) rentIncreasePercent andAppreciationRate:(double) appreciationRate {
     yearlyRentIncrease = rentIncreasePercent;
-    [self.tableView reloadData];
+    yearlyAppreciationRate = appreciationRate;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -78,16 +85,16 @@ static const int MAX_PROJECTION_YEARS = 40;
 
     switch (projectionType) {
         case GrossIncome:
-            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withInflationRate:yearlyRentIncrease andTimeInterval:Year]]];
+            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withAppreciationRate:yearlyRentIncrease andTimeInterval:Year]]];
             break;
         case NetIncome:
-            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year withAppreciationRate:.02]]];
+            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year withAppreciationRate:yearlyRentIncrease]]];
             break;
         case PrincipalPaid:
             cell.textLabel.text = [@"Principal Paid: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.mortgage getPrincipalPaidInYear:year]]];
             break;
         case PropertyAppreciation:
-            cell.textLabel.text = @"Appreciation: ";
+            cell.textLabel.text = [@"Total Appreciation: "  stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment getPropertyAppreciationForYear:year withAppreciationRate:yearlyAppreciationRate]]];
             break;
         case YearlyAddtionToNetWorth:
             cell.textLabel.text = @"Addition to Net: ";

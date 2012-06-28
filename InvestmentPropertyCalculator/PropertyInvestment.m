@@ -47,7 +47,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 
 -(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate {
     int operatingIncome = self.getNetOperatingIncome;
-    return [self getValue:operatingIncome afterYears:year withInflationRate:rate];
+    return [self getValue:operatingIncome afterYears:year withAppreciationRate:rate];
 }
 
 -(double) getCapitalizationRate {
@@ -63,18 +63,18 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(int) getAfterTaxCashFlow {
-    int taxableIncome = [self.grossIncome getValueForTimeInterval:Year] - [self getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.0] - [mortgage getInterestPaidInYear:1];
+    int taxableIncome = [self.grossIncome getValueForTimeInterval:Year] - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0] - [mortgage getInterestPaidInYear:1];
     double taxRate = taxBracket/100;
     return self.getNetOperatingIncome - (taxableIncome * taxRate);
 }
 
--(double) getValue:(double)value afterYears:(int)years withInflationRate:(double)rate {
+-(double) getValue:(double)value afterYears:(int)years withAppreciationRate:(double)rate {
     return value * pow(1.0 + rate, years);
 }
 
--(double) getTaxDeductibleExpenseAmountForYear:(int)year withInflationRate:(double)rate {
+-(double) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate {
     double expensesWithoutInflation = expenses.getYearlyExpenses + [self getPropertyDepreciatonForYear:year];
-    return [self getValue:expensesWithoutInflation afterYears: year withInflationRate:rate];
+    return [self getValue:expensesWithoutInflation afterYears: year withAppreciationRate:rate];
 }
 
 -(double) getPropertyDepreciatonForYear:(int)year {
@@ -84,6 +84,11 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     } else {
         return depreciationPerYear;
     }
+}
+
+-(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate {
+    double appreciatedValue = [self getValue:mortgage.salesPrice afterYears:year withAppreciationRate:rate];
+    return appreciatedValue - (double)mortgage.salesPrice;
 }
 
 

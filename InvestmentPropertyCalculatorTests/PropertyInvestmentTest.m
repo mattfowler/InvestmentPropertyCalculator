@@ -73,13 +73,13 @@ static const double DEPRECIATION_YEARS = 27.5;
     
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
     
-    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withInflationRate:0.00], .01, @"Tax deductible amounts for year one not equal.");
+    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.00], .01, @"Tax deductible amounts for year one not equal.");
     
     double inflationRate = .05;
     int yearsInFuture = 10;
     double expectedExpensesTenthYear = expectedTaxDeductibleExpensesFirstYear * pow(1.0 + inflationRate, yearsInFuture);
     
-    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withInflationRate:inflationRate], .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
+    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate], .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
 }
 
 -(void) testGetAfterTaxCashFlow {
@@ -109,6 +109,15 @@ static const double DEPRECIATION_YEARS = 27.5;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     [propertyExpenses setVacancyRate:1.0];
     STAssertEqualsWithAccuracy(10000.0 * .01, propertyInvestment.getVacancyLoss, .1, @"Vacancy losses not equal");
+}
+
+-(void) testPropertyAppreciation {
+    double appreciationYearOne = [propertyInvestment getPropertyAppreciationForYear:0 withAppreciationRate:.05];
+    double appreciationYearTen = [propertyInvestment getPropertyAppreciationForYear:10 withAppreciationRate:.05];
+    
+    STAssertEqualsWithAccuracy(0.0, appreciationYearOne, .1, @"Appreciation not equal");
+    STAssertEqualsWithAccuracy(62889.46, appreciationYearTen, .1, @"Appreciation not equal");
+    
 }
 
 @end
