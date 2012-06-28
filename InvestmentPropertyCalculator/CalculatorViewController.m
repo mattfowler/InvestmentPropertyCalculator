@@ -15,10 +15,8 @@
 @implementation CalculatorViewController
 
 @synthesize downpaymentLabel;
-@synthesize netOperatingIncomeLabel;
 @synthesize capitalizationRateLabel;
 @synthesize cashOnCashReturnLabel;
-@synthesize afterTaxCashFlowLabel;
 
 @synthesize salesPriceField;
 @synthesize downpaymentField;
@@ -86,10 +84,9 @@
 }
 
 -(void) updateViewLabelsFromModel {
-    [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
+    [self labelViewDidChange];
     [capitalizationRateLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCapitalizationRate]];
     [cashOnCashReturnLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCashOnCashReturn]];
-    [afterTaxCashFlowLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getAfterTaxCashFlow]];
     [self setDownpaymentLabelWithDownpaymentAmount:self.getPropertyInvestment.mortgage.getDownpaymentAmount];
 }
 

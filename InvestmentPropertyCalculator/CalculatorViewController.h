@@ -14,10 +14,8 @@
 @interface CalculatorViewController : BaseCalculatorViewController 
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
-@property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *capitalizationRateLabel;
 @property (nonatomic, retain) IBOutlet UILabel *cashOnCashReturnLabel;
-@property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
 
 @property (nonatomic, retain) IBOutlet UITextField *salesPriceField;
 @property (nonatomic, retain) IBOutlet UITextField *downpaymentField;

@@ -24,15 +24,19 @@
 @property (nonatomic, retain) IBOutlet UIScrollView *entryScrollView;
 @property (nonatomic, retain) IBOutlet UIToolbar *keyboardToolbar;
 
+@property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
+@property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
+
 - (PropertyInvestment *) getPropertyInvestment;
 
 - (NSString*) stringFromPercent:(double)percent;
 
 - (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
 
-- (IBAction)saveButtonClicked:(id)sender;
+- (IBAction) saveButtonClicked:(id)sender;
 
-- (void)touchBackground:(id)sender;
+- (void) touchBackground:(id)sender;
 
+- (void) labelViewDidChange;
 
 @end

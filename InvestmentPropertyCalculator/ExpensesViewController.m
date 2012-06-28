@@ -26,7 +26,6 @@
 
 @synthesize vacancyLabel;
 
-@synthesize netOperatingIncomeLabel;
 @synthesize monthlyExpensesLabel;
 @synthesize yearlyExpensesLabel;
 
@@ -124,10 +123,10 @@
 }
 
 -(void) updateLabelsFromModel {
+    [super labelViewDidChange];
     PropertyInvestment * investment = self.getPropertyInvestment;
     PropertyExpenses * expenses = investment.expenses;
 
-    [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:investment.getNetOperatingIncome]];
     [monthlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getMonthlyExpenses]];
     [yearlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getYearlyExpenses]];
     [vacancyLabel setText:[self stringFromDollarsAndCents:(-1*investment.getVacancyLoss)]];

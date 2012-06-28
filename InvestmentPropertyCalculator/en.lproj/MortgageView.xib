@@ -84,7 +84,7 @@
 							<object class="IBUILabel" id="266562289">
 								<reference key="NSNextResponder" ref="622915523"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{10, 35}, {150, 21}}</string>
+								<string key="NSFrame">{{10, 63}, {150, 21}}</string>
 								<reference key="NSSuperview" ref="622915523"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="605840295"/>
@@ -136,7 +136,7 @@
 							<object class="IBUILabel" id="868935472">
 								<reference key="NSNextResponder" ref="622915523"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{205, 66}, {86, 18}}</string>
+								<string key="NSFrame">{{225, 90}, {86, 18}}</string>
 								<reference key="NSSuperview" ref="622915523"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="317236222"/>
@@ -157,7 +157,7 @@
 							<object class="IBUILabel" id="622123184">
 								<reference key="NSNextResponder" ref="622915523"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{10, 64}, {143, 21}}</string>
+								<string key="NSFrame">{{10, 90}, {143, 21}}</string>
 								<reference key="NSSuperview" ref="622915523"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="868935472"/>
@@ -178,7 +178,7 @@
 							<object class="IBUILabel" id="605840295">
 								<reference key="NSNextResponder" ref="622915523"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{205, 37}, {86, 21}}</string>
+								<string key="NSFrame">{{225, 63}, {86, 21}}</string>
 								<reference key="NSSuperview" ref="622915523"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="622123184"/>
@@ -199,10 +199,10 @@
 							<object class="IBUILabel" id="666648318">
 								<reference key="NSNextResponder" ref="622915523"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{204, 9}, {86, 21}}</string>
+								<string key="NSFrame">{{225, 6}, {86, 21}}</string>
 								<reference key="NSSuperview" ref="622915523"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="266562289"/>
+								<reference key="NSNextKeyView" ref="603405941"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -210,6 +210,48 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText"/>
+								<reference key="IBUITextColor" ref="481145488"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">10</float>
+								<reference key="IBUIFontDescription" ref="178611324"/>
+								<reference key="IBUIFont" ref="624057902"/>
+							</object>
+							<object class="IBUILabel" id="99572345">
+								<reference key="NSNextResponder" ref="622915523"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{225, 37}, {78, 18}}</string>
+								<reference key="NSSuperview" ref="622915523"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="266562289"/>
+								<string key="NSReuseIdentifierKey">_NS:311</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText"/>
+								<reference key="IBUITextColor" ref="481145488"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<float key="IBUIMinimumFontSize">10</float>
+								<reference key="IBUIFontDescription" ref="178611324"/>
+								<reference key="IBUIFont" ref="624057902"/>
+							</object>
+							<object class="IBUILabel" id="603405941">
+								<reference key="NSNextResponder" ref="622915523"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{10, 37}, {131, 18}}</string>
+								<reference key="NSSuperview" ref="622915523"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="99572345"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText">After Tax Cash Flow:</string>
 								<reference key="IBUITextColor" ref="481145488"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -590,6 +632,7 @@
 						<string key="NSFrame">{{0, 420}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -604,10 +647,10 @@
 								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="708844159">
+								<string key="IBUITitle">Done</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<int key="IBUIStyle">2</int>
+								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="408003250"/>
-								<int key="IBUISystemItemIdentifier">0</int>
 							</object>
 						</object>
 					</object>
@@ -759,14 +802,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">netOperatingIncome</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="666648318"/>
-					</object>
-					<int key="connectionID">61</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">mortgagePayment</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="605840295"/>
@@ -788,6 +823,22 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<reference key="destination" ref="408003250"/>
 					</object>
 					<int key="connectionID">68</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">afterTaxCashFlowLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="99572345"/>
+					</object>
+					<int key="connectionID">78</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">netOperatingIncomeLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="666648318"/>
+					</object>
+					<int key="connectionID">79</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -879,6 +930,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<reference ref="868935472"/>
 							<reference ref="622123184"/>
 							<reference ref="605840295"/>
+							<reference ref="99572345"/>
+							<reference ref="603405941"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1039,6 +1092,17 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<reference key="object" ref="708844159"/>
 						<reference key="parent" ref="408003250"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">76</int>
+						<reference key="object" ref="99572345"/>
+						<reference key="parent" ref="622915523"/>
+						<string key="objectName">After Tax Cash Flow</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">77</int>
+						<reference key="object" ref="603405941"/>
+						<reference key="parent" ref="622915523"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1079,6 +1143,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<string>65.IBPluginDependency</string>
 					<string>66.IBPluginDependency</string>
 					<string>67.IBPluginDependency</string>
+					<string>76.IBPluginDependency</string>
+					<string>77.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -1120,6 +1186,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1134,7 +1202,7 @@ AAgACAAIAAEAAQABAAE</bytes>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">69</int>
+			<int key="maxID">79</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1157,30 +1225,40 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>afterTaxCashFlowLabel</string>
 							<string>entryScrollView</string>
 							<string>keyboardToolbar</string>
 							<string>labelView</string>
 							<string>navigationBar</string>
+							<string>netOperatingIncomeLabel</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UILabel</string>
 							<string>UIScrollView</string>
 							<string>UIToolbar</string>
 							<string>UIView</string>
 							<string>UINavigationBar</string>
+							<string>UILabel</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>afterTaxCashFlowLabel</string>
 							<string>entryScrollView</string>
 							<string>keyboardToolbar</string>
 							<string>labelView</string>
 							<string>navigationBar</string>
+							<string>netOperatingIncomeLabel</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">afterTaxCashFlowLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">entryScrollView</string>
 								<string key="candidateClassName">UIScrollView</string>
@@ -1196,6 +1274,10 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">navigationBar</string>
 								<string key="candidateClassName">UINavigationBar</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">netOperatingIncomeLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 						</object>
 					</object>
@@ -1222,14 +1304,12 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>afterTaxCashFlowLabel</string>
 							<string>capitalizationRateLabel</string>
 							<string>cashOnCashReturnLabel</string>
 							<string>downpaymentField</string>
 							<string>downpaymentLabel</string>
 							<string>grossRentField</string>
 							<string>grossRentIntervalField</string>
-							<string>netOperatingIncomeLabel</string>
 							<string>salesPriceField</string>
 							<string>taxBracketField</string>
 						</object>
@@ -1237,12 +1317,10 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UILabel</string>
-							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UISegmentedControl</string>
-							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 						</object>
@@ -1251,23 +1329,17 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>afterTaxCashFlowLabel</string>
 							<string>capitalizationRateLabel</string>
 							<string>cashOnCashReturnLabel</string>
 							<string>downpaymentField</string>
 							<string>downpaymentLabel</string>
 							<string>grossRentField</string>
 							<string>grossRentIntervalField</string>
-							<string>netOperatingIncomeLabel</string>
 							<string>salesPriceField</string>
 							<string>taxBracketField</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">afterTaxCashFlowLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">capitalizationRateLabel</string>
 								<string key="candidateClassName">UILabel</string>
@@ -1291,10 +1363,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">grossRentIntervalField</string>
 								<string key="candidateClassName">UISegmentedControl</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">netOperatingIncomeLabel</string>
-								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">salesPriceField</string>
@@ -1334,7 +1402,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>maintanenceField</string>
 							<string>maintanenceIntervalField</string>
 							<string>monthlyExpensesLabel</string>
-							<string>netOperatingIncomeLabel</string>
 							<string>otherField</string>
 							<string>otherIntervalField</string>
 							<string>taxesField</string>
@@ -1351,7 +1418,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>UISegmentedControl</string>
 							<string>UITextField</string>
 							<string>UISegmentedControl</string>
-							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UISegmentedControl</string>
@@ -1373,7 +1439,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>maintanenceField</string>
 							<string>maintanenceIntervalField</string>
 							<string>monthlyExpensesLabel</string>
-							<string>netOperatingIncomeLabel</string>
 							<string>otherField</string>
 							<string>otherIntervalField</string>
 							<string>taxesField</string>
@@ -1404,10 +1469,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">monthlyExpensesLabel</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">netOperatingIncomeLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -1476,7 +1537,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>interestRateField</string>
 							<string>mortgagePayment</string>
 							<string>mortgageTermField</string>
-							<string>netOperatingIncome</string>
 							<string>salesPriceField</string>
 							<string>totalInterestPaid</string>
 						</object>
@@ -1487,7 +1547,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>UITextField</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
-							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
 						</object>
@@ -1501,7 +1560,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<string>interestRateField</string>
 							<string>mortgagePayment</string>
 							<string>mortgageTermField</string>
-							<string>netOperatingIncome</string>
 							<string>salesPriceField</string>
 							<string>totalInterestPaid</string>
 						</object>
@@ -1526,10 +1584,6 @@ AAgACAAIAAEAAQABAAE</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mortgageTermField</string>
 								<string key="candidateClassName">UITextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">netOperatingIncome</string>
-								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">salesPriceField</string>

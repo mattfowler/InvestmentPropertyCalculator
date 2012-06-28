@@ -18,7 +18,6 @@
 @property (nonatomic, retain) IBOutlet UITextField *interestRateField;
 @property (nonatomic, retain) IBOutlet UITextField *mortgageTermField;
 
-@property (nonatomic, retain) IBOutlet UILabel *netOperatingIncome;
 @property (nonatomic, retain) IBOutlet UILabel *mortgagePayment;
 @property (nonatomic, retain) IBOutlet UILabel *totalInterestPaid;
 

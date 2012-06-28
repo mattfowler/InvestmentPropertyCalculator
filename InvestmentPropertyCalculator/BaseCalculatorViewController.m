@@ -1,4 +1,4 @@
-//
+    //
 //  BaseCalculatorViewController.m
 //  InvestmentPropertyCalculator
 //
@@ -21,6 +21,8 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 @synthesize labelView;
 @synthesize entryScrollView;
 @synthesize keyboardToolbar;
+@synthesize netOperatingIncomeLabel;
+@synthesize afterTaxCashFlowLabel;
 
 - (PropertyInvestment *) getPropertyInvestment {
     id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
@@ -38,7 +40,8 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.25];
     
     CGRect frame = self.keyboardToolbar.frame;
     frame.origin.y = self.view.frame.size.height - 211;
@@ -49,7 +52,8 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.25];
     
     CGRect frame = self.keyboardToolbar.frame;
     frame.origin.y = self.view.frame.size.height;
@@ -58,7 +62,7 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     [UIView commitAnimations];
 }
 
--(void) viewDidLoad {
+- (void) viewDidLoad {
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -66,6 +70,11 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     //[self.labelView addSubview:self.navigationBar];
 
     [self createFormatters];
+}
+
+- (void) labelViewDidChange {
+    [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
+    [afterTaxCashFlowLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getAfterTaxCashFlow]];
 }
 
 - (void) createFormatters {
@@ -77,7 +86,7 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    CGRect textFieldRect = [self.entryScrollView convertRect:textField.bounds fromView:textField];
+    //CGRect textFieldRect = [self.entryScrollView convertRect:textField.bounds fromView:textField];
    
     CGRect labelViewFrame = labelView.frame;
     labelViewFrame.origin.y = -labelView.frame.size.height; 

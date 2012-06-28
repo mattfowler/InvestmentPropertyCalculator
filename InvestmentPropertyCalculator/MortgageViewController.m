@@ -21,7 +21,6 @@
 
 @synthesize mortgagePayment;
 @synthesize totalInterestPaid;
-@synthesize netOperatingIncome;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,12 +44,12 @@
 }
 
 -(void) updateLabelsFromModel {
+    [super labelViewDidChange];
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
     NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-[mortgage getDownpaymentAmount]]];
     [downpaymentLabel setText:downpaymentString];
     [mortgagePayment setText:[self stringFromDollarsAndCents:mortgage.getMonthlyPayment]];
-    [netOperatingIncome setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
     [totalInterestPaid setText:[self stringFromDollarsAndCents:mortgage.getTotalInterestPaid]];
 }
 
