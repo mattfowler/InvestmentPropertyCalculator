@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ProjectionsViewController : UIViewController {
+@interface ProjectionsViewController : BaseViewController <UITextFieldDelegate> {
     @private
     UITableViewController* projectionsTableViewController;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView* projectionsTableView;
+@property (nonatomic, retain) IBOutlet UITextField *rentIncreaseField;
+@property (nonatomic, retain) IBOutlet UITableView *projectionsTableView;
 
 @end

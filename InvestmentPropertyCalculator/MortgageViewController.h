@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseCalculatorViewController.h"
+#import "BaseTextInputViewController.h"
 
-@interface MortgageViewController : BaseCalculatorViewController 
+@interface MortgageViewController : BaseTextInputViewController 
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 

@@ -12,6 +12,7 @@
 @implementation ProjectionsViewController
 
 @synthesize projectionsTableView;
+@synthesize rentIncreaseField;
 
 - (void)viewDidLoad
 {
@@ -19,6 +20,12 @@
     projectionsTableViewController = [[ProjectionsTableViewController alloc] init];
     projectionsTableView.delegate = projectionsTableViewController;
     projectionsTableView.dataSource = projectionsTableViewController;
+    
+    [rentIncreaseField setDelegate:self];
+    rentIncreaseField.keyboardType = UIKeyboardTypeDecimalPad;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
 }
 
 - (void) viewDidAppear:(BOOL)animated {

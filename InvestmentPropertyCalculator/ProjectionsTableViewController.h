@@ -19,4 +19,7 @@ typedef enum {
 
 @interface ProjectionsTableViewController : UITableViewController
 
+
+-(void) updateTableWithRentIncrease:(double) rentIncreasePercent;
+
 @end

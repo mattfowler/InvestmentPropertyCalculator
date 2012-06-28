@@ -12,7 +12,7 @@
 		63090528153B55E7007762A5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63090527153B55E7007762A5 /* Icon@2x.png */; };
 		6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309052A154DEA40007762A5 /* OpenPropertyViewController.m */; };
 		6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */; };
-		6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */; };
+		6355A23714F93B4C00EC7A31 /* BaseTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */; };
 		6355A23D14F93C3C00EC7A31 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23914F93C3C00EC7A31 /* bank.png */; };
 		6355A23E14F93C3C00EC7A31 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23A14F93C3C00EC7A31 /* connections.png */; };
 		6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23B14F93C3C00EC7A31 /* piggy.png */; };
@@ -43,6 +43,7 @@
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
 		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
 		63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */; };
+		63E36D85159CA8A10030AB94 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D84159CA8A10030AB94 /* BaseViewController.m */; };
 		63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536C314F2C68700A7744A /* ExpensesViewController.m */; };
 		63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E536C414F2C68700A7744A /* ExpensesView.xib */; };
 		63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CA14F2C9E100A7744A /* PropertyInvestment.m */; };
@@ -70,8 +71,8 @@
 		63090529154DEA40007762A5 /* OpenPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPropertyViewController.h; sourceTree = "<group>"; };
 		6309052A154DEA40007762A5 /* OpenPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPropertyViewController.m; sourceTree = "<group>"; };
 		6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPropertyViewController.xib; sourceTree = "<group>"; };
-		6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCalculatorViewController.h; sourceTree = "<group>"; };
-		6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCalculatorViewController.m; sourceTree = "<group>"; };
+		6355A23514F93B4C00EC7A31 /* BaseTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTextInputViewController.h; sourceTree = "<group>"; };
+		6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTextInputViewController.m; sourceTree = "<group>"; };
 		6355A23914F93C3C00EC7A31 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
 		6355A23A14F93C3C00EC7A31 /* connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connections.png; sourceTree = "<group>"; };
 		6355A23B14F93C3C00EC7A31 /* piggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piggy.png; sourceTree = "<group>"; };
@@ -112,6 +113,8 @@
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
+		63E36D83159CA8A10030AB94 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		63E36D84159CA8A10030AB94 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
 		63E536C314F2C68700A7744A /* ExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesViewController.m; sourceTree = "<group>"; };
 		63E536C414F2C68700A7744A /* ExpensesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpensesView.xib; sourceTree = "<group>"; };
@@ -200,8 +203,10 @@
 			isa = PBXGroup;
 			children = (
 				6309052E154DEA6E007762A5 /* OpenPropertyView */,
-				6355A23514F93B4C00EC7A31 /* BaseCalculatorViewController.h */,
-				6355A23614F93B4C00EC7A31 /* BaseCalculatorViewController.m */,
+				6355A23514F93B4C00EC7A31 /* BaseTextInputViewController.h */,
+				6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */,
+				63E36D83159CA8A10030AB94 /* BaseViewController.h */,
+				63E36D84159CA8A10030AB94 /* BaseViewController.m */,
 				6309051015308C54007762A5 /* ProjectionsView */,
 				6309050F15308C40007762A5 /* CalculatorView */,
 				6309050E15308C2D007762A5 /* CompareView */,
@@ -478,12 +483,13 @@
 				63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */,
 				63E536CB14F2C9E100A7744A /* PropertyInvestment.m in Sources */,
 				63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */,
-				6355A23714F93B4C00EC7A31 /* BaseCalculatorViewController.m in Sources */,
+				6355A23714F93B4C00EC7A31 /* BaseTextInputViewController.m in Sources */,
 				6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */,
 				6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */,
 				63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */,
 				6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */,
 				6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */,
+				63E36D85159CA8A10030AB94 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

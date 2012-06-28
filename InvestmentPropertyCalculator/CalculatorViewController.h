@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Mortgage.h"
 #import "PropertyInvestment.h"
-#import "BaseCalculatorViewController.h"
+#import "BaseTextInputViewController.h"
 
-@interface CalculatorViewController : BaseCalculatorViewController 
+@interface CalculatorViewController : BaseTextInputViewController 
 
 @property (nonatomic, retain) IBOutlet UILabel *downpaymentLabel;
 @property (nonatomic, retain) IBOutlet UILabel *capitalizationRateLabel;

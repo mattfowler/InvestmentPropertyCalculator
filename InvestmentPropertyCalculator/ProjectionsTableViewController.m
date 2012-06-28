@@ -10,7 +10,11 @@
 #import "PropertyInvestment.h"
 #import "PropertyInvestmentProtocol.h"
 
-@interface ProjectionsTableViewController ()
+@interface ProjectionsTableViewController () {
+    @private
+    double yearlyRentIncrease;
+}
+
 
 @end
 
@@ -28,9 +32,13 @@ static const int MAX_PROJECTION_YEARS = 40;
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
+}
+
+-(void) updateTableWithRentIncrease:(double) rentIncreasePercent {
+    yearlyRentIncrease = rentIncreasePercent;
+    [self.tableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -70,7 +78,7 @@ static const int MAX_PROJECTION_YEARS = 40;
 
     switch (projectionType) {
         case GrossIncome:
-            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withInflationRate:.02 andTimeInterval:Year]]];
+            cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year withInflationRate:yearlyRentIncrease andTimeInterval:Year]]];
             break;
         case NetIncome:
             cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year withAppreciationRate:.02]]];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CompareViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface CompareViewController : BaseViewController<UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, retain) IBOutlet UIPickerView *propertyPicker;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
