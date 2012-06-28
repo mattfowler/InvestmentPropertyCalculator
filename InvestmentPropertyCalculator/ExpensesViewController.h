@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseCalculatorViewController.h"
+#import "BaseTextInputViewController.h"
 
-@interface ExpensesViewController : BaseCalculatorViewController
+@interface ExpensesViewController : BaseTextInputViewController
 
 @property (nonatomic, retain) IBOutlet UITextField *taxesField;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *taxesIntervalField;
