@@ -35,6 +35,8 @@
 
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 5);
     propertyPicker.hidden = NO;
+    isCurrentPropertySelectedForFirstColumn = YES;
+    isCurrentPropertySelectedForSecondColumn = YES;
     [self.view addSubview:scrollView];
 }
 
