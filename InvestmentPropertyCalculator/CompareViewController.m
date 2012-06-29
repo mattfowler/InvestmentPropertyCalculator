@@ -86,18 +86,47 @@
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [properties count];
+    return [properties count] + 1;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    PropertyInvestment *propertyInvestment = [properties objectAtIndex:row];
+    if (row == 0) {
+        return @"Current Property";
+    }
+    PropertyInvestment *propertyInvestment = [properties objectAtIndex:row-1];
     return propertyInvestment.propertyName;
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
+          forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *label = (id)view;
+    if (!label) {
+        label= [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [pickerView rowSizeForComponent:component].width - 10, [pickerView rowSizeForComponent:component].height)] autorelease];
+        [label setBackgroundColor:[UIColor clearColor]];
+    }
+    
+    label.font = [UIFont fontWithName:@"Arial-BoldMT" size:16];
+
+    if (row == 0) {
+        label.textColor = [UIColor blueColor]; 
+        label.text = @"Current Property";
+    } else {
+        PropertyInvestment *propertyInvestment = [properties objectAtIndex:row-1];
+        label.text = propertyInvestment.propertyName;
+    }
+    return label;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component {
-    PropertyInvestment* propertyInvestment = [properties objectAtIndex:row];
-
+    PropertyInvestment* propertyInvestment;
+    if (row == 0) {
+        propertyInvestment = [super getPropertyInvestment];
+    }
+    else {
+        propertyInvestment = [properties objectAtIndex:row-1];   
+    }
+    
     if (component == 0) {
         [firstPropertyNameLabel setText:propertyInvestment.propertyName];
         [self setLabel:firstPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
@@ -119,7 +148,7 @@
     [label setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
 }
 
--(void) setLabel:(UILabel*) label withPercentValue:(double)value {
+-(void) setLabel:(UILabel*) label withPercentValue:(double) value {
     NSNumberFormatter* percentFormatter = [[[NSNumberFormatter alloc] init] autorelease];
     [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
     [label setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
