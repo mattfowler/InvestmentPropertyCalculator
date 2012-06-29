@@ -67,6 +67,7 @@
     [propertyPicker setFrame:pickerFrame];
     [doneToolbar setFrame:toolbarFrame];
     [UIView commitAnimations];
+    [showPropertyPicker setHidden:YES];
 }
 
 -(IBAction)doneWithPropertyPicker:(id)sender {
@@ -85,6 +86,7 @@
     [propertyPicker setFrame:pickerFrame];
     [doneToolbar setFrame:toolbarFrame];
     [UIView commitAnimations];
+    [showPropertyPicker setHidden:NO];
 }
 
 // returns the number of 'columns' to display.
