@@ -10,7 +10,11 @@
 #import "BaseOpenAndSaveViewController.h"
 #import "PropertyFileManager.h"
 
-@interface CompareViewController : BaseOpenAndSaveViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface CompareViewController : BaseOpenAndSaveViewController<UIPickerViewDelegate, UIPickerViewDataSource> {
+    @private
+    BOOL isCurrentPropertySelectedForFirstColumn;
+    BOOL isCurrentPropertySelectedForSecondColumn;
+}
 
 @property (nonatomic, retain) IBOutlet UIPickerView *propertyPicker;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;

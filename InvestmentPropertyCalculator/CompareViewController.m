@@ -41,6 +41,12 @@
 -(void) viewDidAppear:(BOOL)animated {
     properties = [fileManager loadProperties];
     [propertyPicker reloadAllComponents];
+    if (isCurrentPropertySelectedForFirstColumn) {
+        [self updatePropertyLabelsForFirstColumn:[super getPropertyInvestment]];
+    }
+    if (isCurrentPropertySelectedForSecondColumn) {
+        [self updatePropertyLabelsForSecondColumn:[super getPropertyInvestment]];
+    }
 }
 
 -(IBAction) chooseProperty:(id)sender {
@@ -103,10 +109,9 @@
     if (!label) {
         label= [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [pickerView rowSizeForComponent:component].width - 10, [pickerView rowSizeForComponent:component].height)] autorelease];
         [label setBackgroundColor:[UIColor clearColor]];
+        label.font = [UIFont fontWithName:@"Arial-BoldMT" size:16];
     }
     
-    label.font = [UIFont fontWithName:@"Arial-BoldMT" size:16];
-
     if (row == 0) {
         label.textColor = [UIColor blueColor]; 
         label.text = @"Current Property";
@@ -122,24 +127,42 @@
     PropertyInvestment* propertyInvestment;
     if (row == 0) {
         propertyInvestment = [super getPropertyInvestment];
+        if(component == 0) {
+            isCurrentPropertySelectedForFirstColumn = YES;
+        } else {
+            isCurrentPropertySelectedForSecondColumn = YES;
+        }
     }
     else {
-        propertyInvestment = [properties objectAtIndex:row-1];   
+        propertyInvestment = [properties objectAtIndex:row-1];
+        if(component == 0) {
+            isCurrentPropertySelectedForFirstColumn = NO;
+        } else {
+            isCurrentPropertySelectedForSecondColumn = NO;
+        }
     }
     
     if (component == 0) {
-        [firstPropertyNameLabel setText:propertyInvestment.propertyName];
-        [self setLabel:firstPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
-        [self setLabel:firstPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
-        [self setLabel:firstPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
-        [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
+        [self updatePropertyLabelsForFirstColumn:propertyInvestment];
     } else {
-        [secondPropertyNameLabel setText:propertyInvestment.propertyName];
-        [self setLabel:secondPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
-        [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
-        [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
-        [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
+        [self updatePropertyLabelsForSecondColumn:propertyInvestment];
     }
+}
+
+-(void) updatePropertyLabelsForFirstColumn:(PropertyInvestment *) propertyInvestment {
+    [firstPropertyNameLabel setText:propertyInvestment.propertyName];
+    [self setLabel:firstPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
+    [self setLabel:firstPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
+    [self setLabel:firstPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
+    [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
+}
+
+-(void) updatePropertyLabelsForSecondColumn:(PropertyInvestment *) propertyInvestment {
+    [secondPropertyNameLabel setText:propertyInvestment.propertyName];
+    [self setLabel:secondPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
+    [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
+    [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
+    [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }
 
 -(void) setLabel:(UILabel*) label withDollarValue:(int) value {
