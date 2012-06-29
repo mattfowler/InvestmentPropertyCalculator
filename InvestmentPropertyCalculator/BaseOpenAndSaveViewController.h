@@ -13,6 +13,8 @@
 @interface BaseOpenAndSaveViewController : UIViewController {
     @private
     UITextField *alertTextField;
+    
+    @protected
     PropertyFileManager *fileManager;
 }
 

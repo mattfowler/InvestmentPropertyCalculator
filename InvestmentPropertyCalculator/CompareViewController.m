@@ -11,7 +11,6 @@
 
 @implementation CompareViewController 
 
-@synthesize propertyNames;
 @synthesize properties;
 @synthesize propertyPicker;
 @synthesize showPropertyPicker;
@@ -30,39 +29,9 @@
 @synthesize secondPropertyCapRate;
 @synthesize secondPropertyExpenses;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)loadProperties
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
-    propertyNames = [[NSArray alloc] initWithArray:files];
-    properties = [[NSMutableArray alloc] init];
-    
-    for (NSString* fileName in files) {
-        NSString *dataPath = [documentsPath stringByAppendingPathComponent:fileName];
-        NSData *codedData = [[[NSData alloc] initWithContentsOfFile:dataPath] autorelease];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:codedData];
-        PropertyInvestment* property = [[unarchiver decodeObjectForKey:@"property"] retain];
-        [properties addObject:property];
-        [unarchiver finishDecoding];
-        [unarchiver release];
-    }
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadProperties];
+    properties = [fileManager loadProperties];
 
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 5);
     propertyPicker.hidden = NO;
@@ -70,7 +39,7 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    [self loadProperties];
+    properties = [fileManager loadProperties];
     [propertyPicker reloadAllComponents];
 }
 
@@ -117,11 +86,12 @@
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [propertyNames count];
+    return [properties count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [propertyNames objectAtIndex:row];
+    PropertyInvestment *propertyInvestment = [properties objectAtIndex:row];
+    return propertyInvestment.propertyName;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
@@ -129,13 +99,13 @@
     PropertyInvestment* propertyInvestment = [properties objectAtIndex:row];
 
     if (component == 0) {
-        [firstPropertyNameLabel setText:[propertyNames objectAtIndex:row]];
+        [firstPropertyNameLabel setText:propertyInvestment.propertyName];
         [self setLabel:firstPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
         [self setLabel:firstPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
         [self setLabel:firstPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
         [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
     } else {
-        [secondPropertyNameLabel setText:[propertyNames objectAtIndex:row]];
+        [secondPropertyNameLabel setText:propertyInvestment.propertyName];
         [self setLabel:secondPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
         [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
         [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
@@ -155,15 +125,13 @@
     [label setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 

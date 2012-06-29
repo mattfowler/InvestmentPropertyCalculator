@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseOpenAndSaveViewController.h"
+#import "PropertyFileManager.h"
 
 @interface CompareViewController : BaseOpenAndSaveViewController<UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -30,8 +31,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *firstPropertyCashReturn;
 @property (nonatomic, retain) IBOutlet UILabel *secondPropertyCashReturn;
 
-@property (nonatomic, retain) NSArray* propertyNames;
-@property (nonatomic, retain) NSMutableArray* properties;
+@property (nonatomic, retain) NSArray* properties;
 
 -(IBAction)chooseProperty:(id)sender;
 -(IBAction)doneWithPropertyPicker:(id)sender;
