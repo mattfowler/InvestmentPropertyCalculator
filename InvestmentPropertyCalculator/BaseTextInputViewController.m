@@ -106,4 +106,9 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     [UIView commitAnimations];
 }
 
+-(void) setYearMonthToggleFrame:(UISegmentedControl *) toggle forCorrespondingTextField:(UITextField *) textField {
+    [toggle setFrame:CGRectMake(235, textField.frame.origin.y - 1, 71, 34)];
+}
+
+
 @end

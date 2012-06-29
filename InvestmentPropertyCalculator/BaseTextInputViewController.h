@@ -33,4 +33,6 @@
 
 - (void) labelViewDidChange;
 
+-(void) setYearMonthToggleFrame:(UISegmentedControl *) toggle forCorrespondingTextField:(UITextField *) textField;
+
 @end

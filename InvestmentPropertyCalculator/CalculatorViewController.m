@@ -28,7 +28,8 @@
     [super viewDidLoad];
         
     [self initTextFields];
-    
+    [super setYearMonthToggleFrame:grossRentIntervalField forCorrespondingTextField:grossRentField];
+
     [self updateEditableFieldsFromModel];    
     [self updateViewLabelsFromModel];
     

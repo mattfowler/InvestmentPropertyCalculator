@@ -36,6 +36,7 @@
     [self initPeriodFields];
     [self updateEditableFieldsFromModel];
     [self updateLabelsFromModel];
+    [self initYearMonthToggles];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -108,6 +109,14 @@
     utilitiesField.keyboardType = UIKeyboardTypeDecimalPad;
     vacancyField.keyboardType = UIKeyboardTypeDecimalPad;
     otherField.keyboardType = UIKeyboardTypeDecimalPad;
+}
+
+-(void) initYearMonthToggles {
+    [super setYearMonthToggleFrame:taxesIntervalField forCorrespondingTextField:taxesField];
+    [super setYearMonthToggleFrame:insuranceIntervalField forCorrespondingTextField:insuranceField];
+    [super setYearMonthToggleFrame:maintanenceIntervalField forCorrespondingTextField:maintanenceField];
+    [super setYearMonthToggleFrame:utilitiesIntervalField forCorrespondingTextField:utilitiesField];
+    [super setYearMonthToggleFrame:otherIntervalField forCorrespondingTextField:otherField];
 }
 
 -(void) updateEditableFieldsFromModel {
