@@ -13,11 +13,13 @@
 static const double STRAIGHTLINE_DEPRECIATION_YEARS = 27.5;
 static const double LAND_TO_PROPERTY_RATIO = .5;
 
+@synthesize propertyName;
 @synthesize mortgage;
 @synthesize expenses;
 @synthesize grossIncome;
 @synthesize taxBracket;
 
+static NSString* PROPERTY_NAME_KEY = @"propertyName";
 static NSString* MORTGAGE_KEY = @"mortgage";
 static NSString* EXPENSES_KEY = @"expenses";
 static NSString* GROSS_INCOME_KEY = @"grossIncome";
@@ -26,6 +28,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 -(id) initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
+        self.propertyName = [decoder decodeObjectForKey:PROPERTY_NAME_KEY];
         self.mortgage = [decoder decodeObjectForKey:MORTGAGE_KEY];
         self.expenses = [decoder decodeObjectForKey:EXPENSES_KEY];
         self.grossIncome = [decoder decodeObjectForKey:GROSS_INCOME_KEY];
@@ -35,6 +38,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(void) encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:propertyName forKey:PROPERTY_NAME_KEY];
     [coder encodeObject:mortgage forKey:MORTGAGE_KEY];
     [coder encodeObject:expenses forKey:EXPENSES_KEY];
     [coder encodeObject:grossIncome forKey:GROSS_INCOME_KEY];

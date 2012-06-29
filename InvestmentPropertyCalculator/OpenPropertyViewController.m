@@ -18,13 +18,13 @@
 
 @synthesize propertyTableView;
 @synthesize properties;
-@synthesize propertyNames;
 @synthesize navItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        fileManager = [[PropertyFileManager alloc] init];
         [self loadProperties];
     }
     return self;
@@ -46,68 +46,48 @@
     [propertyTableView setEditing:editing animated:YES];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(NSString*)getDocumentPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-    return [paths objectAtIndex:0];
-}
-
-- (void)loadProperties
-{
-    NSString *documentsPath = [self getDocumentPath];
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:nil];
-    propertyNames = [[NSMutableArray alloc] initWithArray:files];
-    properties = [[NSMutableArray alloc] init];
-    
-    for (NSString *fileName in files) {
-        NSString *dataPath = [documentsPath stringByAppendingPathComponent:fileName];
-        NSData *codedData = [[[NSData alloc] initWithContentsOfFile:dataPath] autorelease];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:codedData];
-        PropertyInvestment* property = [unarchiver decodeObjectForKey:@"property"];
-        [properties addObject:property];
-        [unarchiver finishDecoding];
-        [unarchiver release];
-    }
-}
-
-- (void)deleteProperty:(NSString*) propertyName {
-    NSString *documentsPath = [self getDocumentPath];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager removeItemAtPath:[documentsPath stringByAppendingPathComponent:propertyName] error:nil];
+- (void)loadProperties {
+    properties = [fileManager loadProperties];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [propertyNames count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [properties count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }    
-    cell.textLabel.text = [propertyNames objectAtIndex:indexPath.row];
+    PropertyInvestment *propertyInvestment = [properties objectAtIndex:indexPath.row];
+    cell.textLabel.text = propertyInvestment.propertyName;
     cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:11.0];
-    cell.detailTextLabel.text = [self getPropertyDetailString:[properties objectAtIndex:indexPath.row]];
+    cell.detailTextLabel.text = [self getPropertyDetailString:propertyInvestment];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [propertyTableView beginUpdates];
+    [propertyTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    PropertyInvestment *propertyInvestment = [properties objectAtIndex:indexPath.row];
+    [fileManager deleteProperty:propertyInvestment.propertyName];
+    properties = [fileManager loadProperties];
+    [propertyTableView endUpdates];
 }
 
 -(NSString*) getPropertyDetailString:(PropertyInvestment*) property {
@@ -118,16 +98,6 @@
     NSString *cashReturnString = [@" Cash Return: " stringByAppendingString:[NSString stringWithFormat:@"%1.2f", cashReturn*100]];
     NSString *nooiString = [@"NOOI: " stringByAppendingString:[NSString stringWithFormat:@"%d", nooi]];
     return [nooiString stringByAppendingString:[cashReturnString stringByAppendingString:capRateString]];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [propertyTableView beginUpdates];
-    [propertyTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self deleteProperty:[propertyNames objectAtIndex:indexPath.row]];
-    [propertyNames removeObjectAtIndex:indexPath.row];
-    [properties removeObjectAtIndex:indexPath.row];
-    [propertyTableView endUpdates];
 }
 
 #pragma mark - Table view delegate

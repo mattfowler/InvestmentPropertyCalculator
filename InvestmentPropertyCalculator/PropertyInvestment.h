@@ -12,6 +12,7 @@
 
 @interface PropertyInvestment : NSObject <NSCoding>
 
+@property (nonatomic, retain) NSString *propertyName;
 @property (nonatomic, retain) Mortgage *mortgage;
 @property (nonatomic, retain) PropertyExpenses *expenses;
 

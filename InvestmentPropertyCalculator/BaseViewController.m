@@ -23,6 +23,7 @@
 }
 
 - (void) viewDidLoad {
+    fileManager = [[PropertyFileManager alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 }
@@ -75,17 +76,12 @@
 
 - (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-        NSString *documentsPath = [paths objectAtIndex:0];
-        NSString *dataPath = [documentsPath stringByAppendingPathComponent:alertTextField.text];
-        NSMutableData *data = [[NSMutableData alloc] init];
-        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];          
-        [archiver encodeObject:self.getPropertyInvestment forKey:@"property"];
-        [archiver finishEncoding];
-        [data writeToFile:dataPath atomically:YES];
-        [archiver release];
-        [data release];
+        NSString *propertyName = alertTextField.text;
+        PropertyInvestment *propertyInvestment = self.getPropertyInvestment;
+        propertyInvestment.propertyName = propertyName;
+        [fileManager saveProperty:propertyInvestment];
     }
 }
+
 
 @end

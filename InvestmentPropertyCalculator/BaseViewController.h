@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "PropertyInvestment.h"
+#import "PropertyFileManager.h"
 
 @interface BaseViewController : UIViewController {
     @private
     UITextField *alertTextField;
+    PropertyFileManager *fileManager;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PropertyFileManager.h"
 
 @interface OpenPropertyViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    @private
+    PropertyFileManager *fileManager;
 }
 
-@property (nonatomic, retain) NSMutableArray* propertyNames;
-@property (nonatomic, retain) NSMutableArray* properties;
+@property (nonatomic, retain) NSArray* properties;
 @property (nonatomic, retain) IBOutlet UITableView* propertyTableView;
 @property (nonatomic, retain) IBOutlet UINavigationItem* navItem;
 
