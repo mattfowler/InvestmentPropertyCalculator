@@ -25,8 +25,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
 
-- (PropertyInvestment *) getPropertyInvestment;
-
 - (NSString*) stringFromPercent:(double)percent;
 
 - (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;

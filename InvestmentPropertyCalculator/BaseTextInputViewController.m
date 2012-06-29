@@ -24,12 +24,6 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 @synthesize netOperatingIncomeLabel;
 @synthesize afterTaxCashFlowLabel;
 
-- (PropertyInvestment *) getPropertyInvestment {
-    id<PropertyInvestmentProtocol> investmentDelegate = (id<PropertyInvestmentProtocol>) [UIApplication sharedApplication].delegate;
-	PropertyInvestment* propertyInvestment = (PropertyInvestment*) investmentDelegate.propertyInvestment;
-	return propertyInvestment;
-}
-
 -(NSString*) stringFromPercent:(double)percent {
     return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
 }
