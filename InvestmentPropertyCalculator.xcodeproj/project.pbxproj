@@ -43,7 +43,7 @@
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
 		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
 		63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */; };
-		63E36D85159CA8A10030AB94 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D84159CA8A10030AB94 /* BaseViewController.m */; };
+		63E36D85159CA8A10030AB94 /* BaseOpenAndSaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D84159CA8A10030AB94 /* BaseOpenAndSaveViewController.m */; };
 		63E36D89159DF2780030AB94 /* PropertyFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D88159DF2780030AB94 /* PropertyFileManager.m */; };
 		63E536C514F2C68700A7744A /* ExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536C314F2C68700A7744A /* ExpensesViewController.m */; };
 		63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E536C414F2C68700A7744A /* ExpensesView.xib */; };
@@ -114,8 +114,8 @@
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
-		63E36D83159CA8A10030AB94 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		63E36D84159CA8A10030AB94 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		63E36D83159CA8A10030AB94 /* BaseOpenAndSaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOpenAndSaveViewController.h; sourceTree = "<group>"; };
+		63E36D84159CA8A10030AB94 /* BaseOpenAndSaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOpenAndSaveViewController.m; sourceTree = "<group>"; };
 		63E36D87159DF2780030AB94 /* PropertyFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyFileManager.h; sourceTree = "<group>"; };
 		63E36D88159DF2780030AB94 /* PropertyFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyFileManager.m; sourceTree = "<group>"; };
 		63E536C214F2C68700A7744A /* ExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpensesViewController.h; sourceTree = "<group>"; };
@@ -205,11 +205,8 @@
 		6309051215308C92007762A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63E36D8A159DFCC90030AB94 /* Shared */,
 				6309052E154DEA6E007762A5 /* OpenPropertyView */,
-				6355A23514F93B4C00EC7A31 /* BaseTextInputViewController.h */,
-				6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */,
-				63E36D83159CA8A10030AB94 /* BaseViewController.h */,
-				63E36D84159CA8A10030AB94 /* BaseViewController.m */,
 				6309051015308C54007762A5 /* ProjectionsView */,
 				6309050F15308C40007762A5 /* CalculatorView */,
 				6309050E15308C2D007762A5 /* CompareView */,
@@ -264,8 +261,8 @@
 				63BDAB4614F2C1C0008AE03A /* Resources */,
 				63A4FC1414F1B1B600F9E8E9 /* Models */,
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
-				63E36D86159DF2590030AB94 /* Utilities */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
+				63E36D86159DF2590030AB94 /* Utilities */,
 				6309051215308C92007762A5 /* Views */,
 				63A46A3D14EFEB2B00999517 /* Supporting Files */,
 			);
@@ -352,6 +349,17 @@
 				63E36D88159DF2780030AB94 /* PropertyFileManager.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		63E36D8A159DFCC90030AB94 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6355A23514F93B4C00EC7A31 /* BaseTextInputViewController.h */,
+				6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */,
+				63E36D83159CA8A10030AB94 /* BaseOpenAndSaveViewController.h */,
+				63E36D84159CA8A10030AB94 /* BaseOpenAndSaveViewController.m */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		63E536C814F2C74900A7744A /* Views */ = {
@@ -502,7 +510,7 @@
 				63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */,
 				6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */,
 				6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */,
-				63E36D85159CA8A10030AB94 /* BaseViewController.m in Sources */,
+				63E36D85159CA8A10030AB94 /* BaseOpenAndSaveViewController.m in Sources */,
 				63E36D89159DF2780030AB94 /* PropertyFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

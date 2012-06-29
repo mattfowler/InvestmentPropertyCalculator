@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "BaseOpenAndSaveViewController.h"
 #import "ProjectionsTableViewController.h"
 
-@interface ProjectionsViewController : BaseViewController <UITextFieldDelegate> {
+@interface ProjectionsViewController : BaseOpenAndSaveViewController <UITextFieldDelegate> {
     @private
     ProjectionsTableViewController *projectionsTableViewController;
 }

@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #include "PropertyInvestment.h"
-#include "BaseViewController.h"
+#include "BaseOpenAndSaveViewController.h"
 
-@interface BaseTextInputViewController : BaseViewController <UITextFieldDelegate> {
+@interface BaseTextInputViewController : BaseOpenAndSaveViewController <UITextFieldDelegate> {
     @private
     CGFloat animatedDistance;
     
