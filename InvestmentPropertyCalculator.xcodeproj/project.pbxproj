@@ -41,6 +41,7 @@
 		63A46A6D14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A6C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.m */; };
 		63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageTest.m */; };
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
+		63BA680C160D247100D131E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BA680B160D247100D131E2 /* Default-568h@2x.png */; };
 		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
 		63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */; };
 		63E36D85159CA8A10030AB94 /* BaseOpenAndSaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D84159CA8A10030AB94 /* BaseOpenAndSaveViewController.m */; };
@@ -111,6 +112,7 @@
 		63A46A9014EFFA3900999517 /* MortgageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageTest.m; sourceTree = "<group>"; };
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
+		63BA680B160D247100D131E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		63A46A2714EFEB2B00999517 = {
 			isa = PBXGroup;
 			children = (
+				63BA680B160D247100D131E2 /* Default-568h@2x.png */,
 				63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */,
 				63A46A6414EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
 				63A46A3514EFEB2B00999517 /* Frameworks */,
@@ -421,7 +424,7 @@
 		63A46A2914EFEB2B00999517 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 63A46A2C14EFEB2B00999517 /* Build configuration list for PBXProject "InvestmentPropertyCalculator" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -461,6 +464,7 @@
 				63090526153B5593007762A5 /* Icon.png in Resources */,
 				63090528153B55E7007762A5 /* Icon@2x.png in Resources */,
 				6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */,
+				63BA680C160D247100D131E2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,9 +36,11 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     properties = [fileManager loadProperties];
 
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 5);
+    CGRect pickerFrame = self.propertyPicker.frame;
+    pickerFrame.origin.y = self.view.frame.size.height;
+    self.propertyPicker.frame = pickerFrame;
     isCurrentPropertySelectedForFirstColumn = YES;
     isCurrentPropertySelectedForSecondColumn = YES;
-    [self.view addSubview:scrollView];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
