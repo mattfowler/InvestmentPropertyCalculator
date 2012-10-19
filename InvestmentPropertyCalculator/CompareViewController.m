@@ -34,11 +34,17 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
 - (void)viewDidLoad {
     [super viewDidLoad];
     properties = [fileManager loadProperties];
-
+    
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.scrollView.frame.size.height + 5);
+    
     CGRect pickerFrame = self.propertyPicker.frame;
-    pickerFrame.origin.y = self.view.frame.size.height;
-    self.propertyPicker.frame = pickerFrame;
+    pickerFrame.origin.y = self.scrollView.frame.size.height;
+    [self.propertyPicker setFrame:pickerFrame];
+    
+    CGRect toolbarFrame = self.doneToolbar.frame;
+    toolbarFrame.origin.y = self.scrollView.frame.size.height + toolbarFrame.size.height;
+    [self.doneToolbar setFrame:toolbarFrame];
+    
     isCurrentPropertySelectedForFirstColumn = YES;
     isCurrentPropertySelectedForSecondColumn = YES;
 }
@@ -60,7 +66,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     CGRect scrollViewFrame = scrollView.frame;
     scrollViewFrame.size.height -= propertyPicker.frame.size.height;
     CGRect toolbarFrame = doneToolbar.frame;
-    toolbarFrame.origin.y -= propertyPicker.frame.size.height + toolbarFrame.size.height;
+    toolbarFrame.origin.y -= propertyPicker.frame.size.height + toolbarFrame.size.height - 5;
     [self.view bringSubviewToFront:doneToolbar];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];

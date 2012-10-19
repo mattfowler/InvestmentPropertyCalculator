@@ -25,13 +25,13 @@
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
 
-- (NSString*) stringFromPercent:(double)percent;
+-(NSString*) stringFromPercent:(double)percent;
 
-- (NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
+-(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
 
-- (void) touchBackground:(id)sender;
+-(void) touchBackground:(id)sender;
 
-- (void) labelViewDidChange;
+-(void) labelViewDidChange;
 
 -(void) setYearMonthToggleFrame:(UISegmentedControl *) toggle forCorrespondingTextField:(UITextField *) textField;
 
