@@ -94,8 +94,8 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [scrollView setFrame:scrollViewFrame];
     [propertyPicker setFrame:pickerFrame];
     [doneToolbar setFrame:toolbarFrame];
-    [UIView commitAnimations];
     [showPropertyPicker setHidden:NO];
+    [UIView commitAnimations];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -177,6 +177,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
 -(void) updatePropertyLabelsForSecondColumn:(PropertyInvestment *) propertyInvestment {
     NSString *propertyName = propertyInvestment.propertyName;
     [secondPropertyNameLabel setText:propertyName == nil ? CURRENT_PROPERTY : propertyInvestment.propertyName];
+    [self setLabel:secondPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
     [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
     [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
     [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
