@@ -46,7 +46,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(int) getNetOperatingIncome {
-    return [self.grossIncome getValueForTimeInterval:Year] - (mortgage.getMonthlyPayment * 12) - expenses.getYearlyExpenses;
+    return [self.grossIncome getValueForTimeInterval:Year] - (mortgage.getMonthlyPayment * 12) - expenses.getYearlyExpenses - self.getVacancyLoss;
 }
 
 -(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate {
