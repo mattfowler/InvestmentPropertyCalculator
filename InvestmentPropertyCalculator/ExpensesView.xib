@@ -73,7 +73,7 @@
 					</object>
 					<object class="IBUIScrollView" id="647657367">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUILabel" id="639660022">
 								<reference key="NSNextResponder" ref="647657367"/>
@@ -727,7 +727,7 @@
 					</object>
 					<object class="IBUIView" id="623970582">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">292</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUILabel" id="517214158">
 								<reference key="NSNextResponder" ref="623970582"/>
