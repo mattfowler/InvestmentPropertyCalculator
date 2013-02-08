@@ -38,7 +38,7 @@
 }
 
 -(IBAction)doneWithView:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -107,7 +107,7 @@
     self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     PropertyInvestment* selectedProperty = [properties objectAtIndex:indexPath.row];
     [self setPropertyInvestment:selectedProperty];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) setPropertyInvestment:(PropertyInvestment*) propertyInvestment {

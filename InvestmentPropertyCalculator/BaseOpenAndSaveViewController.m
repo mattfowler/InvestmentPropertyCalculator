@@ -71,7 +71,7 @@
 - (IBAction)openButtonClicked:(id)sender {
     OpenPropertyViewController* openPropertyViewController = [[OpenPropertyViewController alloc] initWithNibName:@"OpenPropertyViewController" bundle:nil];
     openPropertyViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentModalViewController:openPropertyViewController animated:YES];
+    [self presentViewController:openPropertyViewController animated:YES completion:nil];
 }
 
 - (void) alertView:(UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

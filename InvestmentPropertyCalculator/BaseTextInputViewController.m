@@ -82,7 +82,7 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     CGRect navigationBarFrame = navigationBar.frame;
     navigationBarFrame.origin.y = 0;
