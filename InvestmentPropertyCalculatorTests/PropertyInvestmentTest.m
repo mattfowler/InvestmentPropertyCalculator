@@ -31,7 +31,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 -(void)testGetNetOperatingIncome {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
+    int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
     
     STAssertEquals(expectedNetIncome, [propertyInvestment getNetOperatingIncome], @"Net income not equal, should be 22427."); 
     
@@ -40,7 +40,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 -(void) testGetCapRate {
     propertyInvestment.grossIncome =  [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
     
     double expectedCapRate = (expectedNetIncome / (double) PROPERTY_COST);
      
@@ -50,7 +50,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 -(void) testGetCashOnCashReturn {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
     
     double expectedReturn =  expectedNetIncome / 25000.0;
     

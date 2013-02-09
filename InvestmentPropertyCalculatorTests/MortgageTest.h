@@ -20,8 +20,4 @@
     Mortgage* testMortgage;
 }
 
-- (void) testGetInitialPrincipal;
-- (void) testGetDownpaymentAmount;
-- (void) testGetMonthlyPayment;
-
 @end
