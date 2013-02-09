@@ -21,7 +21,7 @@
 
 - (DollarValue *) getMonthlyPayment;
 - (DollarValue *) getDownpaymentAmount;
-- (double) getTotalInterestPaid;
+- (DollarValue *) getTotalInterestPaid;
 - (double) getInterestPaidInYear:(int)year;
 - (double) getPrincipalPaidInYear:(int) year;
 

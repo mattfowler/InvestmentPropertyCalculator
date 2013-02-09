@@ -29,7 +29,7 @@
 - (void) testGetTotalInterestPaid {
     double totalPayments = testMortgage.getMonthlyPayment.dollarValue * 360;
     
-    STAssertEqualsWithAccuracy(totalPayments - 75000.0, [testMortgage getTotalInterestPaid], .01, @"Total interest not equal");
+    STAssertEqualsWithAccuracy(totalPayments - 75000.0, testMortgage.getTotalInterestPaid.dollarValue, .01, @"Total interest not equal");
 }
 
 - (void) testGetInterestPaidInYear {

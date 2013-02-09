@@ -49,7 +49,7 @@
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", mortgage.downpaymentPercent]];
     [downpaymentLabel setText:[mortgage.getDownpaymentAmount getCurrencyString]];
     [mortgagePayment setText:[mortgage.getMonthlyPayment getCurrencyString]];
-    [totalInterestPaid setText:[self stringFromDollarsAndCents:mortgage.getTotalInterestPaid]];
+    [totalInterestPaid setText:[mortgage.getTotalInterestPaid getCurrencyString]];
 }
 
 -(void) initTextFields {

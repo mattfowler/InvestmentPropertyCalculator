@@ -63,8 +63,9 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     return [DollarValue createValue:salesPrice * (downpaymentPercent / 100)];
 }
 
-- (double) getTotalInterestPaid {
-    return (self.getMonthlyPayment.dollarValue * [self mortgageTermInMonths]) - self.getInitialPrincipal;
+- (DollarValue *) getTotalInterestPaid {
+    double interest = (self.getMonthlyPayment.dollarValue * [self mortgageTermInMonths]) - self.getInitialPrincipal;
+    return [DollarValue createValue:interest];
 }
 
 - (double) getInterestPaidInYear:(int) year {
