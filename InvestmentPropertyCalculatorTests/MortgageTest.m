@@ -15,7 +15,7 @@
 }
 
 - (void) testGetDownpaymentAmount {    
-    STAssertEquals(25000.00, [testMortgage getDownpaymentAmount], @"Downpayment not equal");
+    STAssertEquals(25000.00, testMortgage.getDownpaymentAmount.dollarValue, @"Downpayment not equal");
 }
 
 - (void) testGetMonthlyPayment {

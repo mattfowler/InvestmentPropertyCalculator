@@ -20,7 +20,7 @@
 - (id) initWithSalesPrice:(int)salesPrice downpayment:(double)downpayment interestRate:(double)interest years:(double) years;
 
 - (DollarValue *) getMonthlyPayment;
-- (double) getDownpaymentAmount;
+- (DollarValue *) getDownpaymentAmount;
 - (double) getTotalInterestPaid;
 - (double) getInterestPaidInYear:(int)year;
 - (double) getPrincipalPaidInYear:(int) year;

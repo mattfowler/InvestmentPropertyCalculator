@@ -88,9 +88,10 @@
 
 -(void) updateViewLabelsFromModel {
     [self labelViewDidChange];
-    [capitalizationRateLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCapitalizationRate]];
-    [cashOnCashReturnLabel setText:[self stringFromPercent:self.getPropertyInvestment.getCashOnCashReturn]];
-    [self setDownpaymentLabelWithDownpaymentAmount:self.getPropertyInvestment.mortgage.getDownpaymentAmount];
+    PropertyInvestment *propertyInvestment = self.getPropertyInvestment;
+    [capitalizationRateLabel setText:[self stringFromPercent:propertyInvestment.getCapitalizationRate]];
+    [cashOnCashReturnLabel setText:[self stringFromPercent:propertyInvestment.getCashOnCashReturn]];
+    [downpaymentLabel setText:[propertyInvestment.mortgage.getDownpaymentAmount getCurrencyString]];
 }
 
 -(void) updateModelFromView {
@@ -99,11 +100,6 @@
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
     [mortgage setSalesPrice:[[salesPriceField text] doubleValue]];
-}
-
--(void) setDownpaymentLabelWithDownpaymentAmount:(double)amount {
-    NSString * downpaymentString = [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:-amount]];
-    [downpaymentLabel setText:downpaymentString];
 }
 
 -(void)touchBackground:(id)sender {
