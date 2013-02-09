@@ -207,7 +207,7 @@
 			name = ProjectionsView;
 			sourceTree = "<group>";
 		};
-		6309051215308C92007762A5 /* Views */ = {
+		6309051215308C92007762A5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				63E36D8A159DFCC90030AB94 /* Shared */,
@@ -218,7 +218,8 @@
 				6309050D15308C19007762A5 /* MortgageView */,
 				6309050B15308C03007762A5 /* ExpensesView */,
 			);
-			name = Views;
+			lastKnownFileType = text;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		6309052E154DEA6E007762A5 /* OpenPropertyView */ = {
@@ -268,7 +269,7 @@
 				63A46A4514EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.h */,
 				63A46A4614EFEB2B00999517 /* InvestmentPropertyCalculatorAppDelegate.m */,
 				63E36D86159DF2590030AB94 /* Utilities */,
-				6309051215308C92007762A5 /* Views */,
+				6309051215308C92007762A5 /* ViewControllers */,
 				63A46A3D14EFEB2B00999517 /* Supporting Files */,
 			);
 			path = InvestmentPropertyCalculator;
