@@ -30,6 +30,7 @@ static NSString* OTHER_KEY = @"otherExpenses";
     if (self) {
         self.taxes = [decoder decodeObjectForKey:TAXES_KEY];
         self.insurance = [decoder decodeObjectForKey:INSURANCE_KEY];
+        self.utilities = [decoder decodeObjectForKey:UTILITIES_KEY];
         self.maintainence = [decoder decodeObjectForKey:MAINTAINENCE_KEY];
         self.vacancyRate = [decoder decodeDoubleForKey:VACANCY_RATE];
         self.otherExpenses = [decoder decodeObjectForKey:OTHER_KEY];
@@ -40,6 +41,7 @@ static NSString* OTHER_KEY = @"otherExpenses";
 -(void) encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:taxes forKey:TAXES_KEY];
     [coder encodeObject:insurance forKey:INSURANCE_KEY];
+    [coder encodeObject:utilities forKey:UTILITIES_KEY];
     [coder encodeObject:maintainence forKey:MAINTAINENCE_KEY];
     [coder encodeDouble:vacancyRate forKey:VACANCY_RATE];
     [coder encodeObject:otherExpenses forKey:OTHER_KEY];
