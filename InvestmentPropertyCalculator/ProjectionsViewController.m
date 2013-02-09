@@ -49,13 +49,6 @@
     [projectionsTableView reloadData];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    [projectionsTableView release];
-    [projectionsTableViewController release];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

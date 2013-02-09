@@ -17,12 +17,11 @@
     
     for (NSString *fileName in files) {
         NSString *dataPath = [documentsPath stringByAppendingPathComponent:fileName];
-        NSData *codedData = [[[NSData alloc] initWithContentsOfFile:dataPath] autorelease];
+        NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:codedData];
         PropertyInvestment* property = [unarchiver decodeObjectForKey:@"property"];
         [properties addObject:property];
         [unarchiver finishDecoding];
-        [unarchiver release];
     }
     
     return [[NSArray alloc] initWithArray:properties];
@@ -35,8 +34,6 @@
     [archiver encodeObject:propertyInvestment forKey:@"property"];
     [archiver finishEncoding];
     [data writeToFile:dataPath atomically:YES];
-    [archiver release];
-    [data release];
 }
 
 -(void) deleteProperty:(NSString *)propertyName {

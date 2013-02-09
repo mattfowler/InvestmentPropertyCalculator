@@ -64,8 +64,6 @@
     [alertTextField setBackgroundColor:[UIColor whiteColor]];
     [alert addSubview:alertTextField];
     [alert show];
-    [alert release];
-    [alertTextField release];
 }
 
 - (IBAction)openButtonClicked:(id)sender {

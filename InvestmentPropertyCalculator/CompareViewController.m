@@ -118,7 +118,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
           forComponent:(NSInteger)component reusingView:(UIView *)view {
     UILabel *label = (id)view;
     if (!label) {
-        label= [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [pickerView rowSizeForComponent:component].width - 10, [pickerView rowSizeForComponent:component].height)] autorelease];
+        label= [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [pickerView rowSizeForComponent:component].width - 10, [pickerView rowSizeForComponent:component].height)];
         [label setBackgroundColor:[UIColor clearColor]];
         label.font = [UIFont fontWithName:@"Arial-BoldMT" size:16];
     }
@@ -184,13 +184,13 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
 }
 
 -(void) setLabel:(UILabel*) label withDollarValue:(int) value {
-    NSNumberFormatter* dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
+    NSNumberFormatter* dollarsAndCentsFormatter = [[NSNumberFormatter alloc] init];
     [dollarsAndCentsFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [label setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
 }
 
 -(void) setLabel:(UILabel*) label withPercentValue:(double) value {
-    NSNumberFormatter* percentFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+    NSNumberFormatter* percentFormatter = [[NSNumberFormatter alloc] init];
     [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
     [label setText:[percentFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
 }

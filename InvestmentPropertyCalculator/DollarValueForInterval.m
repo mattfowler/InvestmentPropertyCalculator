@@ -61,7 +61,6 @@ NSString* INTERVAL_KEY = @"interval";
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
     NSString *formattedValue = [formatter stringFromNumber:[NSNumber numberWithDouble:dollarValue]];
-    [formatter release];
     return  formattedValue;
 }
 

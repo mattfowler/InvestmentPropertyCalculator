@@ -45,10 +45,10 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void) createFormatters {
-    dollarsAndCentsFormatter = [[[NSNumberFormatter alloc] init] retain];
+    dollarsAndCentsFormatter = [[NSNumberFormatter alloc] init];
     [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
     
-    percentFormatter = [[[NSNumberFormatter alloc] init] retain];
+    percentFormatter = [[NSNumberFormatter alloc] init];
     [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 }
 
