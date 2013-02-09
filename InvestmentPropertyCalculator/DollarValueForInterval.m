@@ -21,38 +21,38 @@ NSString* INTERVAL_KEY = @"interval";
 -(id) initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
-        self->dValue = [decoder decodeObjectForKey:DOLLAR_VALUE_KEY];
+        self->value = [decoder decodeObjectForKey:DOLLAR_VALUE_KEY];
         self->interval = [decoder decodeIntForKey:INTERVAL_KEY];
     }
     return self;
 }
 
 -(void) encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:dValue forKey:DOLLAR_VALUE_KEY];
+    [coder encodeObject:value forKey:DOLLAR_VALUE_KEY];
     [coder encodeInt:interval forKey:INTERVAL_KEY];
 }
 
 -(id) initWithDollarValue:(DollarValue*)dollarValue andTimeInterval:(TimeInterval)timeInterval  {
     self = [super init];
     if (self) {
-        self->dValue = dollarValue;
+        self->value = dollarValue;
         self->interval = timeInterval;
     }
     return self;
 }
 
 -(double) getValue {
-    return dValue.dollarValue;
+    return value.dollarValue;
 }
 
 -(double) getValueForTimeInterval:(TimeInterval) timeInterval {
     if(self->interval == timeInterval) {
-        return dValue.dollarValue;
+        return value.dollarValue;
     } else {
         if (self->interval == Year) {
-            return dValue.dollarValue / 12.0;
+            return value.dollarValue / 12.0;
         } else {
-            return dValue.dollarValue * 12.0;
+            return value.dollarValue * 12.0;
         }
     }
 }

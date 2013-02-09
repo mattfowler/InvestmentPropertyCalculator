@@ -16,7 +16,7 @@ typedef enum {
 
 @interface DollarValueForInterval : NSObject <NSCoding> {
     @private
-    DollarValue* dValue;
+    DollarValue* value;
     TimeInterval interval;
 }
 
