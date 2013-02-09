@@ -20,7 +20,7 @@
 static NSString* TAXES_KEY = @"taxes";
 static NSString* INSURANCE_KEY = @"insurance";
 static NSString* UTILITIES_KEY = @"utilities";
-static NSString* MAINTAINENCE_KEY = @"maintenance";
+static NSString* MAINTENANCE_KEY = @"maintenance";
 static NSString* VACANCY_RATE = @"vacancyRate";
 static NSString* OTHER_KEY = @"otherExpenses";
 
@@ -31,7 +31,7 @@ static NSString* OTHER_KEY = @"otherExpenses";
         self.taxes = [decoder decodeObjectForKey:TAXES_KEY];
         self.insurance = [decoder decodeObjectForKey:INSURANCE_KEY];
         self.utilities = [decoder decodeObjectForKey:UTILITIES_KEY];
-        self.maintenance = [decoder decodeObjectForKey:MAINTAINENCE_KEY];
+        self.maintenance = [decoder decodeObjectForKey:MAINTENANCE_KEY];
         self.vacancyRate = [decoder decodeDoubleForKey:VACANCY_RATE];
         self.otherExpenses = [decoder decodeObjectForKey:OTHER_KEY];
     }
@@ -42,7 +42,7 @@ static NSString* OTHER_KEY = @"otherExpenses";
     [coder encodeObject:taxes forKey:TAXES_KEY];
     [coder encodeObject:insurance forKey:INSURANCE_KEY];
     [coder encodeObject:utilities forKey:UTILITIES_KEY];
-    [coder encodeObject:maintenance forKey:MAINTAINENCE_KEY];
+    [coder encodeObject:maintenance forKey:MAINTENANCE_KEY];
     [coder encodeDouble:vacancyRate forKey:VACANCY_RATE];
     [coder encodeObject:otherExpenses forKey:OTHER_KEY];
 }
