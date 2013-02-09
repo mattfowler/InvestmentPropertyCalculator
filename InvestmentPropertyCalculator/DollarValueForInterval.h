@@ -28,9 +28,9 @@ typedef enum {
 
 -(double) getValue;
 
--(DollarValue*) getDollarValue;
+-(DollarValue *) getDollarValue;
 
--(double) getValueForTimeInterval:(TimeInterval) interval;
+-(DollarValue *) getDollarValueForTimeInterval:(TimeInterval) interval;
 
 -(double) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval;
 

@@ -48,7 +48,7 @@ static NSString* OTHER_KEY = @"otherExpenses";
 }
 
 -(double)getYearlyExpensesAsDouble {
-    return [taxes getValueForTimeInterval:Year] + [insurance getValueForTimeInterval:Year] + [utilities getValueForTimeInterval:Year] + [maintenance getValueForTimeInterval:Year] + [otherExpenses getValueForTimeInterval:Year];
+    return [taxes getDollarValueForTimeInterval:Year].dollarValue + [insurance getDollarValueForTimeInterval:Year].dollarValue + [utilities getDollarValueForTimeInterval:Year].dollarValue + [maintenance getDollarValueForTimeInterval:Year].dollarValue + [otherExpenses getDollarValueForTimeInterval:Year].dollarValue;
 }
 
 -(DollarValue *) getYearlyExpenses {

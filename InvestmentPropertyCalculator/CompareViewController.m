@@ -169,7 +169,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     NSString *propertyName = propertyInvestment.propertyName;
     [firstPropertyNameLabel setText:propertyName == nil ? CURRENT_PROPERTY : propertyInvestment.propertyName];
     [self setLabel:firstPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
-    [self setLabel:firstPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
+    [self setLabel:firstPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses.dollarValue];
     [self setLabel:firstPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
     [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }
@@ -178,7 +178,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     NSString *propertyName = propertyInvestment.propertyName;
     [secondPropertyNameLabel setText:propertyName == nil ? CURRENT_PROPERTY : propertyInvestment.propertyName];
     [self setLabel:secondPropertyNetOperatingIncome withDollarValue:propertyInvestment.getNetOperatingIncome];
-    [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses];
+    [self setLabel:secondPropertyExpenses withDollarValue:propertyInvestment.expenses.getYearlyExpenses.dollarValue];
     [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
     [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }

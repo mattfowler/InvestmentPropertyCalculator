@@ -49,14 +49,14 @@ NSString* INTERVAL_KEY = @"interval";
     return value.dollarValue;
 }
 
--(double) getValueForTimeInterval:(TimeInterval) timeInterval {
-    if(self->interval == timeInterval) {
-        return value.dollarValue;
+-(DollarValue *)getDollarValueForTimeInterval:(TimeInterval)interval {
+    if(self->interval == interval) {
+        return value;
     } else {
         if (self->interval == Year) {
-            return value.dollarValue / 12.0;
+            return [DollarValue createValue:value.dollarValue / 12.0];
         } else {
-            return value.dollarValue * 12.0;
+            return [DollarValue createValue:value.dollarValue * 12.0];
         }
     }
 }
@@ -69,7 +69,7 @@ NSString* INTERVAL_KEY = @"interval";
 }
 
 -(double) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval {
-    return [self getValueForTimeInterval:timeInterval] * pow(1.0 + rate, years);
+    return [self getDollarValueForTimeInterval:timeInterval].dollarValue * pow(1.0 + rate, years);
 }
 
 @end

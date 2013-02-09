@@ -89,7 +89,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
-    double expectedTaxDue = ([propertyInvestment.grossIncome getValueForTimeInterval:Year] - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
+    double expectedTaxDue = ([propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome - expectedTaxDue;
     STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }
@@ -100,7 +100,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     double landFactor = .5;
     double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
-    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getValueForTimeInterval:Year];
+    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue;
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome + (expectedDeduction *.25);
     STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
 }

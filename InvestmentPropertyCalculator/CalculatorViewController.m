@@ -82,7 +82,7 @@
     PropertyInvestment *investment = self.getPropertyInvestment;
     [salesPriceField setText:[NSString stringWithFormat:@"%d", investment.mortgage.salesPrice]];
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", investment.mortgage.downpaymentPercent]];
-    [grossRentField setText:[NSString stringWithFormat:@"%1.2f", [investment.grossIncome getValueForTimeInterval:grossRentIntervalField.selectedSegmentIndex]]];
+    [grossRentField setText:[[investment.grossIncome getDollarValueForTimeInterval:grossRentIntervalField.selectedSegmentIndex] getDecimalString]];
     [taxBracketField setText:[NSString stringWithFormat:@"%1.2f", investment.taxBracket]];
 }
 
