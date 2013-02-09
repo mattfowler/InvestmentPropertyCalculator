@@ -76,7 +76,7 @@
 
 - (void) changedMaintanencePeriod:(id) sender {
     PropertyExpenses* expenses = self.getPropertyInvestment.expenses;
-    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setMaintainence:value];} fromUIField:maintanenceField withTimePeriod:maintanenceIntervalField.selectedSegmentIndex];
+    [self setExpenseForModel:^(DollarValueForInterval* value) {[expenses setMaintenance:value];} fromUIField:maintanenceField withTimePeriod:maintanenceIntervalField.selectedSegmentIndex];
     [self updateLabelsFromModel];
 }
 
@@ -125,7 +125,7 @@
     NSString *decimalFormat = @"%1.2f";
     [taxesField setText:[NSString stringWithFormat:decimalFormat, expenses.taxes.getValue]];
     [insuranceField setText:[NSString stringWithFormat:decimalFormat, expenses.insurance.getValue]];
-    [maintanenceField setText:[NSString stringWithFormat:decimalFormat, expenses.maintainence.getValue]];
+    [maintanenceField setText:[NSString stringWithFormat:decimalFormat, expenses.maintenance.getValue]];
     [utilitiesField setText:[NSString stringWithFormat:decimalFormat, expenses.utilities.getValue]];
     [vacancyField setText:[NSString stringWithFormat:decimalFormat, expenses.vacancyRate]];
     [otherField setText:[NSString stringWithFormat:decimalFormat, expenses.otherExpenses.getValue]];
@@ -151,7 +151,7 @@
     PropertyExpenses * expenses = [self getPropertyInvestment].expenses;
     [expenses setTaxes:[DollarValueForInterval createValue:[taxesField.text doubleValue] forTimeInterval:taxesIntervalField.selectedSegmentIndex]];
     [expenses setInsurance:[DollarValueForInterval createValue:[insuranceField.text doubleValue] forTimeInterval:insuranceIntervalField.selectedSegmentIndex]];
-    [expenses setMaintainence:[DollarValueForInterval createValue:[maintanenceField.text doubleValue] forTimeInterval:maintanenceIntervalField.selectedSegmentIndex]];
+    [expenses setMaintenance:[DollarValueForInterval createValue:[maintanenceField.text doubleValue] forTimeInterval:maintanenceIntervalField.selectedSegmentIndex]];
     [expenses setUtilities:[DollarValueForInterval createValue:[utilitiesField.text doubleValue] forTimeInterval:utilitiesIntervalField.selectedSegmentIndex]];
     [expenses setVacancyRate:[[vacancyField text] doubleValue]];
     [expenses setOtherExpenses:[DollarValueForInterval createValue:[otherField.text doubleValue] forTimeInterval:otherIntervalField.selectedSegmentIndex]];

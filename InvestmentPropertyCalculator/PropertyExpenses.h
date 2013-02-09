@@ -14,7 +14,7 @@
 @property (nonatomic, retain) DollarValueForInterval* taxes;
 @property (nonatomic, retain) DollarValueForInterval* insurance;
 @property (nonatomic, retain) DollarValueForInterval* utilities;
-@property (nonatomic, retain) DollarValueForInterval* maintainence;
+@property (nonatomic, retain) DollarValueForInterval* maintenance;
 @property double vacancyRate;
 @property (nonatomic, retain) DollarValueForInterval* otherExpenses;
 
