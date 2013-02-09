@@ -7,6 +7,7 @@
 //
 
 #import "Mortgage.h"
+#import "DollarValue.h"
 
 @implementation Mortgage
 
@@ -49,8 +50,9 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     [coder encodeInt:amoritizationYears forKey:AMORITIZATION_YEARS_KEY];
 }
 
--(double) getMonthlyPayment {
-    return [self getInitialPrincipal] * (self.getMonthlyInterest / (1 - pow(1 + self.getMonthlyInterest, -[self mortgageTermInMonths])));
+-(DollarValue *) getMonthlyPayment {
+    double dollars = [self getInitialPrincipal] * (self.getMonthlyInterest / (1 - pow(1 + self.getMonthlyInterest, -[self mortgageTermInMonths])));
+    return [DollarValue createValue:dollars];
 }
 
 -(double) getInitialPrincipal {
@@ -62,11 +64,11 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 - (double) getTotalInterestPaid {
-    return (self.getMonthlyPayment * [self mortgageTermInMonths]) - self.getInitialPrincipal;
+    return (self.getMonthlyPayment.dollarValue * [self mortgageTermInMonths]) - self.getInitialPrincipal;
 }
 
 - (double) getInterestPaidInYear:(int) year {
-    double yearlyPayments = self.getMonthlyPayment * 12;
+    double yearlyPayments = self.getMonthlyPayment.dollarValue * 12;
     double principalPaidInYear = [self getPrincipalPaidInYear:year];
     return principalPaidInYear == 0 ? 0 : yearlyPayments - principalPaidInYear;
 }
@@ -92,7 +94,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 
 -(double) getPrincipalDueAtMonth:(int) month {
     double monthlyInterestRate = self.getMonthlyInterest;
-    return (self.getInitialPrincipal *  pow(1 + monthlyInterestRate, month)) - ((pow(1+monthlyInterestRate, month)-1) / monthlyInterestRate)* self.getMonthlyPayment;
+    return (self.getInitialPrincipal *  pow(1 + monthlyInterestRate, month)) - ((pow(1+monthlyInterestRate, month)-1) / monthlyInterestRate)* self.getMonthlyPayment.dollarValue;
 }
 
 -(double) getMonthlyInterest {

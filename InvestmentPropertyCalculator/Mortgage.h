@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class DollarValue;
+
 @interface Mortgage : NSObject <NSCoding>
 
 @property int salesPrice;
@@ -17,7 +19,7 @@
 
 - (id) initWithSalesPrice:(int)salesPrice downpayment:(double)downpayment interestRate:(double)interest years:(double) years;
 
-- (double) getMonthlyPayment;
+- (DollarValue *) getMonthlyPayment;
 - (double) getInitialPrincipal;
 - (double) getDownpaymentAmount;
 - (double) getTotalInterestPaid;
