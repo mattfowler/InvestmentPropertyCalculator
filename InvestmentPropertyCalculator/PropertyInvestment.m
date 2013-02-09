@@ -46,7 +46,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(int) getNetOperatingIncome {
-    return [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - (mortgage.getMonthlyPayment * 12) - expenses.getYearlyExpenses.dollarValue - self.getVacancyLoss;
+    return [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - (mortgage.getMonthlyPayment * 12) - expenses.getYearlyExpenses.dollarValue - self.getVacancyLoss.dollarValue;
 }
 
 -(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate {
@@ -62,8 +62,9 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     return (double) self.getNetOperatingIncome / (double) mortgage.getDownpaymentAmount;
 }
 
--(double) getVacancyLoss {
-    return [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue * (expenses.vacancyRate/100);
+-(DollarValue *) getVacancyLoss {
+    double vacancyLoss = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue * (expenses.vacancyRate/100);
+    return [DollarValue createValue:-1.0 * vacancyLoss];
 }
 
 -(int) getAfterTaxCashFlow {

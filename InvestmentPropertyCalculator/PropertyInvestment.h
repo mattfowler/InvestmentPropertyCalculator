@@ -24,7 +24,7 @@
 
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
--(double) getVacancyLoss;
+-(DollarValue *) getVacancyLoss;
 
 -(int) getAfterTaxCashFlow;
 -(double) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate;

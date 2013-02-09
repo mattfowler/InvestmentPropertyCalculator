@@ -108,7 +108,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 -(void) testGetVacancyRateLoss {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     [propertyExpenses setVacancyRate:1.0];
-    STAssertEqualsWithAccuracy(10000.0 * .01, propertyInvestment.getVacancyLoss, .1, @"Vacancy losses not equal");
+    STAssertEqualsWithAccuracy(-10000.0 * .01, propertyInvestment.getVacancyLoss.dollarValue, .1, @"Vacancy losses not equal");
 }
 
 -(void) testPropertyAppreciation {

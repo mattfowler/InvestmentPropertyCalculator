@@ -138,7 +138,7 @@
 
     [monthlyExpensesLabel setText:[expenses.getMonthlyExpenses getCurrencyString]];
     [yearlyExpensesLabel setText:[expenses.getYearlyExpenses getCurrencyString]];
-    [vacancyLabel setText:[self stringFromDollarsAndCents:(-1*investment.getVacancyLoss)]];
+    [vacancyLabel setText:[investment.getVacancyLoss getCurrencyString]];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
