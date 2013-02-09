@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DollarValue.h"
 
 typedef enum {
     Year = 0,
@@ -15,19 +16,15 @@ typedef enum {
 
 @interface DollarValueForInterval : NSObject <NSCoding> {
     @private
-    double value;
+    DollarValue* dValue;
     TimeInterval interval;
 }
-
-@property (readonly) double dollarValue;
-
-@property (readonly) TimeInterval timeInterval;
 
 +(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval;
 
 +(NSString *) getStringDollarValueFromDouble:(double)dollarValue;
 
--(id) initWithValue:(double)dollarValue andTimeInterval:(TimeInterval)timeInterval;
+-(id) initWithDollarValue:(DollarValue*)dollarValue andTimeInterval:(TimeInterval)timeInterval;
 
 -(double) getValue;
 

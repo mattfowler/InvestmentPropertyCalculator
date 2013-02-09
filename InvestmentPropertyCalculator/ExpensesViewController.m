@@ -92,8 +92,8 @@
     [self updateLabelsFromModel];
 }
 
--(void) setExpenseForModel:(void (^)(DollarValueForInterval*)) modelFieldSetter fromUIField:(UITextField*) textField withTimePeriod:(TimeInterval) interval {    
-    modelFieldSetter([[DollarValueForInterval alloc] initWithValue:[[textField text] doubleValue] andTimeInterval:interval]);
+-(void) setExpenseForModel:(void (^)(DollarValueForInterval*)) modelFieldSetter fromUIField:(UITextField*) textField withTimePeriod:(TimeInterval) interval {
+    modelFieldSetter([DollarValueForInterval createValue:[[textField text] doubleValue] forTimeInterval:interval]);
 }
 
 -(void) initTextFields {

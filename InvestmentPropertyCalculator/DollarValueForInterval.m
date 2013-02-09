@@ -10,51 +10,49 @@
 
 @implementation DollarValueForInterval
 
-@synthesize dollarValue = value;
-@synthesize timeInterval = interval;
-
-NSString* VALUE_KEY = @"value";
+NSString* DOLLAR_VALUE_KEY = @"dollarValue";
 NSString* INTERVAL_KEY = @"interval";
 
 +(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval {
-    return [[[DollarValueForInterval alloc] initWithValue:value andTimeInterval:interval] autorelease];
+    DollarValue* dollarValue = [DollarValue createValue:value];
+    return [[DollarValueForInterval alloc] initWithDollarValue:dollarValue andTimeInterval:interval];
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
-        self->value = [decoder decodeDoubleForKey:VALUE_KEY];
+        self->dValue = [decoder decodeObjectForKey:DOLLAR_VALUE_KEY];
         self->interval = [decoder decodeIntForKey:INTERVAL_KEY];
     }
     return self;
 }
 
 -(void) encodeWithCoder:(NSCoder *)coder {
-    [coder encodeDouble:value forKey:VALUE_KEY];
+    [coder encodeObject:dValue forKey:DOLLAR_VALUE_KEY];
     [coder encodeInt:interval forKey:INTERVAL_KEY];
 }
 
-- (id) initWithValue:(double)dollarValue andTimeInterval:(TimeInterval)timeInterval{
+-(id) initWithDollarValue:(DollarValue*)dollarValue andTimeInterval:(TimeInterval)timeInterval  {
     self = [super init];
     if (self) {
-        self->value = dollarValue;
+        self->dValue = dollarValue;
         self->interval = timeInterval;
-    }    
+    }
     return self;
 }
 
 -(double) getValue {
-    return value;
+    return dValue.dollarValue;
 }
 
 -(double) getValueForTimeInterval:(TimeInterval) timeInterval {
     if(self->interval == timeInterval) {
-        return value;
+        return dValue.dollarValue;
     } else {
         if (self->interval == Year) {
-            return value / 12.0;
+            return dValue.dollarValue / 12.0;
         } else {
-            return value * 12.0;
+            return dValue.dollarValue * 12.0;
         }
     }
 }

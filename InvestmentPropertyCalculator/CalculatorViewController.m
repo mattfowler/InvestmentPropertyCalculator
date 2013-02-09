@@ -44,8 +44,10 @@
 }
 
 - (void) changedRentPeriod:(id) sender {
-    TimeInterval selectedIndex = [grossRentIntervalField selectedSegmentIndex]; 
-    [self.getPropertyInvestment setGrossIncome:[[DollarValueForInterval alloc] initWithValue:[grossRentField.text doubleValue] andTimeInterval:selectedIndex]];
+    TimeInterval selectedIndex = [grossRentIntervalField selectedSegmentIndex];
+    double grossRent = [grossRentField.text doubleValue];
+    DollarValueForInterval* dollarValue = [DollarValueForInterval createValue:grossRent forTimeInterval:selectedIndex];
+    [self.getPropertyInvestment setGrossIncome:dollarValue];
     [self updateViewLabelsFromModel];
 }
 

@@ -1,0 +1,24 @@
+//
+//  DollarValue.h
+//  InvestmentPropertyCalculator
+//
+//  Created by MATTHEW FOWLER on 2/8/13.
+//
+//
+
+#import <Foundation/Foundation.h>
+
+@interface DollarValue : NSObject <NSCoding> {
+    @protected
+    double value;
+}
+
+@property (readonly) double dollarValue;
+
++(DollarValue*) createValue:(double) value;
+
+-(id) initWithValue:(double)dollarValue;
+
+-(NSString*) getStringValue;
+
+@end
