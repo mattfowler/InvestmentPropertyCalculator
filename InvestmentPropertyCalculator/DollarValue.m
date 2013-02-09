@@ -26,11 +26,14 @@ NSString* VALUE_KEY = @"value";
     return [[DollarValue alloc] initWithValue:value];
 }
 
--(NSString*) getStringValue {
+-(NSString*) getCurrencyString {
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    NSString *formattedValue = [formatter stringFromNumber:[NSNumber numberWithDouble:value]];
-    return  formattedValue;
+    return [formatter stringFromNumber:[NSNumber numberWithDouble:value]];
+}
+
+-(NSString *)getDecimalString {
+    return [NSString stringWithFormat:@"%1.2f", value];
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {

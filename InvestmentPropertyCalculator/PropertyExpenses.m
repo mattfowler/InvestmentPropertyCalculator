@@ -47,12 +47,16 @@ static NSString* OTHER_KEY = @"otherExpenses";
     [coder encodeObject:otherExpenses forKey:OTHER_KEY];
 }
 
--(double) getYearlyExpenses {
+-(double)getYearlyExpensesAsDouble {
     return [taxes getValueForTimeInterval:Year] + [insurance getValueForTimeInterval:Year] + [utilities getValueForTimeInterval:Year] + [maintenance getValueForTimeInterval:Year] + [otherExpenses getValueForTimeInterval:Year];
 }
 
--(double) getMonthlyExpenses {
-    return self.getYearlyExpenses / 12.0;
+-(DollarValue *) getYearlyExpenses {
+    return [DollarValue createValue:self.getYearlyExpensesAsDouble];
+}
+
+-(DollarValue *) getMonthlyExpenses {
+    return [DollarValue createValue:self.getYearlyExpensesAsDouble / 12.0];
 }
 
 @end

@@ -136,8 +136,8 @@
     PropertyInvestment * investment = self.getPropertyInvestment;
     PropertyExpenses * expenses = investment.expenses;
 
-    [monthlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getMonthlyExpenses]];
-    [yearlyExpensesLabel setText:[self stringFromDollarsAndCents:expenses.getYearlyExpenses]];
+    [monthlyExpensesLabel setText:[expenses.getMonthlyExpenses getCurrencyString]];
+    [yearlyExpensesLabel setText:[expenses.getYearlyExpenses getCurrencyString]];
     [vacancyLabel setText:[self stringFromDollarsAndCents:(-1*investment.getVacancyLoss)]];
 }
 

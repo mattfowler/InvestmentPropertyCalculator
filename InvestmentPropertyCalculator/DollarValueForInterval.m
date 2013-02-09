@@ -41,6 +41,10 @@ NSString* INTERVAL_KEY = @"interval";
     return self;
 }
 
+-(DollarValue*) getDollarValue {
+    return value;
+}
+
 -(double) getValue {
     return value.dollarValue;
 }

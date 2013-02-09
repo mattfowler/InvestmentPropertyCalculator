@@ -18,7 +18,7 @@
 @property double vacancyRate;
 @property (nonatomic, retain) DollarValueForInterval* otherExpenses;
 
--(double) getYearlyExpenses;
--(double) getMonthlyExpenses;
+-(DollarValue *) getYearlyExpenses;
+-(DollarValue *) getMonthlyExpenses;
 
 @end
