@@ -112,7 +112,7 @@
 		63A46A9014EFFA3900999517 /* MortgageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MortgageTest.m; sourceTree = "<group>"; };
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
-		63BA680B160D247100D131E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		63BA680B160D247100D131E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
@@ -230,7 +230,6 @@
 		63A46A2714EFEB2B00999517 = {
 			isa = PBXGroup;
 			children = (
-				63BA680B160D247100D131E2 /* Default-568h@2x.png */,
 				63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */,
 				63A46A6414EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
 				63A46A3514EFEB2B00999517 /* Frameworks */,
@@ -275,6 +274,7 @@
 		63A46A3D14EFEB2B00999517 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63BA680B160D247100D131E2 /* Default-568h@2x.png */,
 				63090527153B55E7007762A5 /* Icon@2x.png */,
 				63090525153B5593007762A5 /* Icon.png */,
 				63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */,
