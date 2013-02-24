@@ -78,16 +78,16 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(DollarValue *) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate {
-    double expensesWithoutInflation = expenses.getYearlyExpenses.dollarValue + [self getPropertyDepreciationForYear:year];
+    double expensesWithoutInflation = expenses.getYearlyExpenses.dollarValue + [self getPropertyDepreciationForYear:year].dollarValue;
     return [DollarValue createValue:[self getValue:expensesWithoutInflation afterYears:year withAppreciationRate:rate]];
 }
 
--(double)getPropertyDepreciationForYear:(int)year {
-    double depreciationPerYear =  (mortgage.salesPrice.dollarValue * LAND_TO_PROPERTY_RATIO) / STRAIGHTLINE_DEPRECIATION_YEARS;
+-(DollarValue *)getPropertyDepreciationForYear:(int)year {
     if (year > STRAIGHTLINE_DEPRECIATION_YEARS) {
-        return 0.00;
+        return [DollarValue createValue:0.0];
     } else {
-        return depreciationPerYear;
+        double buildingValue = (mortgage.salesPrice.dollarValue * LAND_TO_PROPERTY_RATIO);
+        return [DollarValue createValue: buildingValue / STRAIGHTLINE_DEPRECIATION_YEARS];
     }
 }
 

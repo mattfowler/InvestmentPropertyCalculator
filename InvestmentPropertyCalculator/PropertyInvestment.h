@@ -28,7 +28,7 @@
 
 -(DollarValue *) getAfterTaxCashFlow;
 -(DollarValue *) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate;
--(double) getPropertyDepreciationForYear:(int)year;
+-(DollarValue *) getPropertyDepreciationForYear:(int)year;
 -(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate;
 -(double) getAdditionToNetWorthAfterYear:(int)year withRentIncrease:(double)rentIncrease andPropertyAppreciationRate:(double)propertyAppreciationRate;
 @end
