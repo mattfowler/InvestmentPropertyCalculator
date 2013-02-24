@@ -13,10 +13,16 @@
 
 static const int YEARLY_TAXES = 1000;
 static const int YEARLY_UTILITIES = 500;
-static const int PROPERTY_COST = 100000;
 static const int EXPENSES_FIRST_YEAR = YEARLY_TAXES + YEARLY_UTILITIES;
 static const double DEPRECIATION_YEARS = 27.5;
 
+DollarValue *PROPERTY_COST = nil;
+
++(void)initialize {
+    if(!PROPERTY_COST) {
+        PROPERTY_COST = [DollarValue createValue:100000];
+    }
+}
 
 -(void)setUp {
     testMortgage = [[Mortgage alloc] initWithSalesPrice:PROPERTY_COST downpayment:25.0 interestRate:4.25 years:30];
@@ -42,7 +48,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     
     double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
     
-    double expectedCapRate = (expectedNetIncome / (double) PROPERTY_COST);
+    double expectedCapRate = (expectedNetIncome / PROPERTY_COST.dollarValue);
      
     STAssertEqualsWithAccuracy(expectedCapRate, [propertyInvestment getCapitalizationRate], .1, @"Cap rate not equal."); 
 }
@@ -60,7 +66,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 
 -(void) testGetPropertyDepreciatonForYear {
     double landFactor = .5;    
-    double expectedDepreciation = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciation = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     
     STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciatonForYear:5], .01, @"Depreciation within 27.5 years not equal");
     
@@ -69,7 +75,7 @@ static const double DEPRECIATION_YEARS = 27.5;
 
 -(void) testGetTaxDeductibleExpensesForYear {
     double landFactor = .5;
-    double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
     
@@ -86,7 +92,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     double landFactor = .5;
-    double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
     double expectedTaxDue = ([propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
@@ -98,7 +104,7 @@ static const double DEPRECIATION_YEARS = 27.5;
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     double landFactor = .5;
-    double expectedDepreciationFirstYear = ((double)PROPERTY_COST * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
     double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue;
     int expectedCashFlow = propertyInvestment.getNetOperatingIncome + (expectedDeduction *.25);

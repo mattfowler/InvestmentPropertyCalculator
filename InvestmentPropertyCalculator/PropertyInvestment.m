@@ -55,7 +55,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(double) getCapitalizationRate {
-    return (double)self.getNetOperatingIncome / (double)mortgage.salesPrice;
+    return (double)self.getNetOperatingIncome / mortgage.salesPrice.dollarValue;
 }
 
 -(double) getCashOnCashReturn {
@@ -83,7 +83,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(double) getPropertyDepreciatonForYear:(int)year {
-    double depreciationPerYear =  (mortgage.salesPrice * LAND_TO_PROPERTY_RATIO) / STRAIGHTLINE_DEPRECIATION_YEARS;
+    double depreciationPerYear =  (mortgage.salesPrice.dollarValue * LAND_TO_PROPERTY_RATIO) / STRAIGHTLINE_DEPRECIATION_YEARS;
     if (year > STRAIGHTLINE_DEPRECIATION_YEARS) {
         return 0.00;
     } else {
@@ -92,8 +92,8 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate {
-    double appreciatedValue = [self getValue:mortgage.salesPrice afterYears:year withAppreciationRate:rate];
-    return appreciatedValue - (double)mortgage.salesPrice;
+    double appreciatedValue = [self getValue:mortgage.salesPrice.dollarValue afterYears:year withAppreciationRate:rate];
+    return appreciatedValue - mortgage.salesPrice.dollarValue;
 }
 
 -(double) getAdditionToNetWorthAfterYear:(int)year withRentIncrease:(double)rentIncrease andPropertyAppreciationRate:(double)propertyAppreciationRate {

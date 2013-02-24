@@ -12,12 +12,12 @@
 
 @interface Mortgage : NSObject <NSCoding>
 
-@property int salesPrice;
+@property DollarValue* salesPrice;
 @property double interestRate;
 @property double downpaymentPercent;
 @property int amoritizationYears;
 
-- (id) initWithSalesPrice:(int)salesPrice downpayment:(double)downpayment interestRate:(double)interest years:(double) years;
+- (id) initWithSalesPrice:(DollarValue*)salesPrice downpayment:(double)downpayment interestRate:(double)interest years:(double) years;
 
 - (DollarValue *) getMonthlyPayment;
 - (DollarValue *) getDownpaymentAmount;

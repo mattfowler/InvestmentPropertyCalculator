@@ -20,7 +20,8 @@
 
 - (id) init {
     propertyInvestment = [[PropertyInvestment alloc] init];
-    Mortgage *defaultMortgage = [[Mortgage alloc] initWithSalesPrice:200000 downpayment:25.0 interestRate:4.5 years:30];
+    DollarValue *salesPrice = [DollarValue createValue:200000];
+    Mortgage *defaultMortgage = [[Mortgage alloc] initWithSalesPrice:salesPrice downpayment:25.0 interestRate:4.5 years:30];
     [propertyInvestment setMortgage:defaultMortgage];
     PropertyExpenses *expenses = [[PropertyExpenses alloc] init];
     [propertyInvestment setExpenses:expenses];

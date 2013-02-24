@@ -37,7 +37,7 @@
     PropertyInvestment *investment = [self getPropertyInvestment];
     Mortgage *mortgage = investment.mortgage;
     
-    [salesPriceField setText:[NSString stringWithFormat:@"%d" , mortgage.salesPrice]];
+    [salesPriceField setText:mortgage.salesPrice.getDecimalString];
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f" , mortgage.downpaymentPercent]];
     [interestRateField setText:[NSString stringWithFormat:@"%1.2f" , mortgage.interestRate]];
     [mortgageTermField setText:[NSString stringWithFormat:@"%d" , mortgage.amoritizationYears]];
@@ -71,7 +71,7 @@
 
 - (void) updateModelFromTextFields {
     Mortgage * mortgage = [self getPropertyInvestment].mortgage;
-    [mortgage setSalesPrice:[[salesPriceField text] intValue]];
+    [mortgage setSalesPrice:[DollarValue createValue:[[salesPriceField text] doubleValue]]];
     [mortgage setInterestRate:[[interestRateField text] doubleValue]];
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
     [mortgage setAmoritizationYears:[[mortgageTermField text] intValue]];

@@ -11,7 +11,8 @@
 @implementation MortgageTest
 
 -(void)setUp {
-    testMortgage = [[Mortgage alloc] initWithSalesPrice:100000 downpayment:25.0 interestRate:4.25 years:30];
+    DollarValue *salesPrice = [DollarValue createValue:100000];
+    testMortgage = [[Mortgage alloc] initWithSalesPrice:salesPrice downpayment:25.0 interestRate:4.25 years:30];
 }
 
 - (void) testGetDownpaymentAmount {    

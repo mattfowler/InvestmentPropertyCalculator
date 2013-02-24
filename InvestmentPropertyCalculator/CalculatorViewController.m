@@ -80,7 +80,7 @@
 
 -(void) updateEditableFieldsFromModel {
     PropertyInvestment *investment = self.getPropertyInvestment;
-    [salesPriceField setText:[NSString stringWithFormat:@"%d", investment.mortgage.salesPrice]];
+    [salesPriceField setText:investment.mortgage.salesPrice.getDecimalString];
     [downpaymentField setText:[NSString stringWithFormat:@"%1.2f", investment.mortgage.downpaymentPercent]];
     [grossRentField setText:[[investment.grossIncome getDollarValueForTimeInterval:grossRentIntervalField.selectedSegmentIndex] getDecimalString]];
     [taxBracketField setText:[NSString stringWithFormat:@"%1.2f", investment.taxBracket]];
@@ -99,7 +99,7 @@
     self.getPropertyInvestment.taxBracket = [taxBracketField.text doubleValue];
     Mortgage *mortgage = self.getPropertyInvestment.mortgage;
     [mortgage setDownpaymentPercent:[[downpaymentField text] doubleValue]];
-    [mortgage setSalesPrice:[[salesPriceField text] doubleValue]];
+    [mortgage setSalesPrice:[DollarValue createValue:[[salesPriceField text] doubleValue]]];
 }
 
 -(void)touchBackground:(id)sender {

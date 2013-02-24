@@ -21,7 +21,7 @@ static NSString* DOWNPAYMENT_PERCENT_KEY = @"downpaymentPercent";
 static NSString* INTEREST_RATE_KEY = @"interestRate";
 static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 
--(id) initWithSalesPrice:(int)price downpayment:(double)downpayment interestRate:(double)interest years:(double) years {
+-(id) initWithSalesPrice:(DollarValue*)price downpayment:(double)downpayment interestRate:(double)interest years:(double) years {
     self = [super init];
     if (self) {
         salesPrice = price;
@@ -35,7 +35,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 -(id) initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
-        self.salesPrice = [decoder decodeIntForKey:SALES_PRICE_KEY];
+        self.salesPrice = [decoder decodeObjectForKey:SALES_PRICE_KEY];
         self.downpaymentPercent = [decoder decodeDoubleForKey:DOWNPAYMENT_PERCENT_KEY];
         self.interestRate = [decoder decodeDoubleForKey:INTEREST_RATE_KEY];
         self.amoritizationYears = [decoder decodeIntForKey:AMORITIZATION_YEARS_KEY];
@@ -56,11 +56,11 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 -(double) getInitialPrincipal {
-    return salesPrice - self.getDownpaymentAmount.dollarValue;
+    return salesPrice.dollarValue - self.getDownpaymentAmount.dollarValue;
 }
 
 - (DollarValue *) getDownpaymentAmount {
-    return [DollarValue createValue:salesPrice * (downpaymentPercent / 100)];
+    return [DollarValue createValue:salesPrice.dollarValue * (downpaymentPercent / 100)];
 }
 
 - (DollarValue *) getTotalInterestPaid {
