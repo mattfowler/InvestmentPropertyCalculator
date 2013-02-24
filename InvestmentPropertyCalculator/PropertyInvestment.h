@@ -26,7 +26,7 @@
 -(double) getCashOnCashReturn;
 -(DollarValue *) getVacancyLoss;
 
--(int) getAfterTaxCashFlow;
+-(DollarValue *) getAfterTaxCashFlow;
 -(double) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate;
 -(double) getPropertyDepreciatonForYear:(int)year;
 -(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate;
