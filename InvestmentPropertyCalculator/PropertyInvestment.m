@@ -45,21 +45,21 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     [coder encodeDouble:taxBracket forKey:TAX_BRACKET_KEY];
 }
 
--(int) getNetOperatingIncome {
-    return [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - (mortgage.getMonthlyPayment.dollarValue * 12) - expenses.getYearlyExpenses.dollarValue - self.getVacancyLoss.dollarValue;
+-(DollarValue*) getNetOperatingIncome {
+    return [DollarValue createValue:[self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - (mortgage.getMonthlyPayment.dollarValue * 12) - expenses.getYearlyExpenses.dollarValue - self.getVacancyLoss.dollarValue];
 }
 
 -(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate {
-    int operatingIncome = self.getNetOperatingIncome;
+    double operatingIncome = self.getNetOperatingIncome.dollarValue;
     return [self getValue:operatingIncome afterYears:year withAppreciationRate:rate];
 }
 
 -(double) getCapitalizationRate {
-    return (double)self.getNetOperatingIncome / mortgage.salesPrice.dollarValue;
+    return self.getNetOperatingIncome.dollarValue / mortgage.salesPrice.dollarValue;
 }
 
 -(double) getCashOnCashReturn {
-    return (double) self.getNetOperatingIncome / mortgage.getDownpaymentAmount.dollarValue;
+    return self.getNetOperatingIncome.dollarValue / mortgage.getDownpaymentAmount.dollarValue;
 }
 
 -(DollarValue *) getVacancyLoss {
@@ -70,7 +70,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 -(int) getAfterTaxCashFlow {
     int taxableIncome = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0] - [mortgage getInterestPaidInYear:1];
     double taxRate = taxBracket/100;
-    return self.getNetOperatingIncome - (taxableIncome * taxRate);
+    return self.getNetOperatingIncome.dollarValue - (taxableIncome * taxRate);
 }
 
 -(double) getValue:(double)value afterYears:(int)years withAppreciationRate:(double)rate {

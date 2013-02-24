@@ -37,9 +37,9 @@ DollarValue *PROPERTY_COST = nil;
 -(void)testGetNetOperatingIncome {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    int expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
     
-    STAssertEquals(expectedNetIncome, [propertyInvestment getNetOperatingIncome], @"Net income not equal, should be 22427."); 
+    STAssertEquals(expectedNetIncome, propertyInvestment.getNetOperatingIncome.dollarValue, @"Net income not equal, should be 22427.");
     
 }
 
@@ -88,6 +88,7 @@ DollarValue *PROPERTY_COST = nil;
     STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate], .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
 }
 
+//TODO get rid of the double cast and bad accuracy check once after tax cash flow is converted to dollar value
 -(void) testGetAfterTaxCashFlow {
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
@@ -96,10 +97,11 @@ DollarValue *PROPERTY_COST = nil;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
     double expectedTaxDue = ([propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
-    int expectedCashFlow = propertyInvestment.getNetOperatingIncome - expectedTaxDue;
-    STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
+    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.dollarValue - expectedTaxDue;
+    STAssertEqualsWithAccuracy(expectedCashFlow, (double)propertyInvestment.getAfterTaxCashFlow, 1, @"After tax cash flows not equal.");
 }
 
+//TODO get rid of the double cast and bad accuracy check once after tax cash flow is converted to dollar value
 -(void) testGetAfterTaxCashFlowWithTaxDeduction {
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
@@ -107,8 +109,8 @@ DollarValue *PROPERTY_COST = nil;
     double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
     double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue;
-    int expectedCashFlow = propertyInvestment.getNetOperatingIncome + (expectedDeduction *.25);
-    STAssertEquals(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow, @"After tax cash flows not equal.");
+    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.dollarValue + (expectedDeduction *.25);
+    STAssertEqualsWithAccuracy(expectedCashFlow, (double)propertyInvestment.getAfterTaxCashFlow, 1, @"After tax cash flows not equal.");
 }
 
 -(void) testGetVacancyRateLoss {

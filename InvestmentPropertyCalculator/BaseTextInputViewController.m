@@ -40,7 +40,7 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void) labelViewDidChange {
-    [netOperatingIncomeLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getNetOperatingIncome]];
+    [netOperatingIncomeLabel setText:self.getPropertyInvestment.getNetOperatingIncome.getCurrencyString];
     [afterTaxCashFlowLabel setText:[self stringFromDollarsAndCents:self.getPropertyInvestment.getAfterTaxCashFlow]];
 }
 
