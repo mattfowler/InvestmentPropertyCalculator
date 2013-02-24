@@ -28,10 +28,6 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
     return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
 }
 
--(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents {
-    return [dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:dollarsAndCents]];
-}
-
 - (void) viewDidLoad {
     [super viewDidLoad];
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
@@ -45,9 +41,6 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 }
 
 - (void) createFormatters {
-    dollarsAndCentsFormatter = [[NSNumberFormatter alloc] init];
-    [dollarsAndCentsFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    
     percentFormatter = [[NSNumberFormatter alloc] init];
     [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 }

@@ -15,7 +15,6 @@
     CGFloat animatedDistance;
     
     @protected
-    NSNumberFormatter *dollarsAndCentsFormatter;
     NSNumberFormatter *percentFormatter;
 }
 
@@ -26,8 +25,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
 
 -(NSString*) stringFromPercent:(double)percent;
-
--(NSString*) stringFromDollarsAndCents:(double)dollarsAndCents;
 
 -(void) touchBackground:(id)sender;
 
