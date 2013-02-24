@@ -68,9 +68,9 @@ DollarValue *PROPERTY_COST = nil;
     double landFactor = .5;    
     double expectedDepreciation = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
     
-    STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciatonForYear:5], .01, @"Depreciation within 27.5 years not equal");
+    STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciationForYear:5], .01, @"Depreciation within 27.5 years not equal");
     
-    STAssertEqualsWithAccuracy(0.00, [propertyInvestment getPropertyDepreciatonForYear:50], .01, @"Depreciation after 27.5 years should be equal");
+    STAssertEqualsWithAccuracy(0.00, [propertyInvestment getPropertyDepreciationForYear:50], .01, @"Depreciation after 27.5 years should be equal");
 }
 
 -(void) testGetTaxDeductibleExpensesForYear {
