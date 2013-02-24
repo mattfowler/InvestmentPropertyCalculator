@@ -139,7 +139,7 @@ DollarValue *PROPERTY_COST = nil;
                                                     andPropertyAppreciationRate:.05];
     
     double appreciationYearOne = [propertyInvestment getPropertyAppreciationForYear:1 withAppreciationRate:.05];
-    double netIncomeYearOne = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05];
+    double netIncomeYearOne = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05].doubleValue;
     double principalPaidYearOne = [propertyInvestment.mortgage getPrincipalPaidInYear:1];
     
     STAssertEqualsWithAccuracy(principalPaidYearOne + netIncomeYearOne +  appreciationYearOne, netWorthYearOne, .1, @"net worth not equal");
@@ -149,7 +149,7 @@ DollarValue *PROPERTY_COST = nil;
                                                     andPropertyAppreciationRate:.05];
     
     double appreciationYearTwo = [propertyInvestment getPropertyAppreciationForYear:2 withAppreciationRate:.05];
-    double netIncomeYearTwo = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05] + [propertyInvestment getNetOperatingIncomeForYear:1 withAppreciationRate:.05];
+    double netIncomeYearTwo = [propertyInvestment getNetOperatingIncomeForYear:0 withAppreciationRate:.05].doubleValue + [propertyInvestment getNetOperatingIncomeForYear:1 withAppreciationRate:.05].doubleValue;
     double principalPaidYearTwo = [propertyInvestment.mortgage getPrincipalPaidInYear:1] + [propertyInvestment.mortgage getPrincipalPaidInYear:2];
     
     STAssertEqualsWithAccuracy(principalPaidYearTwo + netIncomeYearTwo +  appreciationYearTwo, netWorthYearTwo, .1, @"net worth not equal");

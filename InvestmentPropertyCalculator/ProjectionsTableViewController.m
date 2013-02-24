@@ -87,7 +87,7 @@ static const int MAX_PROJECTION_YEARS = 40;
             cell.textLabel.text = [@"Gross Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.grossIncome getValueAfterYears:year-1 withAppreciationRate:yearlyRentIncrease andTimeInterval:Year]]];
             break;
         case NetIncome:
-            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:(double)[investment getNetOperatingIncomeForYear:year-1 withAppreciationRate:yearlyRentIncrease]]];
+            cell.textLabel.text = [@"Net Income: " stringByAppendingString:[investment getNetOperatingIncomeForYear:year-1 withAppreciationRate:yearlyRentIncrease].getCurrencyString];
             break;
         case PrincipalPaid:
             cell.textLabel.text = [@"Principal Paid: " stringByAppendingString:[DollarValueForInterval getStringDollarValueFromDouble:[investment.mortgage getPrincipalPaidInYear:year]]];

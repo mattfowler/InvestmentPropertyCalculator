@@ -19,8 +19,8 @@
 @property (nonatomic, retain) DollarValueForInterval* grossIncome;
 @property double taxBracket;
 
--(DollarValue*) getNetOperatingIncome;
--(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate;
+-(DollarValue *) getNetOperatingIncome;
+-(DollarValue *) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate;
 
 -(double) getCapitalizationRate;
 -(double) getCashOnCashReturn;
