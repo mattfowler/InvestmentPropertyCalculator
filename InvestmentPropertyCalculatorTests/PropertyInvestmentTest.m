@@ -79,13 +79,13 @@ DollarValue *PROPERTY_COST = nil;
     
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
     
-    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.00], .01, @"Tax deductible amounts for year one not equal.");
+    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.00].dollarValue, .01, @"Tax deductible amounts for year one not equal.");
     
     double inflationRate = .05;
     int yearsInFuture = 10;
     double expectedExpensesTenthYear = expectedTaxDeductibleExpensesFirstYear * pow(1.0 + inflationRate, yearsInFuture);
     
-    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate], .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
+    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate].dollarValue, .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
 }
 
 -(void) testGetAfterTaxCashFlow {

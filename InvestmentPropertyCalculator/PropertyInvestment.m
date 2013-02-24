@@ -68,7 +68,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(DollarValue *) getAfterTaxCashFlow {
-    double taxableIncome = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0] - [mortgage getInterestPaidInYear:1];
+    double taxableIncome = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0].dollarValue - [mortgage getInterestPaidInYear:1];
     double taxRate = taxBracket/100;
     return [DollarValue createValue:self.getNetOperatingIncome.dollarValue - (taxableIncome * taxRate)];
 }
@@ -77,9 +77,9 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     return value * pow(1.0 + rate, years);
 }
 
--(double) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate {
+-(DollarValue *) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate {
     double expensesWithoutInflation = expenses.getYearlyExpenses.dollarValue + [self getPropertyDepreciatonForYear:year];
-    return [self getValue:expensesWithoutInflation afterYears: year withAppreciationRate:rate];
+    return [DollarValue createValue:[self getValue:expensesWithoutInflation afterYears:year withAppreciationRate:rate]];
 }
 
 -(double) getPropertyDepreciatonForYear:(int)year {
