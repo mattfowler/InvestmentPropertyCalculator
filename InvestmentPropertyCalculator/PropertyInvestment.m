@@ -91,13 +91,13 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     }
 }
 
--(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate {
+-(DollarValue *) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate {
     double appreciatedValue = [self getValue:mortgage.salesPrice.doubleValue afterYears:year withAppreciationRate:rate];
-    return appreciatedValue - mortgage.salesPrice.doubleValue;
+    return [DollarValue createValue:appreciatedValue - mortgage.salesPrice.doubleValue];
 }
 
 -(double) getAdditionToNetWorthAfterYear:(int)year withRentIncrease:(double)rentIncrease andPropertyAppreciationRate:(double)propertyAppreciationRate {
-    double propertyAppreciation = [self getPropertyAppreciationForYear:year withAppreciationRate:propertyAppreciationRate];
+    double propertyAppreciation = [self getPropertyAppreciationForYear:year withAppreciationRate:propertyAppreciationRate].doubleValue;
     double totalPrincipalPaid = 0.0;
     
     for(int i = 1; i <= year; i++) {
