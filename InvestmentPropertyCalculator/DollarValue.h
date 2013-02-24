@@ -13,7 +13,7 @@
     double value;
 }
 
-@property (readonly) double dollarValue;
+@property (readonly) double doubleValue;
 
 +(DollarValue*) createValue:(double) value;
 

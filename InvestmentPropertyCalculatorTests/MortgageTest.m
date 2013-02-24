@@ -16,21 +16,21 @@
 }
 
 - (void) testGetDownpaymentAmount {    
-    STAssertEquals(25000.00, testMortgage.getDownpaymentAmount.dollarValue, @"Downpayment not equal");
+    STAssertEquals(25000.00, testMortgage.getDownpaymentAmount.doubleValue, @"Downpayment not equal");
 }
 
 - (void) testGetMonthlyPayment {
-    STAssertEqualsWithAccuracy(368.95, [[testMortgage getMonthlyPayment] dollarValue], .01, @"Payments not equal");
+    STAssertEqualsWithAccuracy(368.95, [[testMortgage getMonthlyPayment] doubleValue], .01, @"Payments not equal");
     
     Mortgage* emptyMortgage = [[Mortgage alloc] initWithSalesPrice:0 downpayment:0 interestRate:0 years:0];
     
-    STAssertEqualsWithAccuracy(0.0, emptyMortgage.getMonthlyPayment.dollarValue, .01, @"Payments not equal");
+    STAssertEqualsWithAccuracy(0.0, emptyMortgage.getMonthlyPayment.doubleValue, .01, @"Payments not equal");
 }
 
 - (void) testGetTotalInterestPaid {
-    double totalPayments = testMortgage.getMonthlyPayment.dollarValue * 360;
+    double totalPayments = testMortgage.getMonthlyPayment.doubleValue * 360;
     
-    STAssertEqualsWithAccuracy(totalPayments - 75000.0, testMortgage.getTotalInterestPaid.dollarValue, .01, @"Total interest not equal");
+    STAssertEqualsWithAccuracy(totalPayments - 75000.0, testMortgage.getTotalInterestPaid.doubleValue, .01, @"Total interest not equal");
 }
 
 - (void) testGetInterestPaidInYear {

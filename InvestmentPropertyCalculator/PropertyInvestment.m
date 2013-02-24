@@ -46,31 +46,31 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(DollarValue*) getNetOperatingIncome {
-    return [DollarValue createValue:[self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - (mortgage.getMonthlyPayment.dollarValue * 12) - expenses.getYearlyExpenses.dollarValue - self.getVacancyLoss.dollarValue];
+    return [DollarValue createValue:[self.grossIncome getDollarValueForTimeInterval:Year].doubleValue - (mortgage.getMonthlyPayment.doubleValue * 12) - expenses.getYearlyExpenses.doubleValue - self.getVacancyLoss.doubleValue];
 }
 
 -(int) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate {
-    double operatingIncome = self.getNetOperatingIncome.dollarValue;
+    double operatingIncome = self.getNetOperatingIncome.doubleValue;
     return [self getValue:operatingIncome afterYears:year withAppreciationRate:rate];
 }
 
 -(double) getCapitalizationRate {
-    return self.getNetOperatingIncome.dollarValue / mortgage.salesPrice.dollarValue;
+    return self.getNetOperatingIncome.doubleValue / mortgage.salesPrice.doubleValue;
 }
 
 -(double) getCashOnCashReturn {
-    return self.getNetOperatingIncome.dollarValue / mortgage.getDownpaymentAmount.dollarValue;
+    return self.getNetOperatingIncome.doubleValue / mortgage.getDownpaymentAmount.doubleValue;
 }
 
 -(DollarValue *) getVacancyLoss {
-    double vacancyLoss = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue * (expenses.vacancyRate/100);
+    double vacancyLoss = [self.grossIncome getDollarValueForTimeInterval:Year].doubleValue * (expenses.vacancyRate/100);
     return [DollarValue createValue:-1.0 * vacancyLoss];
 }
 
 -(DollarValue *) getAfterTaxCashFlow {
-    double taxableIncome = [self.grossIncome getDollarValueForTimeInterval:Year].dollarValue - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0].dollarValue - [mortgage getInterestPaidInYear:1];
+    double taxableIncome = [self.grossIncome getDollarValueForTimeInterval:Year].doubleValue - [self getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.0].doubleValue - [mortgage getInterestPaidInYear:1];
     double taxRate = taxBracket/100;
-    return [DollarValue createValue:self.getNetOperatingIncome.dollarValue - (taxableIncome * taxRate)];
+    return [DollarValue createValue:self.getNetOperatingIncome.doubleValue - (taxableIncome * taxRate)];
 }
 
 -(double) getValue:(double)value afterYears:(int)years withAppreciationRate:(double)rate {
@@ -78,7 +78,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
 }
 
 -(DollarValue *) getTaxDeductibleExpenseAmountForYear:(int)year withAppreciationRate:(double)rate {
-    double expensesWithoutInflation = expenses.getYearlyExpenses.dollarValue + [self getPropertyDepreciationForYear:year].dollarValue;
+    double expensesWithoutInflation = expenses.getYearlyExpenses.doubleValue + [self getPropertyDepreciationForYear:year].doubleValue;
     return [DollarValue createValue:[self getValue:expensesWithoutInflation afterYears:year withAppreciationRate:rate]];
 }
 
@@ -86,14 +86,14 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     if (year > STRAIGHTLINE_DEPRECIATION_YEARS) {
         return [DollarValue createValue:0.0];
     } else {
-        double buildingValue = (mortgage.salesPrice.dollarValue * LAND_TO_PROPERTY_RATIO);
+        double buildingValue = (mortgage.salesPrice.doubleValue * LAND_TO_PROPERTY_RATIO);
         return [DollarValue createValue: buildingValue / STRAIGHTLINE_DEPRECIATION_YEARS];
     }
 }
 
 -(double) getPropertyAppreciationForYear:(int)year withAppreciationRate:(double)rate {
-    double appreciatedValue = [self getValue:mortgage.salesPrice.dollarValue afterYears:year withAppreciationRate:rate];
-    return appreciatedValue - mortgage.salesPrice.dollarValue;
+    double appreciatedValue = [self getValue:mortgage.salesPrice.doubleValue afterYears:year withAppreciationRate:rate];
+    return appreciatedValue - mortgage.salesPrice.doubleValue;
 }
 
 -(double) getAdditionToNetWorthAfterYear:(int)year withRentIncrease:(double)rentIncrease andPropertyAppreciationRate:(double)propertyAppreciationRate {

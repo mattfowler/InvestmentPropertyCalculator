@@ -37,18 +37,18 @@ DollarValue *PROPERTY_COST = nil;
 -(void)testGetNetOperatingIncome {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.doubleValue * 12) - EXPENSES_FIRST_YEAR;
     
-    STAssertEquals(expectedNetIncome, propertyInvestment.getNetOperatingIncome.dollarValue, @"Net income not equal, should be 22427.");
+    STAssertEquals(expectedNetIncome, propertyInvestment.getNetOperatingIncome.doubleValue, @"Net income not equal, should be 22427.");
     
 }
 
 -(void) testGetCapRate {
     propertyInvestment.grossIncome =  [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.doubleValue * 12) - EXPENSES_FIRST_YEAR;
     
-    double expectedCapRate = (expectedNetIncome / PROPERTY_COST.dollarValue);
+    double expectedCapRate = (expectedNetIncome / PROPERTY_COST.doubleValue);
      
     STAssertEqualsWithAccuracy(expectedCapRate, [propertyInvestment getCapitalizationRate], .1, @"Cap rate not equal."); 
 }
@@ -56,7 +56,7 @@ DollarValue *PROPERTY_COST = nil;
 -(void) testGetCashOnCashReturn {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     
-    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.dollarValue * 12) - EXPENSES_FIRST_YEAR;
+    double expectedNetIncome = 50000 - (testMortgage.getMonthlyPayment.doubleValue * 12) - EXPENSES_FIRST_YEAR;
     
     double expectedReturn =  expectedNetIncome / 25000.0;
     
@@ -66,55 +66,55 @@ DollarValue *PROPERTY_COST = nil;
 
 -(void) testGetPropertyDepreciatonForYear {
     double landFactor = .5;    
-    double expectedDepreciation = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciation = (PROPERTY_COST.doubleValue * landFactor) / DEPRECIATION_YEARS;
     
-    STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciationForYear:5].dollarValue, .01, @"Depreciation within 27.5 years not equal");
+    STAssertEqualsWithAccuracy(expectedDepreciation, [propertyInvestment getPropertyDepreciationForYear:5].doubleValue, .01, @"Depreciation within 27.5 years not equal");
     
-    STAssertEqualsWithAccuracy(0.00, [propertyInvestment getPropertyDepreciationForYear:50].dollarValue, .01, @"Depreciation after 27.5 years should be equal");
+    STAssertEqualsWithAccuracy(0.00, [propertyInvestment getPropertyDepreciationForYear:50].doubleValue, .01, @"Depreciation after 27.5 years should be equal");
 }
 
 -(void) testGetTaxDeductibleExpensesForYear {
     double landFactor = .5;
-    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.doubleValue * landFactor) / DEPRECIATION_YEARS;
     
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
     
-    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.00].dollarValue, .01, @"Tax deductible amounts for year one not equal.");
+    STAssertEqualsWithAccuracy(expectedTaxDeductibleExpensesFirstYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:1 withAppreciationRate:0.00].doubleValue, .01, @"Tax deductible amounts for year one not equal.");
     
     double inflationRate = .05;
     int yearsInFuture = 10;
     double expectedExpensesTenthYear = expectedTaxDeductibleExpensesFirstYear * pow(1.0 + inflationRate, yearsInFuture);
     
-    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate].dollarValue, .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
+    STAssertEqualsWithAccuracy(expectedExpensesTenthYear, [propertyInvestment getTaxDeductibleExpenseAmountForYear:yearsInFuture withAppreciationRate:inflationRate].doubleValue, .01, @"Tax deductible amounts for ten years with an inflation rate not equal");
 }
 
 -(void) testGetAfterTaxCashFlow {
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:50000 forTimeInterval:Year];
     double landFactor = .5;
-    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.doubleValue * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear;
 
-    double expectedTaxDue = ([propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
-    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.dollarValue - expectedTaxDue;
-    STAssertEqualsWithAccuracy(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow.dollarValue, .1, @"After tax cash flows not equal.");
+    double expectedTaxDue = ([propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].doubleValue - expectedTaxDeductibleExpensesFirstYear - [testMortgage getInterestPaidInYear:1]) * .25;
+    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.doubleValue - expectedTaxDue;
+    STAssertEqualsWithAccuracy(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow.doubleValue, .1, @"After tax cash flows not equal.");
 }
 
 -(void) testGetAfterTaxCashFlowWithTaxDeduction {
     propertyInvestment.taxBracket = 25.0;
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     double landFactor = .5;
-    double expectedDepreciationFirstYear = (PROPERTY_COST.dollarValue * landFactor) / DEPRECIATION_YEARS;
+    double expectedDepreciationFirstYear = (PROPERTY_COST.doubleValue * landFactor) / DEPRECIATION_YEARS;
     double expectedTaxDeductibleExpensesFirstYear = EXPENSES_FIRST_YEAR + expectedDepreciationFirstYear + [testMortgage getInterestPaidInYear:1];
-    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].dollarValue;
-    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.dollarValue + (expectedDeduction *.25);
-    STAssertEqualsWithAccuracy(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow.dollarValue, .1, @"After tax cash flows not equal.");
+    double expectedDeduction = expectedTaxDeductibleExpensesFirstYear - [propertyInvestment.grossIncome getDollarValueForTimeInterval:Year].doubleValue;
+    double expectedCashFlow = propertyInvestment.getNetOperatingIncome.doubleValue + (expectedDeduction *.25);
+    STAssertEqualsWithAccuracy(expectedCashFlow, propertyInvestment.getAfterTaxCashFlow.doubleValue, .1, @"After tax cash flows not equal.");
 }
 
 -(void) testGetVacancyRateLoss {
     propertyInvestment.grossIncome = [DollarValueForInterval createValue:10000 forTimeInterval:Year];
     [propertyExpenses setVacancyRate:1.0];
-    STAssertEqualsWithAccuracy(-10000.0 * .01, propertyInvestment.getVacancyLoss.dollarValue, .1, @"Vacancy losses not equal");
+    STAssertEqualsWithAccuracy(-10000.0 * .01, propertyInvestment.getVacancyLoss.doubleValue, .1, @"Vacancy losses not equal");
 }
 
 -(void) testPropertyAppreciation {

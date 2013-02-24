@@ -56,20 +56,20 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 -(double) getInitialPrincipal {
-    return salesPrice.dollarValue - self.getDownpaymentAmount.dollarValue;
+    return salesPrice.doubleValue - self.getDownpaymentAmount.doubleValue;
 }
 
 - (DollarValue *) getDownpaymentAmount {
-    return [DollarValue createValue:salesPrice.dollarValue * (downpaymentPercent / 100)];
+    return [DollarValue createValue:salesPrice.doubleValue * (downpaymentPercent / 100)];
 }
 
 - (DollarValue *) getTotalInterestPaid {
-    double interest = (self.getMonthlyPayment.dollarValue * [self mortgageTermInMonths]) - self.getInitialPrincipal;
+    double interest = (self.getMonthlyPayment.doubleValue * [self mortgageTermInMonths]) - self.getInitialPrincipal;
     return [DollarValue createValue:interest];
 }
 
 - (double) getInterestPaidInYear:(int) year {
-    double yearlyPayments = self.getMonthlyPayment.dollarValue * 12;
+    double yearlyPayments = self.getMonthlyPayment.doubleValue * 12;
     double principalPaidInYear = [self getPrincipalPaidInYear:year];
     return principalPaidInYear == 0 ? 0 : yearlyPayments - principalPaidInYear;
 }
@@ -95,7 +95,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 
 -(double) getPrincipalDueAtMonth:(int) month {
     double monthlyInterestRate = self.getMonthlyInterest;
-    return (self.getInitialPrincipal *  pow(1 + monthlyInterestRate, month)) - ((pow(1+monthlyInterestRate, month)-1) / monthlyInterestRate)* self.getMonthlyPayment.dollarValue;
+    return (self.getInitialPrincipal *  pow(1 + monthlyInterestRate, month)) - ((pow(1+monthlyInterestRate, month)-1) / monthlyInterestRate)* self.getMonthlyPayment.doubleValue;
 }
 
 -(double) getMonthlyInterest {

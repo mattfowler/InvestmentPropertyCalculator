@@ -12,7 +12,7 @@
 
 NSString* VALUE_KEY = @"value";
 
-@synthesize dollarValue = value;
+@synthesize doubleValue = value;
 
 - (id) initWithValue:(double)dollarValue {
     self = [super init];
