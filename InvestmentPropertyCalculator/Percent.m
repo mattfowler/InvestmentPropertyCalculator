@@ -12,12 +12,22 @@
 
 NSString* PERCENT_VALUE_KEY = @"percentValue";
 
-- (id) initWithValue:(double)percentValue {
++(Percent *) create:(double) percentValue {
+    return [[Percent alloc] initWithValue:percentValue];
+}
+
+-(id) initWithValue:(double)percentValue {
     self = [super init];
     if (self) {
         self->value = percentValue;
     }
     return self;
+}
+
+-(NSString *) getDisplayString {
+    NSNumberFormatter *percentFormatter = [[NSNumberFormatter alloc] init];
+    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
+    return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:value]];
 }
 
 -(id) initWithCoder:(NSCoder *)decoder {

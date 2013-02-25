@@ -15,4 +15,8 @@
 
 @property (readonly) double doubleValue;
 
++(Percent *) create:(double) percentValue;
+
+-(NSString *) getDisplayString;
+
 @end
