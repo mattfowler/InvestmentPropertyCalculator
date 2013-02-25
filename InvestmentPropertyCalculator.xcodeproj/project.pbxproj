@@ -53,6 +53,7 @@
 		63E536CF14F2CAB200A7744A /* PropertyExpenses.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CE14F2CAB100A7744A /* PropertyExpenses.m */; };
 		63E536D014F2CAB200A7744A /* PropertyExpenses.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536CE14F2CAB100A7744A /* PropertyExpenses.m */; };
 		63E536D414F2E29100A7744A /* PropertyInvestmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */; };
+		EF56391D16DAFF33009E64B0 /* Percent.m in Sources */ = {isa = PBXBuildFile; fileRef = EF56391C16DAFF33009E64B0 /* Percent.m */; };
 		EF8E78D516C5FD8500A8F6C3 /* DollarValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,8 @@
 		63E536D114F2D88500A7744A /* PropertyInvestmentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyInvestmentProtocol.h; sourceTree = "<group>"; };
 		63E536D214F2E29100A7744A /* PropertyInvestmentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyInvestmentTest.h; sourceTree = "<group>"; };
 		63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyInvestmentTest.m; sourceTree = "<group>"; };
+		EF56391B16DAFF33009E64B0 /* Percent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Percent.h; sourceTree = "<group>"; };
+		EF56391C16DAFF33009E64B0 /* Percent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Percent.m; sourceTree = "<group>"; };
 		EF8E78D316C5FD8500A8F6C3 /* DollarValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValue.h; sourceTree = "<group>"; };
 		EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,7 +221,6 @@
 				6309050D15308C19007762A5 /* MortgageView */,
 				6309050B15308C03007762A5 /* ExpensesView */,
 			);
-			lastKnownFileType = text;
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -315,6 +317,7 @@
 		63A4FC1414F1B1B600F9E8E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF56391A16DAFF10009E64B0 /* Percent */,
 				EF8E78D216C5FC6200A8F6C3 /* DollarValue */,
 				EF8E78D116C5FC2F00A8F6C3 /* Property */,
 				EF8E78D016C5FC1D00A8F6C3 /* Mortgage */,
@@ -375,6 +378,15 @@
 				6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		EF56391A16DAFF10009E64B0 /* Percent */ = {
+			isa = PBXGroup;
+			children = (
+				EF56391B16DAFF33009E64B0 /* Percent.h */,
+				EF56391C16DAFF33009E64B0 /* Percent.m */,
+			);
+			name = Percent;
 			sourceTree = "<group>";
 		};
 		EF8E78D016C5FC1D00A8F6C3 /* Mortgage */ = {
@@ -547,6 +559,7 @@
 				63E36D85159CA8A10030AB94 /* BaseOpenAndSaveViewController.m in Sources */,
 				63E36D89159DF2780030AB94 /* PropertyFileManager.m in Sources */,
 				EF8E78D516C5FD8500A8F6C3 /* DollarValue.m in Sources */,
+				EF56391D16DAFF33009E64B0 /* Percent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
