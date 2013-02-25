@@ -44,7 +44,7 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 }
 
 -(void) encodeWithCoder:(NSCoder *) coder {
-    [coder encodeInt:salesPrice forKey:SALES_PRICE_KEY];
+    [coder encodeObject:salesPrice forKey:SALES_PRICE_KEY];
     [coder encodeDouble:downpaymentPercent forKey:DOWNPAYMENT_PERCENT_KEY];
     [coder encodeDouble:interestRate forKey:INTEREST_RATE_KEY];
     [coder encodeInt:amoritizationYears forKey:AMORITIZATION_YEARS_KEY];
