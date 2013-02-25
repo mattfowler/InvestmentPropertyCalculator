@@ -19,8 +19,6 @@
 
 +(DollarValue *) createValue:(double) value;
 
--(id) initWithValue:(double)dollarValue;
-
 -(NSString *) getCurrencyString;
 
 -(NSString *) getDecimalString;
