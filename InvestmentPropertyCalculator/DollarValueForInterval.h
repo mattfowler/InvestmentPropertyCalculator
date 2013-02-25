@@ -32,6 +32,6 @@ typedef enum {
 
 -(DollarValue *) getDollarValueForTimeInterval:(TimeInterval) interval;
 
--(double) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval;
+-(DollarValue *) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval;
 
 @end
