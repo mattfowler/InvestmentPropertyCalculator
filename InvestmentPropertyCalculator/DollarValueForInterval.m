@@ -49,8 +49,8 @@ NSString* INTERVAL_KEY = @"interval";
     return value.doubleValue;
 }
 
--(DollarValue *)getDollarValueForTimeInterval:(TimeInterval)interval {
-    if(self->interval == interval) {
+-(DollarValue *)getDollarValueForTimeInterval:(TimeInterval)timeInterval {
+    if(self->interval == timeInterval) {
         return value;
     } else {
         if (self->interval == Year) {
