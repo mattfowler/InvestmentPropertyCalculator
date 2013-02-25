@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DollarValue : NSObject <NSCoding> {
-    @protected
+    @private
     double value;
 }
 
