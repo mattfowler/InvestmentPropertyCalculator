@@ -48,10 +48,10 @@
     double expectedPrincipalYearThirty = 4327.2;
     double expectedPrincipalYearFourty = 0.0;
     
-    STAssertEqualsWithAccuracy(expectedPrincipalZeroYear, [testMortgage getPrincipalPaidInYear:0], .01, @"Principal not equal for first year");
-    STAssertEqualsWithAccuracy(expectedPrincipal, [testMortgage getPrincipalPaidInYear:1], .01, @"Principal not equal for first year");
-    STAssertEqualsWithAccuracy(expectedPrincipalYearThirty, [testMortgage getPrincipalPaidInYear:30], .01, @"Interest not equal for last year");
-    STAssertEqualsWithAccuracy(expectedPrincipalYearFourty, [testMortgage getPrincipalPaidInYear:40], .01, @"Interest not equal for last year");
+    STAssertEqualsWithAccuracy(expectedPrincipalZeroYear, [testMortgage getPrincipalPaidInYear:0].doubleValue, .01, @"Principal not equal for first year");
+    STAssertEqualsWithAccuracy(expectedPrincipal, [testMortgage getPrincipalPaidInYear:1].doubleValue, .01, @"Principal not equal for first year");
+    STAssertEqualsWithAccuracy(expectedPrincipalYearThirty, [testMortgage getPrincipalPaidInYear:30].doubleValue, .01, @"Interest not equal for last year");
+    STAssertEqualsWithAccuracy(expectedPrincipalYearFourty, [testMortgage getPrincipalPaidInYear:40].doubleValue, .01, @"Interest not equal for last year");
 }
 
 @end

@@ -101,7 +101,7 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     double totalPrincipalPaid = 0.0;
     
     for(int i = 1; i <= year; i++) {
-        totalPrincipalPaid += [mortgage getPrincipalPaidInYear:i];
+        totalPrincipalPaid += [mortgage getPrincipalPaidInYear:i].doubleValue;
     }
     
     double totalCashFlow = 0.00;

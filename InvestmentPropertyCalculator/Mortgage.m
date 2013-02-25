@@ -70,22 +70,22 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
 
 - (DollarValue *) getInterestPaidInYear:(int) year {
     double yearlyPayments = self.getMonthlyPayment.doubleValue * 12;
-    double principalPaidInYear = [self getPrincipalPaidInYear:year];
+    double principalPaidInYear = [self getPrincipalPaidInYear:year].doubleValue;
     return principalPaidInYear == 0 ? DollarValue.zeroDollars : [DollarValue createValue:yearlyPayments - principalPaidInYear];
 }
 
-- (double) getPrincipalPaidInYear:(int) year {
+- (DollarValue *) getPrincipalPaidInYear:(int) year {
     if (year == 0) {
-        return 0;
+        return [DollarValue zeroDollars];
     } else {
         int startMonth = (year - 1) * 12;
         int endMonth = startMonth + 12;
         if (startMonth >= [self mortgageTermInMonths]) {
-            return 0.0;
+            return [DollarValue zeroDollars];
         }
         double startBalance = [self getPrincipalDueAtMonth:startMonth];
         double endBalance = [self getPrincipalDueAtMonth:endMonth];
-        return startBalance-endBalance;
+        return [DollarValue createValue:startBalance-endBalance];
     }
 }
 
