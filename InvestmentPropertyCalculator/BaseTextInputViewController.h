@@ -13,9 +13,6 @@
 @interface BaseTextInputViewController : BaseOpenAndSaveViewController <UITextFieldDelegate> {
     @private
     CGFloat animatedDistance;
-    
-    @protected
-    NSNumberFormatter *percentFormatter;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *labelView;
@@ -23,8 +20,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *netOperatingIncomeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *afterTaxCashFlowLabel;
-
--(NSString*) stringFromPercent:(double)percent;
 
 -(void) touchBackground:(id)sender;
 

@@ -24,25 +24,14 @@ static const CGFloat NAVIGATON_BAR_HEIGHT = 25;
 @synthesize netOperatingIncomeLabel;
 @synthesize afterTaxCashFlowLabel;
 
--(NSString*) stringFromPercent:(double)percent {
-    return [percentFormatter stringFromNumber:[NSNumber numberWithDouble:percent]];
-}
-
 - (void) viewDidLoad {
     [super viewDidLoad];
     entryScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.entryScrollView.frame.size.height + 5);
-
-    [self createFormatters];
 }
 
 - (void) labelViewDidChange {
     [netOperatingIncomeLabel setText:self.getPropertyInvestment.getNetOperatingIncome.getCurrencyString];
     [afterTaxCashFlowLabel setText:self.getPropertyInvestment.getAfterTaxCashFlow.getCurrencyString];
-}
-
-- (void) createFormatters {
-    percentFormatter = [[NSNumberFormatter alloc] init];
-    [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
