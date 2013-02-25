@@ -22,8 +22,6 @@ typedef enum {
 
 +(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval;
 
--(id) initWithDollarValue:(DollarValue*)dollarValue andTimeInterval:(TimeInterval)timeInterval;
-
 -(double) getValue;
 
 -(DollarValue *) getDollarValue;
