@@ -68,10 +68,10 @@ static NSString* AMORITIZATION_YEARS_KEY = @"amoritizationYears";
     return [DollarValue createValue:interest];
 }
 
-- (double) getInterestPaidInYear:(int) year {
+- (DollarValue *) getInterestPaidInYear:(int) year {
     double yearlyPayments = self.getMonthlyPayment.doubleValue * 12;
     double principalPaidInYear = [self getPrincipalPaidInYear:year];
-    return principalPaidInYear == 0 ? 0 : yearlyPayments - principalPaidInYear;
+    return principalPaidInYear == 0 ? DollarValue.zeroDollars : [DollarValue createValue:yearlyPayments - principalPaidInYear];
 }
 
 - (double) getPrincipalPaidInYear:(int) year {

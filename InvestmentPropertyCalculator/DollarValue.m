@@ -10,9 +10,9 @@
 
 @implementation DollarValue
 
-NSString* VALUE_KEY = @"value";
-
 @synthesize doubleValue = value;
+
+NSString* VALUE_KEY = @"value";
 
 - (id) initWithValue:(double)dollarValue {
     self = [super init];
@@ -22,8 +22,12 @@ NSString* VALUE_KEY = @"value";
     return self;
 }
 
-+(DollarValue*) createValue:(double) value {
++(DollarValue *) createValue:(double) value {
     return [[DollarValue alloc] initWithValue:value];
+}
+
++(DollarValue *) zeroDollars {
+    return [DollarValue createValue:0.0];
 }
 
 -(NSString*) getCurrencyString {

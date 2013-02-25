@@ -37,9 +37,9 @@
     double expectedInterest = 3163.06;
     double expectedInterestYearThirty = 100.26;
     double expectedInterestYearFourty = 0.0;
-    STAssertEqualsWithAccuracy(expectedInterest, [testMortgage getInterestPaidInYear:1], .01, @"Interests not equal for first year");
-    STAssertEqualsWithAccuracy(expectedInterestYearThirty, [testMortgage getInterestPaidInYear:30], .01, @"Interest not equal for last year");
-    STAssertEqualsWithAccuracy(expectedInterestYearFourty, [testMortgage getInterestPaidInYear:40], .01, @"Interest not equal after mortgage paid");
+    STAssertEqualsWithAccuracy(expectedInterest, [testMortgage getInterestPaidInYear:1].doubleValue, .01, @"Interests not equal for first year");
+    STAssertEqualsWithAccuracy(expectedInterestYearThirty, [testMortgage getInterestPaidInYear:30].doubleValue, .01, @"Interest not equal for last year");
+    STAssertEqualsWithAccuracy(expectedInterestYearFourty, [testMortgage getInterestPaidInYear:40].doubleValue, .01, @"Interest not equal after mortgage paid");
 }
 
 - (void) testGetPrincipalPaidInYear {

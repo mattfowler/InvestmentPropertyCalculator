@@ -15,7 +15,9 @@
 
 @property (readonly) double doubleValue;
 
-+(DollarValue*) createValue:(double) value;
++(DollarValue *) zeroDollars;
+
++(DollarValue *) createValue:(double) value;
 
 -(id) initWithValue:(double)dollarValue;
 
