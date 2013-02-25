@@ -30,7 +30,7 @@ NSString* VALUE_KEY = @"value";
     return [DollarValue createValue:0.0];
 }
 
--(NSString*) getCurrencyString {
+-(NSString *) getCurrencyString {
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
     return [formatter stringFromNumber:[NSNumber numberWithDouble:value]];
