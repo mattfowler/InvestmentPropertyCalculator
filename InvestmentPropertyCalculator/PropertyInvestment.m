@@ -58,8 +58,8 @@ static NSString* TAX_BRACKET_KEY = @"taxBracket";
     return [Percent create:self.getNetOperatingIncome.doubleValue / mortgage.salesPrice.doubleValue];
 }
 
--(double) getCashOnCashReturn {
-    return self.getNetOperatingIncome.doubleValue / mortgage.getDownpaymentAmount.doubleValue;
+-(Percent *) getCashOnCashReturn {
+    return [Percent create:self.getNetOperatingIncome.doubleValue / mortgage.getDownpaymentAmount.doubleValue];
 }
 
 -(DollarValue *) getVacancyLoss {

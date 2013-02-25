@@ -60,7 +60,7 @@ DollarValue *PROPERTY_COST = nil;
     
     double expectedReturn =  expectedNetIncome / 25000.0;
     
-    STAssertEqualsWithAccuracy(expectedReturn, [propertyInvestment getCashOnCashReturn], .1, @"Cash returns not equal"); 
+    STAssertEqualsWithAccuracy(expectedReturn, propertyInvestment.getCashOnCashReturn.doubleValue, .1, @"Cash returns not equal");
 
 }
 

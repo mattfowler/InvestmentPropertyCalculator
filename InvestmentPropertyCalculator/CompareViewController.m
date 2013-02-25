@@ -171,7 +171,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [firstPropertyNetOperatingIncome setText:propertyInvestment.getNetOperatingIncome.getCurrencyString];
     [firstPropertyExpenses setText:propertyInvestment.expenses.getYearlyExpenses.getCurrencyString];
     [firstPropertyCapRate setText:propertyInvestment.getCapitalizationRate.getDisplayString];
-    [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
+    [firstPropertyCashReturn setText:propertyInvestment.getCashOnCashReturn.getDisplayString];
 }
 
 -(void) updatePropertyLabelsForSecondColumn:(PropertyInvestment *) propertyInvestment {
@@ -180,7 +180,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [secondPropertyNetOperatingIncome setText:propertyInvestment.getNetOperatingIncome.getCurrencyString];
     [secondPropertyExpenses setText:propertyInvestment.expenses.getYearlyExpenses.getCurrencyString];
     [secondPropertyCapRate setText:propertyInvestment.getCapitalizationRate.getDisplayString];
-    [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
+    [secondPropertyCashReturn setText:propertyInvestment.getCashOnCashReturn.getDisplayString];
 }
 
 -(void) setLabel:(UILabel*) label withPercentValue:(double) value {

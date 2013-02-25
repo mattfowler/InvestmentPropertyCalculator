@@ -90,7 +90,7 @@
     [self labelViewDidChange];
     PropertyInvestment *propertyInvestment = self.getPropertyInvestment;
     [capitalizationRateLabel setText:propertyInvestment.getCapitalizationRate.getDisplayString];
-    [cashOnCashReturnLabel setText:[self stringFromPercent:propertyInvestment.getCashOnCashReturn]];
+    [cashOnCashReturnLabel setText:propertyInvestment.getCashOnCashReturn.getDisplayString];
     [downpaymentLabel setText:[propertyInvestment.mortgage.getDownpaymentAmount getCurrencyString]];
 }
 

@@ -24,7 +24,7 @@
 -(DollarValue *) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate;
 
 -(Percent *) getCapitalizationRate;
--(double) getCashOnCashReturn;
+-(Percent *) getCashOnCashReturn;
 -(DollarValue *) getVacancyLoss;
 
 -(DollarValue *) getAfterTaxCashFlow;
