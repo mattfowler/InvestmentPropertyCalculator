@@ -92,7 +92,7 @@
 
 -(NSString*) getPropertyDetailString:(PropertyInvestment*) property {
     double cashReturn = [property getCashOnCashReturn];
-    double capRate = [property getCapitalizationRate];
+    double capRate = property.getCapitalizationRate.doubleValue;
     int nooi = [property getNetOperatingIncome];
     NSString *capRateString = [@" Cap Rate: " stringByAppendingString:[NSString stringWithFormat:@"%1.2f", capRate*100]];
     NSString *cashReturnString = [@" Cash Return: " stringByAppendingString:[NSString stringWithFormat:@"%1.2f", cashReturn*100]];

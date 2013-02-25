@@ -89,7 +89,7 @@
 -(void) updateViewLabelsFromModel {
     [self labelViewDidChange];
     PropertyInvestment *propertyInvestment = self.getPropertyInvestment;
-    [capitalizationRateLabel setText:[self stringFromPercent:propertyInvestment.getCapitalizationRate]];
+    [capitalizationRateLabel setText:propertyInvestment.getCapitalizationRate.getDisplayString];
     [cashOnCashReturnLabel setText:[self stringFromPercent:propertyInvestment.getCashOnCashReturn]];
     [downpaymentLabel setText:[propertyInvestment.mortgage.getDownpaymentAmount getCurrencyString]];
 }

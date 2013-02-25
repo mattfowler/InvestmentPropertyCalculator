@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Mortgage.h"
 #import "PropertyExpenses.h"
+#import "Percent.h"
 
 @interface PropertyInvestment : NSObject <NSCoding>
 
@@ -22,7 +23,7 @@
 -(DollarValue *) getNetOperatingIncome;
 -(DollarValue *) getNetOperatingIncomeForYear:(int) year withAppreciationRate:(double) rate;
 
--(double) getCapitalizationRate;
+-(Percent *) getCapitalizationRate;
 -(double) getCashOnCashReturn;
 -(DollarValue *) getVacancyLoss;
 

@@ -50,7 +50,7 @@ DollarValue *PROPERTY_COST = nil;
     
     double expectedCapRate = (expectedNetIncome / PROPERTY_COST.doubleValue);
      
-    STAssertEqualsWithAccuracy(expectedCapRate, [propertyInvestment getCapitalizationRate], .1, @"Cap rate not equal."); 
+    STAssertEqualsWithAccuracy(expectedCapRate, propertyInvestment.getCapitalizationRate.doubleValue, .1, @"Cap rate not equal.");
 }
 
 -(void) testGetCashOnCashReturn {

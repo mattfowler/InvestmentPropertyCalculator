@@ -12,6 +12,8 @@
 
 NSString* PERCENT_VALUE_KEY = @"percentValue";
 
+@synthesize doubleValue = value;
+
 +(Percent *) create:(double) percentValue {
     return [[Percent alloc] initWithValue:percentValue];
 }

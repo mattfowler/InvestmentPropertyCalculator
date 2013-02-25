@@ -170,7 +170,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [firstPropertyNameLabel setText:propertyName == nil ? CURRENT_PROPERTY : propertyInvestment.propertyName];
     [firstPropertyNetOperatingIncome setText:propertyInvestment.getNetOperatingIncome.getCurrencyString];
     [firstPropertyExpenses setText:propertyInvestment.expenses.getYearlyExpenses.getCurrencyString];
-    [self setLabel:firstPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
+    [firstPropertyCapRate setText:propertyInvestment.getCapitalizationRate.getDisplayString];
     [self setLabel:firstPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }
 
@@ -179,7 +179,7 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [secondPropertyNameLabel setText:propertyName == nil ? CURRENT_PROPERTY : propertyInvestment.propertyName];
     [secondPropertyNetOperatingIncome setText:propertyInvestment.getNetOperatingIncome.getCurrencyString];
     [secondPropertyExpenses setText:propertyInvestment.expenses.getYearlyExpenses.getCurrencyString];
-    [self setLabel:secondPropertyCapRate withPercentValue:propertyInvestment.getCapitalizationRate];
+    [secondPropertyCapRate setText:propertyInvestment.getCapitalizationRate.getDisplayString];
     [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }
 
