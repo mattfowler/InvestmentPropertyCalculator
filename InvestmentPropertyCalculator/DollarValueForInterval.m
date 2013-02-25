@@ -61,13 +61,6 @@ NSString* INTERVAL_KEY = @"interval";
     }
 }
 
-+(NSString *) getStringDollarValueFromDouble:(double)dollarValue {
-    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
-    NSString *formattedValue = [formatter stringFromNumber:[NSNumber numberWithDouble:dollarValue]];
-    return  formattedValue;
-}
-
 -(DollarValue *) getValueAfterYears:(int)years withAppreciationRate:(double)rate andTimeInterval:(TimeInterval) timeInterval {
     return [DollarValue createValue:[self getDollarValueForTimeInterval:timeInterval].doubleValue * pow(1.0 + rate, years)];
 }

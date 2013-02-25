@@ -22,8 +22,6 @@ typedef enum {
 
 +(DollarValueForInterval*) createValue:(double) value forTimeInterval:(TimeInterval) interval;
 
-+(NSString *) getStringDollarValueFromDouble:(double)dollarValue;
-
 -(id) initWithDollarValue:(DollarValue*)dollarValue andTimeInterval:(TimeInterval)timeInterval;
 
 -(double) getValue;
