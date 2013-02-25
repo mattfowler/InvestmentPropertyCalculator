@@ -183,12 +183,6 @@ static NSString *CURRENT_PROPERTY = @"Current Property";
     [self setLabel:secondPropertyCashReturn withPercentValue:propertyInvestment.getCashOnCashReturn];
 }
 
--(void) setLabel:(UILabel*) label withDollarValue:(int) value {
-    NSNumberFormatter* dollarsAndCentsFormatter = [[NSNumberFormatter alloc] init];
-    [dollarsAndCentsFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [label setText:[dollarsAndCentsFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
-}
-
 -(void) setLabel:(UILabel*) label withPercentValue:(double) value {
     NSNumberFormatter* percentFormatter = [[NSNumberFormatter alloc] init];
     [percentFormatter setNumberStyle: NSNumberFormatterPercentStyle];
