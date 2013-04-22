@@ -13,10 +13,7 @@
 		6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309052A154DEA40007762A5 /* OpenPropertyViewController.m */; };
 		6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */; };
 		6355A23714F93B4C00EC7A31 /* BaseTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */; };
-		6355A23D14F93C3C00EC7A31 /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23914F93C3C00EC7A31 /* bank.png */; };
 		6355A23E14F93C3C00EC7A31 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23A14F93C3C00EC7A31 /* connections.png */; };
-		6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23B14F93C3C00EC7A31 /* piggy.png */; };
-		6355A24014F93C3C00EC7A31 /* trend.png in Resources */ = {isa = PBXBuildFile; fileRef = 6355A23C14F93C3C00EC7A31 /* trend.png */; };
 		6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6355A24114F93C5B00EC7A31 /* CompareView.xib */; };
 		6355A24514F93C5B00EC7A31 /* CompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A24314F93C5B00EC7A31 /* CompareViewController.m */; };
 		6355A24914F9660600EC7A31 /* ProjectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A24714F9660600EC7A31 /* ProjectionsViewController.m */; };
@@ -42,7 +39,6 @@
 		63A46A9214EFFA3900999517 /* MortgageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A46A9014EFFA3900999517 /* MortgageTest.m */; };
 		63A4FC1814F1B1CF00F9E8E9 /* Mortgage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */; };
 		63BA680C160D247100D131E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BA680B160D247100D131E2 /* Default-568h@2x.png */; };
-		63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BDAB4914F2C1D9008AE03A /* calculator.png */; };
 		63D6BE401520D7C7000E5B41 /* DollarValueForInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */; };
 		63E36D85159CA8A10030AB94 /* BaseOpenAndSaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D84159CA8A10030AB94 /* BaseOpenAndSaveViewController.m */; };
 		63E36D89159DF2780030AB94 /* PropertyFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E36D88159DF2780030AB94 /* PropertyFileManager.m */; };
@@ -55,6 +51,14 @@
 		63E536D414F2E29100A7744A /* PropertyInvestmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */; };
 		EF56391D16DAFF33009E64B0 /* Percent.m in Sources */ = {isa = PBXBuildFile; fileRef = EF56391C16DAFF33009E64B0 /* Percent.m */; };
 		EF8E78D516C5FD8500A8F6C3 /* DollarValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */; };
+		EFDF5B1117259B4B00174870 /* signal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1017259B4B00174870 /* signal@2x.png */; };
+		EFDF5B1317259BB300174870 /* signal.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1217259BB300174870 /* signal.png */; };
+		EFDF5B1517259BEC00174870 /* building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1417259BEC00174870 /* building@2x.png */; };
+		EFDF5B1717259C0600174870 /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1617259C0600174870 /* building.png */; };
+		EFDF5B1917259C7100174870 /* credit-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1817259C7100174870 /* credit-card@2x.png */; };
+		EFDF5B1B17259C8D00174870 /* credit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1A17259C8D00174870 /* credit-card.png */; };
+		EFDF5B1D17259CC300174870 /* money@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1C17259CC300174870 /* money@2x.png */; };
+		EFDF5B1F17259CE200174870 /* money.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1E17259CE200174870 /* money.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +81,7 @@
 		6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPropertyViewController.xib; sourceTree = "<group>"; };
 		6355A23514F93B4C00EC7A31 /* BaseTextInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTextInputViewController.h; sourceTree = "<group>"; };
 		6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTextInputViewController.m; sourceTree = "<group>"; };
-		6355A23914F93C3C00EC7A31 /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
 		6355A23A14F93C3C00EC7A31 /* connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connections.png; sourceTree = "<group>"; };
-		6355A23B14F93C3C00EC7A31 /* piggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piggy.png; sourceTree = "<group>"; };
-		6355A23C14F93C3C00EC7A31 /* trend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trend.png; sourceTree = "<group>"; };
 		6355A24114F93C5B00EC7A31 /* CompareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompareView.xib; sourceTree = "<group>"; };
 		6355A24214F93C5B00EC7A31 /* CompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareViewController.h; sourceTree = "<group>"; };
 		6355A24314F93C5B00EC7A31 /* CompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareViewController.m; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		63A4FC1614F1B1CF00F9E8E9 /* Mortgage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mortgage.h; sourceTree = "<group>"; };
 		63A4FC1714F1B1CF00F9E8E9 /* Mortgage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mortgage.m; sourceTree = "<group>"; };
 		63BA680B160D247100D131E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		63BDAB4914F2C1D9008AE03A /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		63D6BE3E1520D7C7000E5B41 /* DollarValueForInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValueForInterval.h; sourceTree = "<group>"; };
 		63D6BE3F1520D7C7000E5B41 /* DollarValueForInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValueForInterval.m; sourceTree = "<group>"; };
 		63E36D83159CA8A10030AB94 /* BaseOpenAndSaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOpenAndSaveViewController.h; sourceTree = "<group>"; };
@@ -136,6 +136,14 @@
 		EF56391C16DAFF33009E64B0 /* Percent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Percent.m; sourceTree = "<group>"; };
 		EF8E78D316C5FD8500A8F6C3 /* DollarValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValue.h; sourceTree = "<group>"; };
 		EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValue.m; sourceTree = "<group>"; };
+		EFDF5B1017259B4B00174870 /* signal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal@2x.png"; sourceTree = "<group>"; };
+		EFDF5B1217259BB300174870 /* signal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal.png; sourceTree = "<group>"; };
+		EFDF5B1417259BEC00174870 /* building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "building@2x.png"; sourceTree = "<group>"; };
+		EFDF5B1617259C0600174870 /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = building.png; sourceTree = "<group>"; };
+		EFDF5B1817259C7100174870 /* credit-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit-card@2x.png"; sourceTree = "<group>"; };
+		EFDF5B1A17259C8D00174870 /* credit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit-card.png"; sourceTree = "<group>"; };
+		EFDF5B1C17259CC300174870 /* money@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money@2x.png"; sourceTree = "<group>"; };
+		EFDF5B1E17259CE200174870 /* money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,11 +345,15 @@
 		63BDAB4814F2C1C8008AE03A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6355A23914F93C3C00EC7A31 /* bank.png */,
+				EFDF5B1E17259CE200174870 /* money.png */,
+				EFDF5B1C17259CC300174870 /* money@2x.png */,
+				EFDF5B1A17259C8D00174870 /* credit-card.png */,
+				EFDF5B1817259C7100174870 /* credit-card@2x.png */,
+				EFDF5B1617259C0600174870 /* building.png */,
+				EFDF5B1417259BEC00174870 /* building@2x.png */,
+				EFDF5B1217259BB300174870 /* signal.png */,
+				EFDF5B1017259B4B00174870 /* signal@2x.png */,
 				6355A23A14F93C3C00EC7A31 /* connections.png */,
-				6355A23B14F93C3C00EC7A31 /* piggy.png */,
-				6355A23C14F93C3C00EC7A31 /* trend.png */,
-				63BDAB4914F2C1D9008AE03A /* calculator.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -495,18 +507,22 @@
 				63A46A4A14EFEB2B00999517 /* MainWindow.xib in Resources */,
 				63A46A5314EFEB2B00999517 /* CalculatorView.xib in Resources */,
 				63A46A5614EFEB2B00999517 /* MortgageView.xib in Resources */,
-				63BDAB4A14F2C1D9008AE03A /* calculator.png in Resources */,
 				63E536C614F2C68700A7744A /* ExpensesView.xib in Resources */,
-				6355A23D14F93C3C00EC7A31 /* bank.png in Resources */,
 				6355A23E14F93C3C00EC7A31 /* connections.png in Resources */,
-				6355A23F14F93C3C00EC7A31 /* piggy.png in Resources */,
-				6355A24014F93C3C00EC7A31 /* trend.png in Resources */,
 				6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */,
 				6355A24A14F9660600EC7A31 /* ProjectionsView.xib in Resources */,
 				63090526153B5593007762A5 /* Icon.png in Resources */,
 				63090528153B55E7007762A5 /* Icon@2x.png in Resources */,
 				6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */,
 				63BA680C160D247100D131E2 /* Default-568h@2x.png in Resources */,
+				EFDF5B1117259B4B00174870 /* signal@2x.png in Resources */,
+				EFDF5B1317259BB300174870 /* signal.png in Resources */,
+				EFDF5B1517259BEC00174870 /* building@2x.png in Resources */,
+				EFDF5B1717259C0600174870 /* building.png in Resources */,
+				EFDF5B1917259C7100174870 /* credit-card@2x.png in Resources */,
+				EFDF5B1B17259C8D00174870 /* credit-card.png in Resources */,
+				EFDF5B1D17259CC300174870 /* money@2x.png in Resources */,
+				EFDF5B1F17259CE200174870 /* money.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
