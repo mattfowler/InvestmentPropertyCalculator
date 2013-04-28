@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6309051515308DBB007762A5 /* ProjectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309051415308DBB007762A5 /* ProjectionsTableViewController.m */; };
-		63090526153B5593007762A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63090525153B5593007762A5 /* Icon.png */; };
-		63090528153B55E7007762A5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63090527153B55E7007762A5 /* Icon@2x.png */; };
 		6309052C154DEA41007762A5 /* OpenPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6309052A154DEA40007762A5 /* OpenPropertyViewController.m */; };
 		6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */; };
 		6355A23714F93B4C00EC7A31 /* BaseTextInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6355A23614F93B4C00EC7A31 /* BaseTextInputViewController.m */; };
@@ -51,6 +49,8 @@
 		63E536D414F2E29100A7744A /* PropertyInvestmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E536D314F2E29100A7744A /* PropertyInvestmentTest.m */; };
 		EF56391D16DAFF33009E64B0 /* Percent.m in Sources */ = {isa = PBXBuildFile; fileRef = EF56391C16DAFF33009E64B0 /* Percent.m */; };
 		EF8E78D516C5FD8500A8F6C3 /* DollarValue.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */; };
+		EFB1699F172D667900F7CB1C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB1699E172D667900F7CB1C /* icon@2x.png */; };
+		EFB47C8D172D682C00750E2F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB47C8C172D682C00750E2F /* icon.png */; };
 		EFDF5B1117259B4B00174870 /* signal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1017259B4B00174870 /* signal@2x.png */; };
 		EFDF5B1317259BB300174870 /* signal.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1217259BB300174870 /* signal.png */; };
 		EFDF5B1517259BEC00174870 /* building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDF5B1417259BEC00174870 /* building@2x.png */; };
@@ -74,8 +74,6 @@
 /* Begin PBXFileReference section */
 		6309051315308DBB007762A5 /* ProjectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionsTableViewController.h; sourceTree = "<group>"; };
 		6309051415308DBB007762A5 /* ProjectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionsTableViewController.m; sourceTree = "<group>"; };
-		63090525153B5593007762A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = InvestmentPropertyCalculatorTests/Icon.png; sourceTree = SOURCE_ROOT; };
-		63090527153B55E7007762A5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		63090529154DEA40007762A5 /* OpenPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenPropertyViewController.h; sourceTree = "<group>"; };
 		6309052A154DEA40007762A5 /* OpenPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenPropertyViewController.m; sourceTree = "<group>"; };
 		6309052B154DEA40007762A5 /* OpenPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenPropertyViewController.xib; sourceTree = "<group>"; };
@@ -88,7 +86,7 @@
 		6355A24614F9660600EC7A31 /* ProjectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionsViewController.h; sourceTree = "<group>"; };
 		6355A24714F9660600EC7A31 /* ProjectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectionsViewController.m; sourceTree = "<group>"; };
 		6355A24814F9660600EC7A31 /* ProjectionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectionsView.xib; sourceTree = "<group>"; };
-		63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvestmentPropertyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A46A3214EFEB2B00999517 /* Cash Flow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cash Flow.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A46A3614EFEB2B00999517 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63A46A3814EFEB2B00999517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63A46A3A14EFEB2B00999517 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +134,8 @@
 		EF56391C16DAFF33009E64B0 /* Percent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Percent.m; sourceTree = "<group>"; };
 		EF8E78D316C5FD8500A8F6C3 /* DollarValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DollarValue.h; sourceTree = "<group>"; };
 		EF8E78D416C5FD8500A8F6C3 /* DollarValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DollarValue.m; sourceTree = "<group>"; };
+		EFB1699E172D667900F7CB1C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		EFB47C8C172D682C00750E2F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		EFDF5B1017259B4B00174870 /* signal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signal@2x.png"; sourceTree = "<group>"; };
 		EFDF5B1217259BB300174870 /* signal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal.png; sourceTree = "<group>"; };
 		EFDF5B1417259BEC00174870 /* building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "building@2x.png"; sourceTree = "<group>"; };
@@ -244,6 +244,8 @@
 		63A46A2714EFEB2B00999517 = {
 			isa = PBXGroup;
 			children = (
+				EFB1699E172D667900F7CB1C /* icon@2x.png */,
+				EFB47C8C172D682C00750E2F /* icon.png */,
 				63A46A3C14EFEB2B00999517 /* InvestmentPropertyCalculator */,
 				63A46A6414EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
 				63A46A3514EFEB2B00999517 /* Frameworks */,
@@ -254,7 +256,7 @@
 		63A46A3314EFEB2B00999517 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */,
+				63A46A3214EFEB2B00999517 /* Cash Flow.app */,
 				63A46A5C14EFEB2B00999517 /* InvestmentPropertyCalculatorTests.octest */,
 			);
 			name = Products;
@@ -289,8 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				63BA680B160D247100D131E2 /* Default-568h@2x.png */,
-				63090527153B55E7007762A5 /* Icon@2x.png */,
-				63090525153B5593007762A5 /* Icon.png */,
 				63A46A3E14EFEB2B00999517 /* InvestmentPropertyCalculator-Info.plist */,
 				63A46A3F14EFEB2B00999517 /* InfoPlist.strings */,
 				63A46A4214EFEB2B00999517 /* main.m */,
@@ -436,9 +436,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */ = {
+		63A46A3114EFEB2B00999517 /* Cash Flo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculator" */;
+			buildConfigurationList = 63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "Cash Flo" */;
 			buildPhases = (
 				63A46A2E14EFEB2B00999517 /* Sources */,
 				63A46A2F14EFEB2B00999517 /* Frameworks */,
@@ -448,9 +448,9 @@
 			);
 			dependencies = (
 			);
-			name = InvestmentPropertyCalculator;
+			name = "Cash Flo";
 			productName = InvestmentPropertyCalculator;
-			productReference = 63A46A3214EFEB2B00999517 /* InvestmentPropertyCalculator.app */;
+			productReference = 63A46A3214EFEB2B00999517 /* Cash Flow.app */;
 			productType = "com.apple.product-type.application";
 		};
 		63A46A5B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests */ = {
@@ -492,7 +492,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */,
+				63A46A3114EFEB2B00999517 /* Cash Flo */,
 				63A46A5B14EFEB2B00999517 /* InvestmentPropertyCalculatorTests */,
 			);
 		};
@@ -511,8 +511,6 @@
 				6355A23E14F93C3C00EC7A31 /* connections.png in Resources */,
 				6355A24414F93C5B00EC7A31 /* CompareView.xib in Resources */,
 				6355A24A14F9660600EC7A31 /* ProjectionsView.xib in Resources */,
-				63090526153B5593007762A5 /* Icon.png in Resources */,
-				63090528153B55E7007762A5 /* Icon@2x.png in Resources */,
 				6309052D154DEA41007762A5 /* OpenPropertyViewController.xib in Resources */,
 				63BA680C160D247100D131E2 /* Default-568h@2x.png in Resources */,
 				EFDF5B1117259B4B00174870 /* signal@2x.png in Resources */,
@@ -523,6 +521,8 @@
 				EFDF5B1B17259C8D00174870 /* credit-card.png in Resources */,
 				EFDF5B1D17259CC300174870 /* money@2x.png in Resources */,
 				EFDF5B1F17259CE200174870 /* money.png in Resources */,
+				EFB1699F172D667900F7CB1C /* icon@2x.png in Resources */,
+				EFB47C8D172D682C00750E2F /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +596,7 @@
 /* Begin PBXTargetDependency section */
 		63A46A6314EFEB2B00999517 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63A46A3114EFEB2B00999517 /* InvestmentPropertyCalculator */;
+			target = 63A46A3114EFEB2B00999517 /* Cash Flo */;
 			targetProxy = 63A46A6214EFEB2B00999517 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -697,6 +697,7 @@
 				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -709,6 +710,7 @@
 				GCC_PREFIX_HEADER = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "InvestmentPropertyCalculator/InvestmentPropertyCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -762,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "InvestmentPropertyCalculator" */ = {
+		63A46A7014EFEB2B00999517 /* Build configuration list for PBXNativeTarget "Cash Flo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63A46A7114EFEB2B00999517 /* Debug */,
